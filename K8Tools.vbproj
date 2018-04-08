@@ -88,6 +88,8 @@
     <Compile Include="K8_CL\K8_CL01settings.vb" />
     <Compile Include="K8_CL\K8_CL02category.vb" />
     <Compile Include="K8_CL\K8_CL03measurement.vb" />
+    <Compile Include="K8_CL\K8_CL98functions.vb" />
+    <Compile Include="K8_CL\K8_CL99enumerations.vb" />
     <Compile Include="K8_MD\K8_MD01main.vb" />
     <Compile Include="K8_UC\K8_UC01settings.xaml.vb">
       <DependentUpon>K8_UC01settings.xaml</DependentUpon>

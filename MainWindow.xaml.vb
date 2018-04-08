@@ -1,57 +1,65 @@
-﻿Class MainWindow
+﻿Imports K8Tools.K8ENUMS
+
+Class MainWindow
 
     Public Sub New()
 
         ' Dieser Aufruf ist für den Designer erforderlich.
         InitializeComponent()
 
-        MyCurve1.Add(New K8_CL03measurement With {
-            .MeasDateDay = 1,
-            .MeasDateMonth = 1,
-            .MeasDateYear = 2018,
-            .MeasValue = 42.1,
-            .MeasComment = "42.1c"})
-        MyCurve1.Add(New K8_CL03measurement With {
-            .MeasDateDay = 2,
-            .MeasDateMonth = 1,
-            .MeasDateYear = 2018,
-            .MeasValue = 42.2,
-            .MeasComment = "42.2c"})
-        MyCurve1.Add(New K8_CL03measurement With {
-            .MeasDateDay = 3,
-            .MeasDateMonth = 1,
-            .MeasDateYear = 2018,
-            .MeasValue = 42.3,
-            .MeasComment = "42.3c"})
+        K8_CL02category.LoadXMLIntoCollection()
 
-        MyCurve2.Add(New K8_CL03measurement With {
-            .MeasDateDay = 3,
-            .MeasDateMonth = 2,
-            .MeasDateYear = 2017,
-            .MeasValue = 1.14,
-            .MeasComment = "1.14c"})
-        MyCurve2.Add(New K8_CL03measurement With {
-            .MeasDateDay = 2,
-            .MeasDateMonth = 2,
-            .MeasDateYear = 2017,
-            .MeasValue = 2.71,
-            .MeasComment = "2.71c"})
-        MyCurve2.Add(New K8_CL03measurement With {
-            .MeasDateDay = 1,
-            .MeasDateMonth = 2,
-            .MeasDateYear = 2017,
-            .MeasValue = 3.14,
-            .MeasComment = "3.14c"})
+        'MyCurve1.Add(New K8_CL03measurement With {
+        '    .MeasDateDay = 1,
+        '    .MeasDateMonth = 1,
+        '    .MeasDateYear = 2018,
+        '    .MeasValue = 42.1,
+        '    .MeasComment = "42.1c"})
+        'MyCurve1.Add(New K8_CL03measurement With {
+        '    .MeasDateDay = 2,
+        '    .MeasDateMonth = 1,
+        '    .MeasDateYear = 2018,
+        '    .MeasValue = 42.2,
+        '    .MeasComment = "42.2c"})
+        'MyCurve1.Add(New K8_CL03measurement With {
+        '    .MeasDateDay = 3,
+        '    .MeasDateMonth = 1,
+        '    .MeasDateYear = 2018,
+        '    .MeasValue = 42.3,
+        '    .MeasComment = "42.3c"})
 
-        ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
-        Kiebitz.Add(New K8_CL02category With {
-                    .CategoryName = "Strom",
-                    .CategoryUnit = K8_CL02category.ValueUnit.Kilogramm,
-                    .CategoryMeasValues = MyCurve1})
-        Kiebitz.Add(New K8_CL02category With {
-                    .CategoryName = "Wasser",
-                    .CategoryUnit = K8_CL02category.ValueUnit.Kubikmeter,
-                    .CategoryMeasValues = MyCurve2})
+        'MyCurve2.Add(New K8_CL03measurement With {
+        '    .MeasDateDay = 3,
+        '    .MeasDateMonth = 2,
+        '    .MeasDateYear = 2017,
+        '    .MeasValue = 1.14,
+        '    .MeasComment = "1.14c"})
+        'MyCurve2.Add(New K8_CL03measurement With {
+        '    .MeasDateDay = 2,
+        '    .MeasDateMonth = 2,
+        '    .MeasDateYear = 2017,
+        '    .MeasValue = 2.71,
+        '    .MeasComment = "2.71c"})
+        'MyCurve2.Add(New K8_CL03measurement With {
+        '    .MeasDateDay = 1,
+        '    .MeasDateMonth = 2,
+        '    .MeasDateYear = 2017,
+        '    .MeasValue = 3.14,
+        '    .MeasComment = "3.14c"})
+
+        '' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
+        'KiebitzCats.Add(New K8_CL02category With {
+        '            .CategoryName = "Strom",
+        '            .CategoryYear = 2018,
+        '            .CategoryIsEnabled = True,
+        '            .CategoryUnit = ValueUnits.Kilogramm,
+        '            .CategoryMeasValues = MyCurve1})
+        'KiebitzCats.Add(New K8_CL02category With {
+        '            .CategoryName = "Wasser",
+        '            .CategoryYear = 2017,
+        '            .CategoryIsEnabled = False,
+        '            .CategoryUnit = ValueUnits.Kubikmeter,
+        '            .CategoryMeasValues = MyCurve2})
 
     End Sub
 

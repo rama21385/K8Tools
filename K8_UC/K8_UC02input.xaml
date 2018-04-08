@@ -10,117 +10,145 @@
     d:DesignWidth="1000"
     mc:Ignorable="d">
 
-
-    <UserControl.Resources>
-        <CollectionViewSource
-            x:Key="GridItems"
-            Source="{Binding Items}">
-            <CollectionViewSource.SortDescriptions>
-                <scm:SortDescription
-                    Direction="Ascending"
-                    PropertyName="Date" />
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
-    </UserControl.Resources>
-
     <Grid
         Background="{StaticResource Xstrahl_SCB_Grey040}"
         Style="{StaticResource GRD_Margin00}">
         <Grid Style="{StaticResource GRD_Margin10}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Column="0"
+                VerticalAlignment="Bottom">
+
+                <Button
+                    x:Name="BTN01_EXITnosave"
+                    Margin="0,0,20,10"
+                    VerticalAlignment="Bottom"
+                    Click="CloseMe"
+                    Content="EXIT (no save)"
+                    Style="{StaticResource STLButton61}" />
+                <Button
+                    x:Name="BTN01_SAVEsettings"
+                    Margin="0,0,0,1"
+                    VerticalAlignment="Bottom"
+                    Click="SaveSettings"
+                    Content="SAVE"
+                    Style="{StaticResource STLButton61}" />
+            </StackPanel>
             <ComboBox
                 x:Name="CMBBX02_Category"
+                Grid.Column="1"
                 Width="200"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 IsReadOnly="True"
+                SelectedValuePath="CategoryInternalID"
                 ItemsSource="{Binding}"
-                SelectionChanged="SortTheList">
+                SelectionChanged="LoadAndSortTheList">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding CategoryName, Mode=OneWay}" />
+                        <TextBlock Text="{Binding CategoryInternalID, Mode=OneWay}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
 
             <TextBox
                 x:Name="TXTBX0_MeasDay"
+                Grid.Column="1"
                 Width="50"
                 Height="23"
                 Margin="150,28,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
                 Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateDay}"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="TXTBX0_MeasMonth"
+                Grid.Column="1"
                 Width="50"
                 Height="23"
                 Margin="150,56,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
                 Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateMonth}"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="TXTBX0_MeasYear"
+                Grid.Column="1"
                 Width="50"
                 Height="23"
                 Margin="150,84,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
                 Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateYear}"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="TXTBX0_MeasValue"
+                Grid.Column="1"
                 Width="50"
                 Height="23"
                 Margin="150,112,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
                 Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasValue}"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="TXTBX0_MeasComment"
+                Grid.Column="1"
                 Width="190"
                 Height="23"
                 Margin="10,140,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                HorizontalContentAlignment="Left"
                 Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasComment}"
                 TextWrapping="Wrap" />
             <Label
                 x:Name="LBL02_Unit"
+                Grid.Column="1"
                 Margin="205,108,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="°C" />
             <Label
                 x:Name="LBL02_Day"
+                Grid.Column="1"
                 Margin="10,24,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Tag" />
             <Label
                 x:Name="LBL02_Month"
+                Grid.Column="1"
                 Margin="10,52,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Monat" />
             <Label
                 x:Name="LBL02_Year"
+                Grid.Column="1"
                 Margin="10,80,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Jahr" />
             <Label
                 x:Name="LBL02_Value"
+                Grid.Column="1"
                 Margin="10,108,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Wert" />
             <DataGrid
                 x:Name="DTGRD02_Measurements"
-                Height="185"
-                Margin="300,28,5,0"
+                Grid.Column="1"
+                Height="191" CanUserAddRows="False"
+                Margin="325,0,5,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
@@ -136,16 +164,17 @@
                 HeadersVisibility="Column"
                 IsEnabled="True"
                 IsReadOnly="False"
-                ItemsSource="{Binding SelectedItem.CategoryMeasValues, ElementName=CMBBX02_Category}"
+                ItemsSource="{Binding}"
                 MinRowHeight="20"
                 RowHeaderWidth="0"
                 SelectionMode="Single"
                 VerticalScrollBarVisibility="Visible">
+                <!--ItemsSource="{Binding SelectedItem.CategoryMeasValues, ElementName=CMBBX02_Category}"-->
 
                 <DataGrid.Columns>
                     <DataGridTextColumn
                         Width="*"
-                        Binding="{Binding MeasDate, Mode=OneWay,StringFormat=dd.MM.yyyy}"
+                        Binding="{Binding MeasDate, Mode=OneWay, StringFormat=dd.MM.yyyy}"
                         CanUserSort="False"
                         Header="Datum"
                         IsReadOnly="False"
@@ -205,12 +234,52 @@
             </DataGrid>
             <Button
                 x:Name="BTN02_AddNewMeasValue"
+                Grid.Column="1"
                 Margin="10,168,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="AddNewMeasValue"
                 Content="ADD NEW"
+                IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
                 Style="{StaticResource STLButton53}" />
+            <Button
+                x:Name="BTN02_DeleteMeasValue"
+                Grid.Column="1"
+                Margin="220,168,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="DeleteMeasValue"
+                Content="DELETE"
+                IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
+                Style="{StaticResource STLButton53}" />
+            <Button
+                x:Name="BTN02_CloseCurve"
+                Grid.Column="1"
+                Margin="220,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="CLOSE CURVE"
+                IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
+                Style="{StaticResource STLButton53}" />
+            <Button
+                x:Name="BTN02_ModifyMeasValue"
+                Grid.Column="1"
+                Margin="115,168,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="ModifyMeasValue"
+                Content="MODIFY"
+                IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
+                Style="{StaticResource STLButton53}" />
+            <TextBlock
+                x:Name="LBL02_CloseCurve"
+                Grid.Column="1"
+                Width="100"
+                Margin="220,23,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Style="{StaticResource STLtextblock05}"
+                Text="Don't forget to save first." />
         </Grid>
     </Grid>
 </UserControl>

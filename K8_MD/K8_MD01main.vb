@@ -10,8 +10,7 @@ Module K8_MD01main
 
     Public NumberOfActiveMenu As UserControlItems
 
-    Public Kiebitz As New ObservableCollection(Of K8_CL02category)
-    Public MyCurve1 As New ObservableCollection(Of K8_CL03measurement)
-    Public MyCurve2 As New ObservableCollection(Of K8_CL03measurement)
+    Public KiebitzCats As New ObservableCollection(Of K8_CL02category)
+    Public KiebitzCurve As New ObservableCollection(Of K8_CL03measurement)
 
 End Module
