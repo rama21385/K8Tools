@@ -1,5 +1,7 @@
-﻿Public Class K8_UC01settings
+﻿Imports System.Drawing
+Imports MRLColorPicker
 
+Public Class K8_UC01settings
 
 
     Public Sub New()
@@ -38,10 +40,28 @@
                             .CategoryMeasValues = Nothing,
                             .CategoryName = TempName,
                             .CategoryUnit = CType([Enum].Parse(GetType(K8ENUMS.ValueUnits), CMBBX01_CategoryUnits.Text), K8ENUMS.ValueUnits),
-                            .CategoryYear = TempYear})
+                            .CategoryYear = TempYear,
+                            .CategoryChartColor = TXTBX01_CategoryColor.Text,
+                            .CategoryChartYMin = Val(TXTBX01_ChartMin.Text),
+                            .CategoryChartYMax = Val(TXTBX01_ChartMax.Text)})
 
         ElseIf sender Is BTN01_CategoryModify Then
-
+            For Each TempCategory In KiebitzCats
+                If TempCatID = TempCategory.CategoryInternalID Then
+                    With TempCategory
+                        .CategoryStatus = K8ENUMS.CollectionItemStatus.modify
+                        .CategoryIsEnabled = CBool(CHKBX01_CategoryEnabled.IsChecked)
+                        .CategoryMeasValues = Nothing
+                        .CategoryName = TempName
+                        .CategoryUnit = CType([Enum].Parse(GetType(K8ENUMS.ValueUnits), CMBBX01_CategoryUnits.Text), K8ENUMS.ValueUnits)
+                        .CategoryYear = TempYear
+                        .CategoryChartColor = TXTBX01_CategoryColor.Text
+                        .CategoryChartYMin = Val(TXTBX01_ChartMin.Text)
+                        .CategoryChartYMax = Val(TXTBX01_ChartMax.Text)
+                    End With
+                    Exit For
+                End If
+            Next
         ElseIf sender Is BTN01_CategoryDelete Then
             For Each TempCategory In KiebitzCats
                 If TempCatID = TempCategory.CategoryInternalID Then
@@ -50,25 +70,14 @@
                     Else
                         TempCategory.CategoryStatus = K8ENUMS.CollectionItemStatus.delete
                     End If
-                    Exit Sub
+                    Exit For
                 End If
             Next
         End If
 
-    End Sub
-
-    Private Sub ClearCategory(sender As Object, e As RoutedEventArgs)
-
-        TXTBX01_CategoryName.Text = ""
-        TXTBX01_CategoryName.IsEnabled = True
-        TXTBX01_CategoryYear.Text = ""
-        TXTBX01_CategoryYear.IsEnabled = True
-        CMBBX01_CategoryUnits.SelectedIndex = -1
-        CMBBX01_CategoryUnits.IsEnabled = True
-        CHKBX01_CategoryEnabled.IsChecked = True
-        CHKBX01_CategoryEnabled.IsEnabled = True
 
     End Sub
+
 
 
     Private Sub SaveSettings(sender As Object, e As RoutedEventArgs)
@@ -82,4 +91,31 @@
 
     End Sub
 
+    Public Sub ShowMyMRLPicker(sender As Object, e As RoutedEventArgs)
+
+        ShowMRLPicker(Me)
+
+    End Sub
+
+    Public Sub ShowMRLPicker(dependencyObject As DependencyObject)
+
+        Dim SelectedColor As String = "White"
+
+        Dim MyForm As New MRLColorPicker.UCcolors
+        MyForm.Owner = Window.GetWindow(dependencyObject)
+        If MyForm.ShowDialog = True Then
+            TXTBX01_CategoryColor.Text = MyForm.SelectedRectangle.SelectedFillColor.ToString
+        Else
+            Exit Sub
+        End If
+
+        RCTNGL01_Color.Fill = MyForm.SelectedRectangle.SelectedFillColor
+
+    End Sub
+
+    Private Sub ClearCategory(sender As Object, e As RoutedEventArgs)
+
+        LSTVW01_Categories.SelectedIndex = -1
+
+    End Sub
 End Class

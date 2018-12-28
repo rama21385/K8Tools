@@ -16,14 +16,22 @@ Public Class K8_CL02category
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
 
+    Public ReadOnly Property CategoryInternalID As String
+        Get
+            Return K8_CL98functions.GetCategoryID(_CategoryName, _CategoryYear)
+        End Get
+    End Property
+
     Private _CategoryName As String
     Private _CategoryUnit As K8ENUMS.ValueUnits
     Private _CategoryYear As UInt16
     Private _CategoryMeasValues As New ObservableCollection(Of K8_CL03measurement)
     Private _CategoryIsEnabled As Boolean
     Private _CategoryStatus As K8ENUMS.CollectionItemStatus
-    Private _CategoryColor As Color
+    Private _CategoryChartColor As String
     Private _CategoryChartType As ChartType
+    Private _CategoryChartYMin As Int32
+    Private _CategoryChartYMax As Int32
 
     Public Property CategoryName As String
         Get
@@ -76,12 +84,11 @@ Public Class K8_CL02category
         End Set
     End Property
 
-    Public ReadOnly Property CategoryInternalID As String
-        Get
-            Return K8_CL98functions.GetCategoryID(_CategoryName, _CategoryYear)
-        End Get
-    End Property
 
+    ''' <summary>
+    ''' Is an item being added, modified or deleted
+    ''' </summary>
+    ''' <returns></returns>
     Public Property CategoryStatus As CollectionItemStatus
         Get
             Return _CategoryStatus
@@ -92,12 +99,32 @@ Public Class K8_CL02category
         End Set
     End Property
 
-    Public Property CategoryColor As Color
+    Public Property CategoryChartColor As String
         Get
-            Return _CategoryColor
+            Return _CategoryChartColor
         End Get
-        Set(value As Color)
-            _CategoryColor = value
+        Set(value As String)
+            _CategoryChartColor = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CategoryChartYMin As Int32
+        Get
+            Return _CategoryChartYMin
+        End Get
+        Set(value As Int32)
+            _CategoryChartYMin = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CategoryChartYMax As Int32
+        Get
+            Return _CategoryChartYMax
+        End Get
+        Set(value As Int32)
+            _CategoryChartYMax = value
             NotifyPropertyChanged()
         End Set
     End Property

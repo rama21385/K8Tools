@@ -5,7 +5,7 @@
         If String.IsNullOrEmpty(CatName.Trim) = True AndAlso CatYear = 0 Then
             Return String.Empty
         Else
-            Return CatName.Trim.ToUpper & Format(CatYear, "0000")
+            Return CatName.Trim.ToUpper & "_" & Format(CatYear, "0000")
         End If
 
     End Function

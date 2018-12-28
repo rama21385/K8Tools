@@ -152,6 +152,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MRLColorPicker\MRLColorPicker.vbproj">
+      <Project>{f453a503-93a0-4497-aa2d-c773be3592a3}</Project>
+      <Name>MRLColorPicker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

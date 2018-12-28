@@ -93,7 +93,7 @@ Public Class K8_CL03measurement
 
     Public ReadOnly Property MeasDayOfYear As UInt16
         Get
-            Return _MeasDayOfYear
+            Return DateAndTime.DatePart(DateInterval.DayOfYear, MeasDate)
         End Get
     End Property
 
@@ -120,7 +120,7 @@ Public Class K8_CL03measurement
         Next
 
         Dim xs As New XmlSerializer(KiebitzCurve.GetType, KiebitzCurve.Item(0).CategoryInternalID) '"K8_CL03curve")
-        Dim tw As TextWriter = New StreamWriter(KiebitzCurve.Item(0).CategoryInternalID & ".xml")
+        Dim tw As TextWriter = New StreamWriter(KiebitzCurve.Item(0).CategoryInternalID & ".xml", False)
         xs.Serialize(tw, KiebitzCurve)
         tw.Close()
 
