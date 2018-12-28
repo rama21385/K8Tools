@@ -9,58 +9,6 @@ Class MainWindow
 
         K8_CL02category.LoadXMLIntoCollection()
 
-        'MyCurve1.Add(New K8_CL03measurement With {
-        '    .MeasDateDay = 1,
-        '    .MeasDateMonth = 1,
-        '    .MeasDateYear = 2018,
-        '    .MeasValue = 42.1,
-        '    .MeasComment = "42.1c"})
-        'MyCurve1.Add(New K8_CL03measurement With {
-        '    .MeasDateDay = 2,
-        '    .MeasDateMonth = 1,
-        '    .MeasDateYear = 2018,
-        '    .MeasValue = 42.2,
-        '    .MeasComment = "42.2c"})
-        'MyCurve1.Add(New K8_CL03measurement With {
-        '    .MeasDateDay = 3,
-        '    .MeasDateMonth = 1,
-        '    .MeasDateYear = 2018,
-        '    .MeasValue = 42.3,
-        '    .MeasComment = "42.3c"})
-
-        'MyCurve2.Add(New K8_CL03measurement With {
-        '    .MeasDateDay = 3,
-        '    .MeasDateMonth = 2,
-        '    .MeasDateYear = 2017,
-        '    .MeasValue = 1.14,
-        '    .MeasComment = "1.14c"})
-        'MyCurve2.Add(New K8_CL03measurement With {
-        '    .MeasDateDay = 2,
-        '    .MeasDateMonth = 2,
-        '    .MeasDateYear = 2017,
-        '    .MeasValue = 2.71,
-        '    .MeasComment = "2.71c"})
-        'MyCurve2.Add(New K8_CL03measurement With {
-        '    .MeasDateDay = 1,
-        '    .MeasDateMonth = 2,
-        '    .MeasDateYear = 2017,
-        '    .MeasValue = 3.14,
-        '    .MeasComment = "3.14c"})
-
-        '' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
-        'KiebitzCats.Add(New K8_CL02category With {
-        '            .CategoryName = "Strom",
-        '            .CategoryYear = 2018,
-        '            .CategoryIsEnabled = True,
-        '            .CategoryUnit = ValueUnits.Kilogramm,
-        '            .CategoryMeasValues = MyCurve1})
-        'KiebitzCats.Add(New K8_CL02category With {
-        '            .CategoryName = "Wasser",
-        '            .CategoryYear = 2017,
-        '            .CategoryIsEnabled = False,
-        '            .CategoryUnit = ValueUnits.Kubikmeter,
-        '            .CategoryMeasValues = MyCurve2})
-
     End Sub
 
     Private Sub K8Exit()
@@ -77,6 +25,8 @@ Class MainWindow
             NumberOfActiveMenu = UserControlItems.UC01settings
         ElseIf sender Is BTN_02input Then
             NumberOfActiveMenu = UserControlItems.UC02input
+        ElseIf sender Is BTN_03analyse Then
+            NumberOfActiveMenu = UserControlItems.UC03analyse
         End If
 
         If NumberOfActiveMenu > UserControlItems.none Then
@@ -94,6 +44,8 @@ Class MainWindow
                 K8UC = New K8_UC01settings
             Case UserControlItems.UC02input
                 K8UC = New K8_UC02input
+            Case UserControlItems.UC03analyse
+                K8UC = New K8_UC03analyse
         End Select
 
         If IsNothing(K8UC) = True Then Exit Sub

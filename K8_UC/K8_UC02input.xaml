@@ -42,249 +42,264 @@
                         Style="{StaticResource STLButton61}"
                         />
             </StackPanel>
-            <ComboBox x:Name="CMBBX02_Category"
-                      Grid.Column="1"
-                      Width="200"
-                      HorizontalAlignment="Left"
-                      VerticalAlignment="Top"
-                      IsReadOnly="True"
-                      ItemsSource="{Binding}"
-                      SelectedValuePath="CategoryInternalID"
-                      SelectionChanged="LoadAndSortTheList"
-                      >
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding CategoryInternalID, Mode=OneWay}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+            <Grid Grid.Column="1" Style="{StaticResource GRD_Margin00}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <TextBox x:Name="TXTBX0_MeasDay"
-                     Grid.Column="1"
-                     Width="50"
-                     Height="23"
-                     Margin="150,28,0,0"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top"
-                     HorizontalContentAlignment="Right"
-                     Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateDay, Mode=OneWay}"
-                     TextWrapping="Wrap"
-                     />
-            <TextBox x:Name="TXTBX0_MeasMonth"
-                     Grid.Column="1"
-                     Width="50"
-                     Height="23"
-                     Margin="150,56,0,0"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top"
-                     HorizontalContentAlignment="Right"
-                     Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateMonth, Mode=OneWay}"
-                     TextWrapping="Wrap"
-                     />
-            <TextBox x:Name="TXTBX0_MeasYear"
-                     Grid.Column="1"
-                     Width="50"
-                     Height="23"
-                     Margin="150,84,0,0"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top"
-                     HorizontalContentAlignment="Right"
-                     Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateYear, Mode=OneWay}"
-                     TextWrapping="Wrap"
-                     />
-            <TextBox x:Name="TXTBX0_MeasValue"
-                     Grid.Column="1"
-                     Width="50"
-                     Height="23"
-                     Margin="150,112,0,0"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top"
-                     HorizontalContentAlignment="Right"
-                     Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasValue, Mode=OneWay}"
-                     TextWrapping="Wrap"
-                     />
-            <TextBox x:Name="TXTBX0_MeasComment"
-                     Grid.Column="1"
-                     Width="190"
-                     Height="23"
-                     Margin="10,140,0,0"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top"
-                     HorizontalContentAlignment="Left"
-                     Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasComment, Mode=OneWay}"
-                     TextWrapping="Wrap"
-                     />
-            <Label x:Name="LBL02_Unit"
-                   Grid.Column="1"
-                   Margin="205,108,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Content="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryUnit, Mode=OneWay, FallbackValue=NoUnit}"
-                   />
-            <Label x:Name="LBL02_Day"
-                   Grid.Column="1"
-                   Margin="10,24,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Content="Tag"
-                   />
-            <Label x:Name="LBL02_Month"
-                   Grid.Column="1"
-                   Margin="10,52,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Content="Monat"
-                   />
-            <Label x:Name="LBL02_Year"
-                   Grid.Column="1"
-                   Margin="10,80,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Content="Jahr"
-                   />
-            <Label x:Name="LBL02_Value"
-                   Grid.Column="1"
-                   Margin="10,108,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Content="Wert"
-                   />
-            <DataGrid x:Name="DTGRD02_Measurements"
-                      Grid.Column="1"
-                      Height="191"
-                      Margin="325,0,0,0"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Top"
-                      HorizontalContentAlignment="Right"
-                      VerticalContentAlignment="Center"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="False"
-                      CanUserReorderColumns="False"
-                      CanUserResizeColumns="False"
-                      CanUserResizeRows="False"
-                      CanUserSortColumns="False"
-                      ClipboardCopyMode="None"
-                      ContextMenu="{x:Null}"
-                      FontSize="12"
-                      HeadersVisibility="Column"
-                      IsEnabled="True"
-                      IsReadOnly="False"
-                      ItemsSource="{Binding}"
-                      MinRowHeight="20"
-                      RowHeaderWidth="0"
-                      SelectedValuePath="MeasDate"
-                      SelectionMode="Single"
-                      VerticalScrollBarVisibility="Visible"
-                      >
-                <!--  ItemsSource="{Binding SelectedItem.CategoryMeasValues, ElementName=CMBBX02_Category}"  -->
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn Width="*"
-                                        Binding="{Binding MeasDate, Mode=OneWay, StringFormat=dd.MM.yyyy}"
-                                        CanUserSort="False"
-                                        Header="Datum"
-                                        IsReadOnly="False"
-                                        SortDirection="Ascending"
-                                        SortMemberPath="MeasDate"
-                                        >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="ContextMenu" Value="{x:Null}" />
-                                <Setter Property="HorizontalAlignment" Value="Right" />
-                                <Setter Property="Margin" Value="0,0,5,0" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="*"
-                                        Binding="{Binding MeasDayOfYear, Mode=OneWay}"
-                                        CanUserSort="False"
-                                        Header="Tag des Jahres"
-                                        IsReadOnly="False"
-                                        >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="ContextMenu" Value="{x:Null}" />
-                                <Setter Property="HorizontalAlignment" Value="Right" />
-                                <Setter Property="Margin" Value="0,0,5,0" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="*"
-                                        Binding="{Binding MeasValue, Mode=OneWay}"
-                                        CanUserSort="False"
-                                        Header="Messwert"
-                                        IsReadOnly="False"
-                                        >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="ContextMenu" Value="{x:Null}" />
-                                <Setter Property="HorizontalAlignment" Value="Right" />
-                                <Setter Property="Margin" Value="0,0,5,0" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="2*"
-                                        Binding="{Binding MeasComment, Mode=OneWay}"
-                                        CanUserSort="False"
-                                        Header="Kommentar"
-                                        IsReadOnly="False"
-                                        >
-                        <DataGridTextColumn.ElementStyle>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="ContextMenu" Value="{x:Null}" />
-                                <Setter Property="HorizontalAlignment" Value="Right" />
-                                <Setter Property="Margin" Value="0,0,5,0" />
-                            </Style>
-                        </DataGridTextColumn.ElementStyle>
-                    </DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-            <Button x:Name="BTN02_AddNewMeasValue"
-                    Grid.Column="1"
-                    Margin="10,168,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Click="AddNewMeasValue"
-                    Content="ADD NEW"
-                    IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
-                    Style="{StaticResource STLButton53}"
-                    />
-            <Button x:Name="BTN02_DeleteMeasValue"
-                    Grid.Column="1"
-                    Margin="220,168,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Click="DeleteMeasValue"
-                    Content="DELETE"
-                    IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
-                    Style="{StaticResource STLButton53}"
-                    />
-            <Button x:Name="BTN02_ModifyMeasValue"
-                    Grid.Column="1"
-                    Margin="115,168,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Click="ModifyMeasValue"
-                    Content="MODIFY"
-                    IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
-                    Style="{StaticResource STLButton53}"
-                    />
-            <Viewbox Name="VWBX02"
-                     Grid.Column="1"
-                     MaxWidth="1000"
-                     Margin="0,200,0,0"
-                     HorizontalAlignment="Right"
-                     Stretch="Uniform"
-                     >
 
-                <Canvas Name="CNVS02_Chart"
-                        Width="800"
-                        Height="400"
-                        HorizontalAlignment="Right"
+                <ComboBox x:Name="CMBBX02_Category"
+                          Grid.Row="0"
+                          Width="200"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          IsReadOnly="True"
+                          ItemsSource="{Binding}"
+                          SelectedValuePath="CategoryInternalID"
+                          SelectionChanged="LoadAndSortTheList"
+                          >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CategoryInternalID, Mode=OneWay}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <TextBox x:Name="TXTBX0_MeasDay"
+                         Grid.Row="0"
+                         Width="50"
+                         Height="23"
+                         Margin="150,28,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         HorizontalContentAlignment="Right"
+                         Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateDay, Mode=OneWay}"
+                         TextWrapping="Wrap"
+                         />
+                <TextBox x:Name="TXTBX0_MeasMonth"
+                         Grid.Row="0"
+                         Width="50"
+                         Height="23"
+                         Margin="150,56,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         HorizontalContentAlignment="Right"
+                         Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateMonth, Mode=OneWay}"
+                         TextWrapping="Wrap"
+                         />
+                <TextBox x:Name="TXTBX0_MeasYear"
+                         Grid.Row="0"
+                         Width="50"
+                         Height="23"
+                         Margin="150,84,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         HorizontalContentAlignment="Right"
+                         Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateYear, Mode=OneWay}"
+                         TextWrapping="Wrap"
+                         />
+                <TextBox x:Name="TXTBX0_MeasValue"
+                         Grid.Row="0"
+                         Width="50"
+                         Height="23"
+                         Margin="150,112,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         HorizontalContentAlignment="Right"
+                         Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasValue, Mode=OneWay}"
+                         TextWrapping="Wrap"
+                         />
+                <TextBox x:Name="TXTBX0_MeasComment"
+                         Grid.Row="0"
+                         Width="190"
+                         Height="23"
+                         Margin="10,140,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         HorizontalContentAlignment="Left"
+                         Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasComment, Mode=OneWay}"
+                         TextWrapping="Wrap"
+                         />
+                <Label x:Name="LBL02_Unit"
+                       Grid.Row="0"
+                       Margin="205,108,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryUnit, Mode=OneWay, FallbackValue=NoUnit}"
+                       />
+                <Label x:Name="LBL02_Day"
+                       Grid.Row="0"
+                       Margin="10,24,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Tag"
+                       />
+                <Label x:Name="LBL02_Month"
+                       Grid.Row="0"
+                       Margin="10,52,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Monat"
+                       />
+                <Label x:Name="LBL02_Year"
+                       Grid.Row="0"
+                       Margin="10,80,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Jahr"
+                       />
+                <Label x:Name="LBL02_Value"
+                       Grid.Row="0"
+                       Margin="10,108,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Wert"
+                       />
+                <DataGrid x:Name="DTGRD02_Measurements"
+                          Grid.Row="0"
+                          Height="191"
+                          Margin="325,0,0,0"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Top"
+                          HorizontalContentAlignment="Right"
+                          VerticalContentAlignment="Center"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          CanUserReorderColumns="False"
+                          CanUserResizeColumns="False"
+                          CanUserResizeRows="False"
+                          CanUserSortColumns="False"
+                          ClipboardCopyMode="None"
+                          ContextMenu="{x:Null}"
+                          FontSize="12"
+                          HeadersVisibility="Column"
+                          IsEnabled="True"
+                          IsReadOnly="False"
+                          ItemsSource="{Binding}"
+                          MinRowHeight="20"
+                          RowHeaderWidth="0"
+                          SelectedValuePath="MeasDate"
+                          SelectionMode="Single"
+                          VerticalScrollBarVisibility="Visible"
+                          >
+                    <!--  ItemsSource="{Binding SelectedItem.CategoryMeasValues, ElementName=CMBBX02_Category}"  -->
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*"
+                                            Binding="{Binding MeasDate, Mode=OneWay, StringFormat=dd.MM.yyyy}"
+                                            CanUserSort="False"
+                                            Header="Datum"
+                                            IsReadOnly="False"
+                                            SortDirection="Ascending"
+                                            SortMemberPath="MeasDate"
+                                            >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="ContextMenu" Value="{x:Null}" />
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                    <Setter Property="Margin" Value="0,0,5,0" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*"
+                                            Binding="{Binding MeasDayOfYear, Mode=OneWay}"
+                                            CanUserSort="False"
+                                            Header="Tag des Jahres"
+                                            IsReadOnly="False"
+                                            >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="ContextMenu" Value="{x:Null}" />
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                    <Setter Property="Margin" Value="0,0,5,0" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*"
+                                            Binding="{Binding MeasValue, Mode=OneWay}"
+                                            CanUserSort="False"
+                                            Header="Messwert"
+                                            IsReadOnly="False"
+                                            >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="ContextMenu" Value="{x:Null}" />
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                    <Setter Property="Margin" Value="0,0,5,0" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="2*"
+                                            Binding="{Binding MeasComment, Mode=OneWay}"
+                                            CanUserSort="False"
+                                            Header="Kommentar"
+                                            IsReadOnly="False"
+                                            >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="ContextMenu" Value="{x:Null}" />
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                    <Setter Property="Margin" Value="0,0,5,0" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="BTN02_AddNewMeasValue"
+                        Grid.Row="0"
+                        Margin="10,168,0,0"
+                        HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Background="Beige"
+                        Click="AddNewMeasValue"
+                        Content="ADD NEW"
+                        IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
+                        Style="{StaticResource STLButton53}"
                         />
-            </Viewbox>
+                <Button x:Name="BTN02_DeleteMeasValue"
+                        Grid.Row="0"
+                        Margin="220,168,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="DeleteMeasValue"
+                        Content="DELETE"
+                        IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
+                        Style="{StaticResource STLButton53}"
+                        />
+                <Button x:Name="BTN02_ModifyMeasValue"
+                        Grid.Row="0"
+                        Margin="115,168,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="ModifyMeasValue"
+                        Content="MODIFY"
+                        IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
+                        Style="{StaticResource STLButton53}"
+                        />
+                <Grid Grid.Row="1" Style="{StaticResource GRD_Margin00}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Name="VWBX02"
+                             Grid.Column="1"
+                             MaxWidth="1000"
+                             Margin="0,00,0,0"
+                             HorizontalAlignment="Right"
+                             Stretch="Uniform"
+                             >
+
+                        <Canvas Name="CNVS02_Chart"
+                                Width="800"
+                                Height="400"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Background="Beige"
+                                />
+                    </Viewbox>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

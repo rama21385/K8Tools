@@ -5,10 +5,13 @@
         xmlns:local="clr-namespace:K8Tools"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MainWindow"
-        Width="1024"
+        Width="1000"
         Height="800"
+        MinWidth="1000"
+        MinHeight="800"
         ResizeMode="CanResizeWithGrip"
-        mc:Ignorable="d">
+        mc:Ignorable="d"
+        >
     <Grid>
         <Grid x:Name="MainGrid" Style="{StaticResource GRD_Margin00}">
             <Grid.RowDefinitions>
@@ -22,10 +25,12 @@
                         Margin="0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
-                        BorderThickness="1">
+                        BorderThickness="1"
+                        >
                 <TabItem Name="TBTM_Main01"
                          FontSize="16"
-                         Header="TAB ITEM">
+                         Header="TAB ITEM"
+                         >
                     <Grid Name="GRDMAIN_01" Style="{StaticResource GRD_Margin00}">
                         <Grid.Background>
                             <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" EndPoint="0.5,1">
@@ -55,7 +60,8 @@
                         <Grid Name="RBNGRP_01"
                               Grid.Row="1"
                               Grid.Column="1"
-                              Style="{StaticResource GRD_Margin00}">
+                              Style="{StaticResource GRD_Margin00}"
+                              >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
@@ -68,7 +74,8 @@
                                     Click="OpenMyUserControl"
                                     Content="SETTINGS"
                                     IsEnabled="True"
-                                    Style="{StaticResource STLButton51}">
+                                    Style="{StaticResource STLButton51}"
+                                    >
                                 <!--<Button.Tag>
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
@@ -80,19 +87,21 @@
                                     Click="OpenMyUserControl"
                                     Content="DATA INPUT"
                                     IsEnabled="True"
-                                    Style="{StaticResource STLButton51}">
+                                    Style="{StaticResource STLButton51}"
+                                    >
                                 <!--<Button.Tag>
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
                             </Button>
 
 
-                            <Button Name="BTN_03"
+                            <Button Name="BTN_03analyse"
                                     Grid.Column="2"
                                     Click="OpenMyUserControl"
-                                    Content="BTN3"
+                                    Content="ANALYSE"
                                     IsEnabled="True"
-                                    Style="{StaticResource STLButton51}">
+                                    Style="{StaticResource STLButton51}"
+                                    >
                                 <!--<Button.Tag>
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
@@ -104,7 +113,8 @@
                                     Click="OpenMyUserControl"
                                     Content="BTN4"
                                     IsEnabled="True"
-                                    Style="{StaticResource STLButton51}">
+                                    Style="{StaticResource STLButton51}"
+                                    >
                                 <!--<Button.Tag>
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
@@ -117,14 +127,16 @@
 
                         <Grid Grid.Row="1"
                               Grid.Column="7"
-                              Style="{StaticResource GRD_Margin00}">
+                              Style="{StaticResource GRD_Margin00}"
+                              >
 
                             <Button Name="BTN_Exit"
                                     Grid.Column="0"
                                     Click="K8Exit"
                                     Content="EXIT"
                                     IsEnabled="True"
-                                    Style="{StaticResource STLButton61}">
+                                    Style="{StaticResource STLButton61}"
+                                    >
                                 <!--<Button.Tag>
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
@@ -138,7 +150,8 @@
                                    VerticalAlignment="Center"
                                    FontSize="18"
                                    FontWeight="Bold"
-                                   Text="TEXTBLCK2-1">
+                                   Text="TEXTBLCK2-1"
+                                   >
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Blue020}" />
                             </TextBlock.Foreground>
@@ -149,7 +162,8 @@
                                    VerticalAlignment="Center"
                                    FontSize="18"
                                    FontWeight="Bold"
-                                   Text="TXTBLCK2-3">
+                                   Text="TXTBLCK2-3"
+                                   >
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Blue020}" />
                             </TextBlock.Foreground>
@@ -160,7 +174,8 @@
                                    VerticalAlignment="Center"
                                    FontSize="18"
                                    FontWeight="Bold"
-                                   Text="K8-Tools">
+                                   Text="K8-Tools"
+                                   >
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Blue020}" />
                             </TextBlock.Foreground>
@@ -174,7 +189,8 @@
                        Grid.Row="2"
                        Height="auto"
                        HorizontalAlignment="Stretch"
-                       VerticalAlignment="Top">
+                       VerticalAlignment="Top"
+                       >
                 <StatusBar.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Grid Margin="0,0,15,0" Style="{StaticResource GRD_Margin00}">
@@ -194,12 +210,14 @@
                 </StatusBar.ItemsPanel>
                 <StatusBarItem Grid.Column="0"
                                Margin="2,0,0,2"
-                               HorizontalContentAlignment="Stretch">
+                               HorizontalContentAlignment="Stretch"
+                               >
                     <Label x:Name="LBLmain_StatusChanges"
                            Height="28"
                            BorderThickness="1"
                            Content="{Binding StatusbarMessageA, FallbackValue='...'}"
-                           FontWeight="Bold">
+                           FontWeight="Bold"
+                           >
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
@@ -214,14 +232,16 @@
                             HorizontalContentAlignment="Left"
                             Content="STATUS"
                             Style="{StaticResource STLButton53}"
-                            ToolTip="" />
+                            ToolTip=""
+                            />
                 </StatusBarItem>
                 <StatusBarItem Grid.Column="2" Margin="0,0,0,2">
                     <Label x:Name="LBLmain_ExportStatus"
                            MinWidth="150"
                            Margin="0"
                            BorderThickness="1"
-                           Content="">
+                           Content=""
+                           >
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
@@ -231,7 +251,8 @@
                     <Label x:Name="LBLmain_NetworkStatus"
                            MinWidth="150"
                            BorderThickness="1"
-                           Content="Network Status unknown">
+                           Content="Network Status unknown"
+                           >
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
@@ -240,7 +261,8 @@
                 <StatusBarItem Grid.Column="4" Margin="0,0,0,2">
                     <Label x:Name="LBLmain_DateTime"
                            BorderThickness="1"
-                           Content="Date and Time">
+                           Content="Date and Time"
+                           >
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
@@ -249,7 +271,8 @@
                 <StatusBarItem Grid.Column="5" Margin="0,0,0,2">
                     <Label x:Name="LBLmain_Version"
                            BorderThickness="1"
-                           Content="Version">
+                           Content="Version"
+                           >
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
