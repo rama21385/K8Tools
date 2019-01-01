@@ -279,9 +279,337 @@
                         />
                 <Grid Grid.Row="1" Style="{StaticResource GRD_Margin00}">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="175" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
+                    <ScrollViewer Margin="0,0,5,0">
+
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Min"
+                                       />
+                                <Label Name="LBL02_Min"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveMin}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Max"
+                                       />
+                                <Label Name="LBL02_Max"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveMax}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg year"
+                                       />
+                                <Label Name="LBL02_AvgYear"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgYear}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Q1"
+                                       />
+                                <Label Name="LBL02_AvgQ1"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgQ1}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Q2"
+                                       />
+                                <Label Name="LBL02_AvgQ2"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgQ2}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Q3"
+                                       />
+                                <Label Name="LBL02_AvgQ3"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgQ3}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Q4"
+                                       />
+                                <Label Name="LBL02_AvgQ4"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgQ4}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Jan"
+                                       />
+                                <Label Name="LBL02_AvgJan"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgJan}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Feb"
+                                       />
+                                <Label Name="LBL02_AvgFeb"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgFeb}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Mar"
+                                       />
+                                <Label Name="LBL02_AvgMar"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgMar}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Apr"
+                                       />
+                                <Label Name="LBL02_AvgApr"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgApr}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg May"
+                                       />
+                                <Label Name="LBL02_AvgMay"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgMay}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Jun"
+                                       />
+                                <Label Name="LBL02_AvgJun"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgJun}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Jul"
+                                       />
+                                <Label Name="LBL02_AvgJul"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgJul}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Aug"
+                                       />
+                                <Label Name="LBL02_AvgAug"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgAug}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Sep"
+                                       />
+                                <Label Name="LBL02_AvgSep"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgSep}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Oct"
+                                       />
+                                <Label Name="LBL02_AvgOct"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgOct}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Nov"
+                                       />
+                                <Label Name="LBL02_AvgNov"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgNov}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg Dec"
+                                       />
+                                <Label Name="LBL02_AvgDec"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgDec}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
                     <Viewbox Name="VWBX02"
                              Grid.Column="1"
                              MaxWidth="1000"

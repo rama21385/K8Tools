@@ -81,6 +81,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="K8_UC\K8_UC99chart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="K8_UC\K8_WW01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +113,12 @@
     </Compile>
     <Compile Include="K8_UC\K8_UC03analyse.xaml.vb">
       <DependentUpon>K8_UC03analyse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="K8_UC\K8_UC99chart.xaml.vb">
+      <DependentUpon>K8_UC99chart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="K8_UC\K8_WW01.xaml.vb">
+      <DependentUpon>K8_WW01.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>

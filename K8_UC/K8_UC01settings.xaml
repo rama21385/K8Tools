@@ -174,15 +174,25 @@
                                 Content="Choose Color"
                                 Style="{StaticResource STLButton53}"
                                 />
-                        <Rectangle Name="RCTNGL01_Color"
-                                   Width="95"
-                                   Height="23"
-                                   Margin="255,120,0,0"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   Fill="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}"
-                                   Stroke="Black"
-                                   />
+
+                        <Border Name="RCTNGL01_CanvasBackground"
+                                Width="95"
+                                Height="20"
+                                Margin="255,120,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="WhiteSmoke"
+                                >
+                            <Rectangle Name="RCTNGL01_Color"
+                                       Height="2"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Center"
+                                       Fill="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}"
+                                       Stroke="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}"
+                                       />
+
+
+                        </Border>
                         <!--  Fill="#FFF4F4F5"  -->
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
 

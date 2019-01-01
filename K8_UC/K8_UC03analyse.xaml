@@ -40,55 +40,77 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <ListBox Name="LSTBX03_Categories"
-                         Width="305"
-                         Height="111"
-                         Margin="0,56,0,0"
+                         Width="200"
+                         Height="134"
+                         Margin="285,56,0,0"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          DisplayMemberPath="AnalyseCategoryName"
                          ItemsSource="{Binding}"
                          SelectionMode="Single"
                          />
+                <ListBox Name="LSTBX03_CategoriesLoaded"
+                         Width="200"
+                         Height="134"
+                         Margin="0,56,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         DisplayMemberPath="CategoryInternalID"
+                         ItemsSource="{Binding}"
+                         SelectedValuePath="CategoryInternalID"
+                         SelectionMode="Single"
+                         />
                 <TextBox x:Name="TXTBX03_CollectionName"
-                         Width="100"
+                         Width="120"
                          Height="23"
-                         Margin="205,0,0,0"
+                         Margin="365,28,0,0"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Text=""
                          TextWrapping="Wrap"
                          />
-
-                <Button x:Name="BTN03_AddNewMeasValue"
-                        Grid.Row="0"
-                        Margin="205,28,0,0"
+                <Button x:Name="BTN03_Up"
+                        Width="75"
+                        Height="23"
+                        Margin="205,84,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Click="AddNewMeasValue"
-                        Content="ADD CATEGORY"
-                        Style="{StaticResource STLButton53}"
+                        Click="ItemAddDeleteMove"
+                        Content="UP"
+                        />
+                <Button x:Name="BTN03_Down"
+                        Width="75"
+                        Height="23"
+                        Margin="205,112,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="ItemAddDeleteMove"
+                        Content="DOWN"
+                        />
+                <Button x:Name="BTN03_Remove"
+                        Width="75"
+                        Height="23"
+                        Margin="205,140,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="ItemAddDeleteMove"
+                        Content="REMOVE"
                         />
 
-
-                <ComboBox x:Name="CMBBX03_Category"
-                          Grid.Row="0"
-                          Width="200"
-                          Margin="0,28,0,0"
-                          HorizontalAlignment="Left"
-                          VerticalAlignment="Top"
-                          IsReadOnly="True"
-                          ItemsSource="{Binding}"
-                          SelectedValuePath="CategoryInternalID"
-                          >
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding CategoryInternalID, Mode=OneWay}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+                <Button x:Name="BTN03_Add"
+                        Grid.Row="0"
+                        Width="75"
+                        Height="23"
+                        Margin="205,56,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="ItemAddDeleteMove"
+                        Content="ADD"
+                        />
                 <ComboBox x:Name="CMBBX03_AnalysisCollection"
                           Grid.Row="0"
                           Width="200"
+                          Margin="285,0,0,0"
                           HorizontalAlignment="Left"
                           VerticalAlignment="Top"
                           IsReadOnly="True"
@@ -102,6 +124,16 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
+                <Button x:Name="BTN03_AddNewCollection"
+                        Grid.Row="0"
+                        Width="75"
+                        Height="23"
+                        Margin="285,28,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="AddNewCollection"
+                        Content="NEW"
+                        />
                 <Grid Grid.Row="1" Style="{StaticResource GRD_Margin00}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150" />

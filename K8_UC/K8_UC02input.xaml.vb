@@ -11,9 +11,32 @@ Public Class K8_UC02input
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
 
+    Dim SingleCurveChart As New K8_UC99chart
+
+#Region "Local properties"
+
     Private SelectedMeasGroup As String
     Private SelectedCategory As New K8_CL02category
     Private _ChangesMade As Boolean
+    Private _CurveMin As Decimal
+    Private _CurveMax As Decimal
+    Private _CurveAvgYear As Decimal
+    Private _CurveAvgQ1 As Decimal
+    Private _CurveAvgQ2 As Decimal
+    Private _CurveAvgQ3 As Decimal
+    Private _CurveAvgQ4 As Decimal
+    Private _CurveAvgJan As Decimal
+    Private _CurveAvgFeb As Decimal
+    Private _CurveAvgMar As Decimal
+    Private _CurveAvgApr As Decimal
+    Private _CurveAvgMay As Decimal
+    Private _CurveAvgJun As Decimal
+    Private _CurveAvgJul As Decimal
+    Private _CurveAvgAug As Decimal
+    Private _CurveAvgSep As Decimal
+    Private _CurveAvgOct As Decimal
+    Private _CurveAvgNov As Decimal
+    Private _CurveAvgDec As Decimal
 
     Public Property ChangesMade As Boolean
         Get
@@ -24,6 +47,198 @@ Public Class K8_UC02input
             NotifyPropertyChanged()
         End Set
     End Property
+
+    Public Property CurveMin As Decimal
+        Get
+            Return _CurveMin
+        End Get
+        Set(value As Decimal)
+            _CurveMin = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveMax As Decimal
+        Get
+            Return _CurveMax
+        End Get
+        Set(value As Decimal)
+            _CurveMax = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgYear As Decimal
+        Get
+            Return Math.Round(_CurveAvgYear, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgYear = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgQ1 As Decimal
+        Get
+            Return Math.Round(_CurveAvgQ1, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgQ1 = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgQ2 As Decimal
+        Get
+            Return Math.Round(_CurveAvgQ2, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgQ2 = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgQ3 As Decimal
+        Get
+            Return Math.Round(_CurveAvgQ3, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgQ3 = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgQ4 As Decimal
+        Get
+            Return Math.Round(_CurveAvgQ4, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgQ4 = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgJan As Decimal
+        Get
+            Return Math.Round(_CurveAvgJan, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgJan = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgFeb As Decimal
+        Get
+            Return Math.Round(_CurveAvgFeb, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgFeb = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgMar As Decimal
+        Get
+            Return Math.Round(_CurveAvgMar, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgMar = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgApr As Decimal
+        Get
+            Return Math.Round(_CurveAvgApr, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgApr = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgMay As Decimal
+        Get
+            Return Math.Round(_CurveAvgMay, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgMay = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgJun As Decimal
+        Get
+            Return Math.Round(_CurveAvgJun, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgJun = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgJul As Decimal
+        Get
+            Return Math.Round(_CurveAvgJul, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgJul = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgAug As Decimal
+        Get
+            Return Math.Round(_CurveAvgAug, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgAug = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgSep As Decimal
+        Get
+            Return Math.Round(_CurveAvgSep, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgSep = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgOct As Decimal
+        Get
+            Return Math.Round(_CurveAvgOct, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgOct = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgNov As Decimal
+        Get
+            Return Math.Round(_CurveAvgNov, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgNov = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property CurveAvgDec As Decimal
+        Get
+            Return Math.Round(_CurveAvgDec, 2, MidpointRounding.AwayFromZero)
+        End Get
+        Set(value As Decimal)
+            _CurveAvgDec = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+#End Region
 
     Public Sub New()
 
@@ -38,6 +253,9 @@ Public Class K8_UC02input
         CMBBX02_Category.SelectedIndex = -1
 
         ChangesMade = False
+
+        VWBX02.Child = Nothing
+        VWBX02.Child = SingleCurveChart
 
     End Sub
 
@@ -75,7 +293,8 @@ Public Class K8_UC02input
             DTGRD02_Measurements.DataContext = KiebitzCurve
             DTGRD02_Measurements.ScrollIntoView(KiebitzCurve.Item(KiebitzCurve.Count - 1))
 
-            RefreshChart()
+            SingleCurveChart.SelectedCategory = SelectedCategory
+            SingleCurveChart.RefreshChart()
             ChangesMade = True
 
         End If
@@ -88,7 +307,8 @@ Public Class K8_UC02input
         SelItem = DTGRD02_Measurements.SelectedItem
         KiebitzCurve.Remove(SelItem)
 
-        RefreshChart()
+        SingleCurveChart.SelectedCategory = SelectedCategory
+        SingleCurveChart.RefreshChart()
         ChangesMade = True
 
     End Sub
@@ -99,14 +319,15 @@ Public Class K8_UC02input
         SelItem = DTGRD02_Measurements.SelectedItem
         SelItem.MeasComment = TXTBX0_MeasComment.Text
 
-        RefreshChart()
+        SingleCurveChart.SelectedCategory = SelectedCategory
+        SingleCurveChart.RefreshChart()
         ChangesMade = True
 
     End Sub
 
     Private Sub RefreshChart()
 
-        CNVS02_Chart.Children.Clear()
+        SingleCurveChart.CNVS99.Children.Clear()
 
         Dim PatternX As DoubleCollection = New DoubleCollection()
         PatternX.Add(1)
@@ -117,8 +338,8 @@ Public Class K8_UC02input
         Dim CNVSmarginTop As Double = 10
         Dim CNVSmarginBottom As Double = 25
 
-        Dim CNVSwidth = CNVS02_Chart.ActualWidth
-        Dim CNVSheight = CNVS02_Chart.ActualHeight
+        Dim CNVSwidth = SingleCurveChart.ActualWidth
+        Dim CNVSheight = SingleCurveChart.ActualHeight
         Dim ChartWidthPixel As Double = CNVSwidth - CNVSmarginLeft - CNVSmarginRight
         Dim ChartHeightPixel As Double = CNVSheight - CNVSmarginTop - CNVSmarginBottom
         Dim ChartYRangeValue As Double = (Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax))
@@ -150,8 +371,8 @@ Public Class K8_UC02input
                     .X1 = 0 + CNVSmarginLeft
                     .X2 = CNVSwidth - CNVSmarginRight
                 End With
-                CNVS02_Chart.Children.Add(Ygrid)
-                CNVS02_Chart.Children.Add(Yticks)
+                SingleCurveChart.CNVS99.Children.Add(Ygrid)
+                SingleCurveChart.CNVS99.Children.Add(Yticks)
             Next
 
         Next
@@ -187,8 +408,8 @@ Public Class K8_UC02input
                 .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * ChartMonths)
                 .X2 = .X1
             End With
-            CNVS02_Chart.Children.Add(Xgrid)
-            CNVS02_Chart.Children.Add(Xticks)
+            SingleCurveChart.CNVS99.Children.Add(Xgrid)
+            SingleCurveChart.CNVS99.Children.Add(Xticks)
 
             If ChartMonthIndex <= 12 Then
 
@@ -201,7 +422,7 @@ Public Class K8_UC02input
                 Month01.FontFamily = New FontFamily("Arial")
                 Canvas.SetLeft(Month01, CNVSmarginLeft + (ChartWidthPixel / 365 * ChartMonths) + 5)
                 Canvas.SetTop(Month01, CNVSheight - CNVSmarginBottom + 5 + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin))
-                CNVS02_Chart.Children.Add(Month01)
+                SingleCurveChart.CNVS99.Children.Add(Month01)
 
             End If
         Next
@@ -229,8 +450,8 @@ Public Class K8_UC02input
             .Y2 = CNVSheight - CNVSmarginBottom + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
         End With
 
-        CNVS02_Chart.Children.Add(AxisY)
-        CNVS02_Chart.Children.Add(AxisX)
+        SingleCurveChart.CNVS99.Children.Add(AxisY)
+        SingleCurveChart.CNVS99.Children.Add(AxisX)
 
 
         Dim ItemCounter As Int32 = 0
@@ -260,7 +481,7 @@ Public Class K8_UC02input
             Xold = item.MeasDayOfYear
             Yold = item.MeasValue
 
-            CNVS02_Chart.Children.Add(ChartLine)
+            SingleCurveChart.CNVS99.Children.Add(ChartLine)
         Next
 
     End Sub
@@ -291,7 +512,9 @@ Public Class K8_UC02input
         DTGRD02_Measurements.Items.Refresh()
         SelectedMeasGroup = CType(CMBBX02_Category.SelectedItem, K8_CL02category).CategoryName.ToString
 
-        RefreshChart()
+        SingleCurveChart.SelectedCategory = SelectedCategory
+        SingleCurveChart.RefreshChart()
+        GetMinAndMax()
 
     End Sub
 
@@ -314,7 +537,12 @@ Public Class K8_UC02input
 
     Private Sub ImportCSV(sender As Object, e As RoutedEventArgs)
 
-        Dim Dateiname As String = "Wetter_2001min.csv"
+        Dim CSVselect As New K8_WW01
+        CSVselect.ShowDialog()
+        If CSVselect.DialogResult = False Then Exit Sub
+
+
+        Dim Dateiname As String = CSVselect.SelectedCSVfile
         Using csvParser As New TextFieldParser(Dateiname)
             With csvParser
                 ' Feld-Trennzeichen
@@ -332,15 +560,18 @@ Public Class K8_UC02input
                     FieldData = .ReadFields()
                     Dim CurveDate() As String = FieldData(0).Split(".")
 
-                    KiebitzCurve.Add(New K8_CL03measurement With {
-                        .CategoryInternalID = CMBBX02_Category.SelectedValue,
-                        .MeasComment = String.Empty,
-                        .MeasValue = CDec(FieldData(1).Replace(",", ".")),
-                        .MeasDateDay = CurveDate(0),
-                        .MeasDateMonth = CurveDate(1),
-                        .MeasDateYear = CurveDate(2),
-                        .MeasStatus = K8ENUMS.CollectionItemStatus.add})
+                    If FieldData(0) <> String.Empty And FieldData(1) <> String.Empty Then
 
+                        KiebitzCurve.Add(New K8_CL03measurement With {
+                                    .CategoryInternalID = CMBBX02_Category.SelectedValue,
+                                    .MeasComment = String.Empty,
+                                    .MeasValue = CDec(FieldData(1).Replace(",", ".")),
+                                    .MeasDateDay = CurveDate(0),
+                                    .MeasDateMonth = CurveDate(1),
+                                    .MeasDateYear = CurveDate(2),
+                                    .MeasStatus = K8ENUMS.CollectionItemStatus.add})
+
+                    End If
                 Loop
             End With
         End Using
@@ -349,9 +580,137 @@ Public Class K8_UC02input
         DTGRD02_Measurements.DataContext = KiebitzCurve
         DTGRD02_Measurements.ScrollIntoView(KiebitzCurve.Item(KiebitzCurve.Count - 1))
 
-        RefreshChart()
+        SingleCurveChart.SelectedCategory = SelectedCategory
+        SingleCurveChart.RefreshChart()
         ChangesMade = True
 
     End Sub
+
+
+    Public Sub GetMinAndMax()
+
+        CurveMin = 1000000.0
+        CurveMax = -1000000.0
+        Dim CurveNrItems As Int32 = 0
+        Dim CurveItemsSum As Decimal = 0
+
+        Dim CurveItemsSumQ1 As Decimal = 0
+        Dim CurveNrItemsQ1 As Int32 = 0
+        Dim CurveItemsSumQ2 As Decimal = 0
+        Dim CurveNrItemsQ2 As Int32 = 0
+        Dim CurveItemsSumQ3 As Decimal = 0
+        Dim CurveNrItemsQ3 As Int32 = 0
+        Dim CurveItemsSumQ4 As Decimal = 0
+        Dim CurveNrItemsQ4 As Int32 = 0
+
+        Dim CurveItemsSumJan As Decimal = 0
+        Dim CurveNrItemsJan As Int32 = 0
+        Dim CurveItemsSumFeb As Decimal = 0
+        Dim CurveNrItemsFeb As Int32 = 0
+        Dim CurveItemsSumMar As Decimal = 0
+        Dim CurveNrItemsMar As Int32 = 0
+        Dim CurveItemsSumApr As Decimal = 0
+        Dim CurveNrItemsApr As Int32 = 0
+        Dim CurveItemsSumMay As Decimal = 0
+        Dim CurveNrItemsMay As Int32 = 0
+        Dim CurveItemsSumJun As Decimal = 0
+        Dim CurveNrItemsJun As Int32 = 0
+        Dim CurveItemsSumJul As Decimal = 0
+        Dim CurveNrItemsJul As Int32 = 0
+        Dim CurveItemsSumAug As Decimal = 0
+        Dim CurveNrItemsAug As Int32 = 0
+        Dim CurveItemsSumSep As Decimal = 0
+        Dim CurveNrItemsSep As Int32 = 0
+        Dim CurveItemsSumOct As Decimal = 0
+        Dim CurveNrItemsOct As Int32 = 0
+        Dim CurveItemsSumNov As Decimal = 0
+        Dim CurveNrItemsNov As Int32 = 0
+        Dim CurveItemsSumDec As Decimal = 0
+        Dim CurveNrItemsDec As Int32 = 0
+
+        For Each CurveItem In KiebitzCurve
+            CurveNrItems += 1
+            CurveItemsSum += CurveItem.MeasValue
+            If CurveItem.MeasValue < CurveMin Then CurveMin = CurveItem.MeasValue
+            If CurveItem.MeasValue > CurveMax Then CurveMax = CurveItem.MeasValue
+
+            If CurveItem.MeasDate.Month <= 3 Then
+                CurveItemsSumQ1 += CurveItem.MeasValue
+                CurveNrItemsQ1 += 1
+            ElseIf CurveItem.MeasDate.Month <= 6 Then
+                CurveItemsSumQ2 += CurveItem.MeasValue
+                CurveNrItemsQ2 += 1
+            ElseIf CurveItem.MeasDate.Month <= 9 Then
+                CurveItemsSumQ3 += CurveItem.MeasValue
+                CurveNrItemsQ3 += 1
+            ElseIf CurveItem.MeasDate.Month <= 12 Then
+                CurveItemsSumQ4 += CurveItem.MeasValue
+                CurveNrItemsQ4 += 1
+            End If
+            If CurveItem.MeasDate.Month = 1 Then
+                CurveNrItemsJan += 1
+                CurveItemsSumJan += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 2 Then
+                CurveNrItemsFeb += 1
+                CurveItemsSumFeb += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 3 Then
+                CurveNrItemsMar += 1
+                CurveItemsSumMar += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 4 Then
+                CurveNrItemsApr += 1
+                CurveItemsSumApr += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 5 Then
+                CurveNrItemsMay += 1
+                CurveItemsSumMay += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 6 Then
+                CurveNrItemsJun += 1
+                CurveItemsSumJun += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 7 Then
+                CurveNrItemsJul += 1
+                CurveItemsSumJul += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 8 Then
+                CurveNrItemsAug += 1
+                CurveItemsSumAug += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 9 Then
+                CurveNrItemsSep += 1
+                CurveItemsSumSep += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 10 Then
+                CurveNrItemsOct += 1
+                CurveItemsSumOct += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 11 Then
+                CurveNrItemsNov += 1
+                CurveItemsSumNov += CurveItem.MeasValue
+            ElseIf CurveItem.MeasDate.Month = 12 Then
+                CurveNrItemsDec += 1
+                CurveItemsSumDec += CurveItem.MeasValue
+            End If
+
+        Next
+
+        If CurveNrItems > 0 Then
+
+            CurveAvgYear = CurveItemsSum / CurveNrItems
+            CurveAvgQ1 = CurveItemsSumQ1 / CurveNrItemsQ1
+            CurveAvgQ2 = CurveItemsSumQ2 / CurveNrItemsQ2
+            CurveAvgQ3 = CurveItemsSumQ3 / CurveNrItemsQ3
+            CurveAvgQ4 = CurveItemsSumQ4 / CurveNrItemsQ4
+            CurveAvgJan = CurveItemsSumJan / CurveNrItemsJan
+            CurveAvgFeb = CurveItemsSumFeb / CurveNrItemsFeb
+            CurveAvgMar = CurveItemsSumMar / CurveNrItemsMar
+            CurveAvgApr = CurveItemsSumApr / CurveNrItemsApr
+            CurveAvgMay = CurveItemsSumMay / CurveNrItemsMay
+            CurveAvgJun = CurveItemsSumJun / CurveNrItemsJun
+            CurveAvgJul = CurveItemsSumJul / CurveNrItemsJul
+            CurveAvgAug = CurveItemsSumAug / CurveNrItemsAug
+            CurveAvgSep = CurveItemsSumSep / CurveNrItemsSep
+            CurveAvgOct = CurveItemsSumOct / CurveNrItemsOct
+            CurveAvgNov = CurveItemsSumNov / CurveNrItemsNov
+            CurveAvgDec = CurveItemsSumDec / CurveNrItemsDec
+
+        End If
+
+    End Sub
+
+
 
 End Class
