@@ -36,81 +36,119 @@
             </StackPanel>
             <Grid Grid.Column="1" Style="{StaticResource GRD_Margin00}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <ListBox Name="LSTBX03_Categories"
-                         Width="200"
-                         Height="134"
-                         Margin="285,56,0,0"
-                         HorizontalAlignment="Left"
-                         VerticalAlignment="Top"
-                         DisplayMemberPath="AnalyseCategoryName"
-                         ItemsSource="{Binding}"
-                         SelectionMode="Single"
-                         />
-                <ListBox Name="LSTBX03_CategoriesLoaded"
-                         Width="200"
-                         Height="134"
-                         Margin="0,56,0,0"
-                         HorizontalAlignment="Left"
-                         VerticalAlignment="Top"
-                         DisplayMemberPath="CategoryInternalID"
-                         ItemsSource="{Binding}"
-                         SelectedValuePath="CategoryInternalID"
-                         SelectionMode="Single"
-                         />
                 <TextBox x:Name="TXTBX03_CollectionName"
                          Width="120"
                          Height="23"
-                         Margin="365,28,0,0"
+                         Margin="80,28,0,0"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Text=""
                          TextWrapping="Wrap"
                          />
-                <Button x:Name="BTN03_Up"
-                        Width="75"
-                        Height="23"
-                        Margin="205,84,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Click="ItemAddDeleteMove"
-                        Content="UP"
-                        />
-                <Button x:Name="BTN03_Down"
-                        Width="75"
-                        Height="23"
-                        Margin="205,112,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Click="ItemAddDeleteMove"
-                        Content="DOWN"
-                        />
-                <Button x:Name="BTN03_Remove"
-                        Width="75"
-                        Height="23"
-                        Margin="205,140,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Click="ItemAddDeleteMove"
-                        Content="REMOVE"
-                        />
+                <Expander Width="335"
+                          Height="139"
+                          Margin="205,56,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          ExpandDirection="Right"
+                          Header="Modify"
+                          IsExpanded="False"
+                          >
+                    <Grid Margin="10,0,0,0">
+                        <ListBox x:Name="LSTBX03_CategoriesLoaded"
+                                 Width="200"
+                                 Height="134"
+                                 Margin="80,0,0,0"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 DisplayMemberPath="CategoryInternalID"
+                                 ItemsSource="{Binding}"
+                                 SelectedValuePath="CategoryInternalID"
+                                 SelectionMode="Single"
+                                 />
+                        <Button x:Name="BTN03_Up"
+                                Width="75"
+                                Height="23"
+                                Margin="0,28,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Click="ItemAddDeleteMove"
+                                Content="UP"
+                                />
+                        <Button x:Name="BTN03_Down"
+                                Width="75"
+                                Height="23"
+                                Margin="0,56,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Click="ItemAddDeleteMove"
+                                Content="DOWN"
+                                />
+                        <Button x:Name="BTN03_Remove"
+                                Width="75"
+                                Height="23"
+                                Margin="0,84,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Click="ItemAddDeleteMove"
+                                Content="REMOVE"
+                                />
+                        <Button x:Name="BTN03_Update"
+                                Width="75"
+                                Height="23"
+                                Margin="0,112,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Click="ItemAddDeleteMove"
+                                Content="UPDATE"
+                                />
 
-                <Button x:Name="BTN03_Add"
-                        Grid.Row="0"
-                        Width="75"
-                        Height="23"
-                        Margin="205,56,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Click="ItemAddDeleteMove"
-                        Content="ADD"
-                        />
+                        <Button x:Name="BTN03_Add"
+                                Grid.Row="0"
+                                Width="75"
+                                Height="23"
+                                Margin="0,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Click="ItemAddDeleteMove"
+                                Content="ADD"
+                                />
+
+                    </Grid>
+                </Expander>
+                <ListBox x:Name="LSTBX03_Categories"
+                         Width="200"
+                         Height="134"
+                         Margin="0,56,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         ItemsSource="{Binding}"
+                         SelectionMode="Single"
+                         >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Foreground="{Binding AnalyseCategoryColor, FallbackValue='#FF000000'}" Text="{Binding AnalyseCategoryName}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
+                <!--<ListBox x:Name="LSTBX03_Categories"
+                         Width="200"
+                         Height="134"
+                         Margin="0,56,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         DisplayMemberPath="AnalyseCategoryName"
+                         ItemsSource="{Binding}"
+                         SelectionMode="Single"
+                         />-->
                 <ComboBox x:Name="CMBBX03_AnalysisCollection"
                           Grid.Row="0"
                           Width="200"
-                          Margin="285,0,0,0"
+                          Margin="0,0,0,0"
                           HorizontalAlignment="Left"
                           VerticalAlignment="Top"
                           IsReadOnly="True"
@@ -128,33 +166,63 @@
                         Grid.Row="0"
                         Width="75"
                         Height="23"
-                        Margin="285,28,0,0"
+                        Margin="0,28,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Click="AddNewCollection"
                         Content="NEW"
                         />
                 <Grid Grid.Row="1" Style="{StaticResource GRD_Margin00}">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Viewbox Name="VWBX03"
-                             Grid.Column="1"
-                             MaxWidth="1000"
-                             Margin="0,00,0,0"
-                             HorizontalAlignment="Right"
-                             Stretch="Uniform"
-                             >
+                    <TabControl x:Name="tabControl"
+                                HorizontalAlignment="Stretch"
+                                TabStripPlacement="Left"
+                                >
+                        <TabItem Header="Chart 1">
+                            <Grid Background="#FFE5E5E5">
+                                <Viewbox Name="VWBX03A"
+                                         MaxWidth="1000"
+                                         Margin="5"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch"
+                                         Stretch="Uniform"
+                                         >
 
-                        <Canvas Name="CNVS03_Chart"
-                                Width="576"
-                                Height="400"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Background="WhiteSmoke"
-                                />
-                    </Viewbox>
+                                    <Canvas Name="CNVS03_Chart1"
+                                            Width="600"
+                                            Height="400"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Background="WhiteSmoke"
+                                            />
+                                </Viewbox>
+
+
+
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Chart 2">
+                            <Grid Background="#FFE5E5E5">
+                                <Viewbox Name="VWBX03B"
+                                         Grid.Column="1"
+                                         MaxWidth="1000"
+                                         Margin="5"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch"
+                                         Stretch="Uniform"
+                                         >
+
+                                    <Canvas Name="CNVS03_Chart2"
+                                            Width="600"
+                                            Height="400"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Background="WhiteSmoke"
+                                            />
+                                </Viewbox>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Grid>
             </Grid>
         </Grid>

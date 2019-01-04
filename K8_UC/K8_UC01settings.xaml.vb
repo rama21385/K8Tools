@@ -20,8 +20,8 @@ Public Class K8_UC01settings
 
     Private Sub AddModifyDeleteCategory(sender As Object, e As RoutedEventArgs)
 
-        Dim TempYear As UInt16 = CUInt(Val(TXTBX01_CategoryYear.Text.Trim))
-        Dim TempName As String = TXTBX01_CategoryName.Text.Trim
+        Dim TempYear As UInt16 = CUShort(Val(TXTBX01_CategoryYear.Text.Trim))
+        Dim TempName As String = CMBBX01_CategoryNames.Text '   TXTBX01_CategoryName.Text.Trim
         Dim TempCatID As String = K8_CL98functions.GetCategoryID(TempName, TempYear)
 
         If TempCatID = String.Empty Then Exit Sub
@@ -37,13 +37,14 @@ Public Class K8_UC01settings
             KiebitzCats.Add(New K8_CL02category With {
                             .CategoryStatus = K8ENUMS.CollectionItemStatus.add,
                             .CategoryIsEnabled = CBool(CHKBX01_CategoryEnabled.IsChecked),
+                            .CategoryValuesRelativeTo1st = CBool(CHKBX01_CategoryRelativeTo1st.IsChecked),
                             .CategoryMeasValues = Nothing,
                             .CategoryName = TempName,
                             .CategoryUnit = CType([Enum].Parse(GetType(K8ENUMS.ValueUnits), CMBBX01_CategoryUnits.Text), K8ENUMS.ValueUnits),
                             .CategoryYear = TempYear,
                             .CategoryChartColor = TXTBX01_CategoryColor.Text,
-                            .CategoryChartYMin = Val(TXTBX01_ChartMin.Text),
-                            .CategoryChartYMax = Val(TXTBX01_ChartMax.Text)})
+                            .CategoryChartYMin = CInt(Val(TXTBX01_ChartMin.Text)),
+                            .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text))})
 
         ElseIf sender Is BTN01_CategoryModify Then
             For Each TempCategory In KiebitzCats
@@ -51,13 +52,14 @@ Public Class K8_UC01settings
                     With TempCategory
                         .CategoryStatus = K8ENUMS.CollectionItemStatus.modify
                         .CategoryIsEnabled = CBool(CHKBX01_CategoryEnabled.IsChecked)
+                        .CategoryValuesRelativeTo1st = CBool(CHKBX01_CategoryRelativeTo1st.IsChecked)
                         .CategoryMeasValues = Nothing
                         .CategoryName = TempName
                         .CategoryUnit = CType([Enum].Parse(GetType(K8ENUMS.ValueUnits), CMBBX01_CategoryUnits.Text), K8ENUMS.ValueUnits)
                         .CategoryYear = TempYear
                         .CategoryChartColor = TXTBX01_CategoryColor.Text
-                        .CategoryChartYMin = Val(TXTBX01_ChartMin.Text)
-                        .CategoryChartYMax = Val(TXTBX01_ChartMax.Text)
+                        .CategoryChartYMin = CInt(Val(TXTBX01_ChartMin.Text))
+                        .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text))
                     End With
                     Exit For
                 End If

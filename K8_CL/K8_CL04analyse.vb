@@ -13,6 +13,7 @@ Public Class K8_CL04analyse
     End Sub
 
     Private _AnalyseCategoryName As String
+    Private _AnalyseCategoryColor As String
 
     Public Property AnalyseCategoryName As String
         Get
@@ -20,6 +21,16 @@ Public Class K8_CL04analyse
         End Get
         Set(value As String)
             _AnalyseCategoryName = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property AnalyseCategoryColor As String
+        Get
+            Return _AnalyseCategoryColor
+        End Get
+        Set(value As String)
+            _AnalyseCategoryColor = value
             NotifyPropertyChanged()
         End Set
     End Property

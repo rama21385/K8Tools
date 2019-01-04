@@ -1,4 +1,6 @@
-﻿Public Class K8_UC99chart
+﻿Imports System.Collections.ObjectModel
+
+Public Class K8_UC99chart
 
     Private ReadOnly CNVSmarginLeft As Double = 25
     Private ReadOnly CNVSmarginRight As Double = 10
@@ -23,6 +25,11 @@
 
     Public Sub RefreshChart()
 
+        Dim ChartMonths As Int32 = 0
+        Dim ChartMonthIndex As Int32 = 0
+        Dim Xticks As New Line
+        Dim Xgrid As New Line
+
         CNVS99.Children.Clear()
 
         Dim PatternX As DoubleCollection = New DoubleCollection()
@@ -41,25 +48,37 @@
 
         Dim Yticks As New Line
         Dim Ygrid As New Line
-        For Each MinMax As Int32 In {SelectedCategory.CategoryChartYMin, SelectedCategory.CategoryChartYMax}
-            For I = 0 To MinMax Step (MinMax / Math.Abs(MinMax)) * 10
-                Ygrid = New Line
-                Yticks = New Line
-                DesignYgrid(Ygrid, I)
-                DesignYticks(Yticks, I)
+        Dim StepFactor As Int32 = 10
+        If Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 10 Then
+            StepFactor = 1
+        ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 100 Then
+            StepFactor = 10
+        ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 1000 Then
+            StepFactor = 100
+        ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 10000 Then
+            StepFactor = 1000
+        Else
+            StepFactor = 10
+        End If
 
-                CNVS99.Children.Add(Ygrid)
-                CNVS99.Children.Add(Yticks)
-            Next
+        For Each MinMax As Int32 In {SelectedCategory.CategoryChartYMin, SelectedCategory.CategoryChartYMax}
+            If MinMax <> 0 Then
+
+                For I As Int32 = 0 To MinMax Step (CInt(MinMax / Math.Abs(MinMax)) * StepFactor)
+                    Ygrid = New Line
+                    Yticks = New Line
+                    DesignYgrid(Ygrid, I)
+                    DesignYticks(Yticks, I)
+
+                    CNVS99.Children.Add(Ygrid)
+                    CNVS99.Children.Add(Yticks)
+                Next
+            End If
         Next
 
-        Dim ChartMonths As Double = 0
-        Dim ChartMonthIndex As Int32 = 0
-        Dim Xticks As New Line
-        Dim Xgrid As New Line
 
 
-        For Each ChartMonth As Int32 In {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+        For Each ChartMonth As Int32 In ListOfMonths
             ChartMonths += ChartMonth
             ChartMonthIndex += 1
             Xgrid = New Line
@@ -73,16 +92,9 @@
 
             If ChartMonthIndex <= 12 Then
 
-                Dim Month01 As New TextBlock
-                Dim MonthName As String = Format(New DateTime(1968, ChartMonthIndex, 1), "MMM")
-                Month01.Text = MonthName
-
-                Month01.FontStyle = FontStyles.Italic
-                Month01.FontWeight = FontWeights.Normal
-                Month01.FontFamily = New FontFamily("Arial")
-                Canvas.SetLeft(Month01, CNVSmarginLeft + (ChartWidthPixel / 365 * ChartMonths) + 5)
-                Canvas.SetTop(Month01, CNVSheight - CNVSmarginBottom + 5 + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin))
-                CNVS99.Children.Add(Month01)
+                Dim XaxisLabelMonths As New TextBlock
+                DesignXaxislabels(XaxisLabelMonths, ChartMonthIndex, ChartMonths)
+                CNVS99.Children.Add(XaxisLabelMonths)
 
             End If
         Next
@@ -96,25 +108,120 @@
         CNVS99.Children.Add(AxisX)
 
 
-        Dim ItemCounter As Int32 = 0
-        Dim Xold As Int32
-        Dim Yold As Int32
-        Dim ChartLine As New Line
-        For Each item In KiebitzCurve
-            ItemCounter += 1
+    End Sub
 
-            If ItemCounter > 1 Then
-                ChartLine = New Line
+    Public Sub AddStatisticLinesToChart(ByRef CurveToAdd As ObservableCollection(Of K8_CL03measurement))
+
+        Dim ChartMonths As Int32 = 0
+        Dim ChartMonthIndex As Int32 = 0
+        Dim ChartQuarters As Int32 = 0
+        Dim ChartQuarterIndex As Int32 = 0
+        Dim Ymonth As Decimal = 0
+
+        Dim Xold As Decimal = 0
+        Dim ChartLine As New Line
+
+        ChartMonths = 0
+        ChartMonthIndex = 0
+        For Each ChartMonth In ListOfMonths
+            ChartMonths += ChartMonth
+            ChartMonthIndex += 1
+            ChartLine = New Line
+
+            If ChartMonthIndex = 2 Then Ymonth = SelectedCategory.CurveAvgJan
+            If ChartMonthIndex = 3 Then Ymonth = SelectedCategory.CurveAvgFeb
+            If ChartMonthIndex = 4 Then Ymonth = SelectedCategory.CurveAvgMar
+            If ChartMonthIndex = 5 Then Ymonth = SelectedCategory.CurveAvgApr
+            If ChartMonthIndex = 6 Then Ymonth = SelectedCategory.CurveAvgMay
+            If ChartMonthIndex = 7 Then Ymonth = SelectedCategory.CurveAvgJun
+            If ChartMonthIndex = 8 Then Ymonth = SelectedCategory.CurveAvgJul
+            If ChartMonthIndex = 9 Then Ymonth = SelectedCategory.CurveAvgAug
+            If ChartMonthIndex = 10 Then Ymonth = SelectedCategory.CurveAvgSep
+            If ChartMonthIndex = 11 Then Ymonth = SelectedCategory.CurveAvgOct
+            If ChartMonthIndex = 12 Then Ymonth = SelectedCategory.CurveAvgNov
+            If ChartMonthIndex = 13 Then Ymonth = SelectedCategory.CurveAvgDec
+
+            If ChartMonthIndex > 1 Then
+
                 With ChartLine
                     If SelectedCategory.CategoryChartColor Is Nothing Then SelectedCategory.CategoryChartColor = "#FFFF0000"
-                    Dim MyCol As Windows.Media.Color = Windows.Media.ColorConverter.ConvertFromString(SelectedCategory.CategoryChartColor)
+                    Dim MyCol As Windows.Media.Color = CType(ColorConverter.ConvertFromString(SelectedCategory.CategoryChartColor), Color)
 
                     Dim MyBrush As Windows.Media.Brush = New SolidColorBrush(MyCol)
                     .Fill = MyBrush
                     .Stroke = MyBrush
                     .StrokeThickness = 2
-                    .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Yold) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
-                    .Y2 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * item.MeasValue) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
+                    .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Ymonth) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
+                    .Y2 = .Y1
+                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xold)
+                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 365 * ChartMonths)
+                End With
+
+                CNVS99.Children.Add(ChartLine)
+            End If
+            Xold = ChartMonths
+        Next
+
+        ChartQuarters = 0
+        ChartQuarterIndex = 0
+        For Each ChartQuarter In ListofQuarters
+            ChartQuarters += ChartQuarter
+            ChartQuarterIndex += 1
+            ChartLine = New Line
+
+            If ChartQuarterIndex = 2 Then Ymonth = SelectedCategory.CurveAvgQ1
+            If ChartQuarterIndex = 3 Then Ymonth = SelectedCategory.CurveAvgQ2
+            If ChartQuarterIndex = 4 Then Ymonth = SelectedCategory.CurveAvgQ3
+            If ChartQuarterIndex = 5 Then Ymonth = SelectedCategory.CurveAvgQ4
+
+            If ChartQuarterIndex > 1 Then
+
+                With ChartLine
+                    If SelectedCategory.CategoryChartColor Is Nothing Then SelectedCategory.CategoryChartColor = "#FFFF0000"
+                    Dim MyCol As Windows.Media.Color = CType(ColorConverter.ConvertFromString(SelectedCategory.CategoryChartColor), Color)
+
+                    Dim MyBrush As Windows.Media.Brush = New SolidColorBrush(MyCol)
+                    .Fill = MyBrush
+                    .Stroke = MyBrush
+                    .StrokeThickness = 2
+                    .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Ymonth) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
+                    .Y2 = .Y1
+                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xold)
+                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 365 * ChartQuarters)
+                End With
+
+                CNVS99.Children.Add(ChartLine)
+            End If
+            Xold = ChartQuarters
+        Next
+
+    End Sub
+
+    Public Sub AddCurveToChart(ByRef CurveToAdd As ObservableCollection(Of K8_CL03measurement))
+
+        Dim ItemCounter As Int32 = 0
+        Dim Xold As Decimal
+        Dim Yold As Decimal
+        Dim ChartLine As New Line
+        Dim FirstValue As Decimal = 0
+
+        For Each item In CurveToAdd
+            ItemCounter += 1
+            If ItemCounter = 1 And SelectedCategory.CategoryValuesRelativeTo1st = True Then FirstValue = item.MeasValue
+
+            If ItemCounter > 1 Then
+                ChartLine = New Line
+                With ChartLine
+                    If SelectedCategory.CategoryChartColor Is Nothing Then SelectedCategory.CategoryChartColor = "#FFFF0000"
+                    Dim MyCol As Windows.Media.Color = CType(ColorConverter.ConvertFromString(SelectedCategory.CategoryChartColor), Color)
+
+                    Dim MyBrush As Windows.Media.Brush = New SolidColorBrush(MyCol)
+                    .Fill = MyBrush
+                    .Stroke = MyBrush
+                    .StrokeThickness = 2
+                    .StrokeDashArray = New DoubleCollection() From {2, 2}
+                    .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (Yold - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
+                    .Y2 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (item.MeasValue - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
                     .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xold)
                     .X2 = CNVSmarginLeft + (ChartWidthPixel / 365 * item.MeasDayOfYear)
                 End With
@@ -210,6 +317,20 @@
             .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xpos)
             .X2 = .X1
         End With
+
+    End Sub
+
+    Private Sub DesignXaxislabels(ByRef XaxisLabelMonths As TextBlock, ByRef ChartMonthIndex As Int32, ByRef ChartMonths As Int32)
+
+        With XaxisLabelMonths
+            .Text = Format(New DateTime(1968, ChartMonthIndex, 1), "MMM")
+
+            .FontStyle = FontStyles.Italic
+            .FontWeight = FontWeights.Normal
+            .FontFamily = New FontFamily("Arial")
+        End With
+        Canvas.SetLeft(XaxisLabelMonths, CNVSmarginLeft + (ChartWidthPixel / 365 * ChartMonths) + 5)
+        Canvas.SetTop(XaxisLabelMonths, CNVSheight - CNVSmarginBottom + 5 + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin))
 
     End Sub
 

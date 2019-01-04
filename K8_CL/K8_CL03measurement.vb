@@ -2,8 +2,6 @@
 Imports System.ComponentModel
 Imports System.IO
 Imports System.Runtime.CompilerServices
-Imports System.Xml
-Imports System.Xml.Serialization
 Imports K8Tools.K8ENUMS
 
 Public Class K8_CL03measurement
@@ -24,6 +22,9 @@ Public Class K8_CL03measurement
     Private _MeasComment As String
     Private _MeasValue As Decimal
     Private _MeasStatus As K8ENUMS.CollectionItemStatus
+
+
+
 
     <XmlIgnore>
     Public Property CategoryInternalID As String
@@ -93,7 +94,7 @@ Public Class K8_CL03measurement
 
     Public ReadOnly Property MeasDayOfYear As UInt16
         Get
-            Return DateAndTime.DatePart(DateInterval.DayOfYear, MeasDate)
+            Return CUShort(DateAndTime.DatePart(DateInterval.DayOfYear, MeasDate))
         End Get
     End Property
 
@@ -106,6 +107,7 @@ Public Class K8_CL03measurement
             NotifyPropertyChanged()
         End Set
     End Property
+
 
     Public Shared Sub SaveCollectionAsXML()
 

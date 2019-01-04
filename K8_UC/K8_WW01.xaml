@@ -19,6 +19,8 @@
                  Margin="10,10,10,10"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch"
+                 FontFamily="Liberation Mono"
+                 FontSize="14"
                  MouseDoubleClick="SelectAndClose"
                  />
 

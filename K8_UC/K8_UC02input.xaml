@@ -2,6 +2,7 @@
              x:Class="K8_UC02input"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:K8Tools.KIEBITZ8"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:K8Tools"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,6 +11,11 @@
              d:DesignWidth="1000"
              mc:Ignorable="d"
              >
+
+    <UserControl.Resources>
+        <converters:K8_CON01boolean x:Key="InvertBoolean" />
+        <converters:K8_CON02visibility x:Key="TrueIsVisible" />
+    </UserControl.Resources>
 
     <Grid Background="{StaticResource Xstrahl_SCB_Grey040}" Style="{StaticResource GRD_Margin00}">
         <Grid Style="{StaticResource GRD_Margin10}">
@@ -298,7 +304,7 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveMin}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveMin}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
@@ -315,11 +321,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveMax}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveMax}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -332,11 +338,96 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgYear}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgYear}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta year"
+                                       />
+                                <Label Name="LBL02_DeltaYear"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaYear}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg HJ1"
+                                       />
+                                <Label Name="LBL02_AvgHJ1"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgHJ1}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Avg HJ2"
+                                       />
+                                <Label Name="LBL02_AvgHJ2"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgHJ2}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta HJ1"
+                                       />
+                                <Label Name="LBL02_DeltaHJ1"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaHJ1}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta HJ2"
+                                       />
+                                <Label Name="LBL02_DeltaHJ2"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaHJ2}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -349,11 +440,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgQ1}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgQ1}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -366,11 +457,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgQ2}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgQ2}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -383,11 +474,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgQ3}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgQ3}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -400,11 +491,79 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgQ4}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgQ4}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Q1"
+                                       />
+                                <Label Name="LBL02_DeltaQ1"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaQ1}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Q2"
+                                       />
+                                <Label Name="LBL02_DeltaQ2"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaQ2}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Q3"
+                                       />
+                                <Label Name="LBL02_DeltaQ3"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaQ3}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Q4"
+                                       />
+                                <Label Name="LBL02_DeltaQ4"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaQ4}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -417,11 +576,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgJan}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgJan}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -434,11 +593,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgFeb}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgFeb}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -451,11 +610,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgMar}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgMar}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -468,11 +627,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgApr}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgApr}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -485,11 +644,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgMay}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgMay}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -502,11 +661,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgJun}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgJun}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -519,11 +678,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgJul}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgJul}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -536,11 +695,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgAug}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgAug}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -553,11 +712,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgSep}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgSep}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -570,11 +729,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgOct}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgOct}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -587,11 +746,11 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgNov}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgNov}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
-                            <Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=True}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -604,7 +763,211 @@
                                        Grid.Column="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Top"
-                                       Content="{Binding ElementName=K8UC02, Path=CurveAvgDec}"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveAvgDec}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Jan"
+                                       />
+                                <Label Name="LBL02_DeltaJan"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaJan}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Feb"
+                                       />
+                                <Label Name="LBL02_DeltaFeb"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaFeb}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Mar"
+                                       />
+                                <Label Name="LBL02_DeltaMar"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaMar}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Apr"
+                                       />
+                                <Label Name="LBL02_DeltaApr"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaApr}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta May"
+                                       />
+                                <Label Name="LBL02_DeltaMay"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaMay}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Jun"
+                                       />
+                                <Label Name="LBL02_DeltaJun"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaJun}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Jul"
+                                       />
+                                <Label Name="LBL02_DeltaJul"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaJul}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Aug"
+                                       />
+                                <Label Name="LBL02_DeltaAug"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaAug}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Sep"
+                                       />
+                                <Label Name="LBL02_DeltaSep"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaSep}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Oct"
+                                       />
+                                <Label Name="LBL02_DeltaOct"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaOct}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Nov"
+                                       />
+                                <Label Name="LBL02_DeltaNov"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaNov}"
+                                       ContentStringFormat="{}{0:0.00}"
+                                       />
+                            </Grid>
+                            <Grid Visibility="{Binding ElementName=K8UC02, Path=SelectedCategory.CategoryValuesRelativeTo1st, Converter={StaticResource TrueIsVisible}, ConverterParameter=False}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Label HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       Content="Delta Dec"
+                                       />
+                                <Label Name="LBL02_DeltaDec"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Top"
+                                       Content="{Binding ElementName=K8UC02, Path=SelectedCategory.CurveDeltaDec}"
                                        ContentStringFormat="{}{0:0.00}"
                                        />
                             </Grid>
@@ -612,17 +975,17 @@
                     </ScrollViewer>
                     <Viewbox Name="VWBX02"
                              Grid.Column="1"
-                             MaxWidth="1000"
-                             Margin="0,00,0,0"
-                             HorizontalAlignment="Right"
+                             Margin="0,0,0,0"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
                              Stretch="Uniform"
                              >
 
                         <Canvas Name="CNVS02_Chart"
                                 Width="800"
                                 Height="400"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
                                 Background="Beige"
                                 />
                     </Viewbox>

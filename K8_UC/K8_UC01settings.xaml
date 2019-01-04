@@ -56,21 +56,35 @@
                 <TabItem Header="Categories">
                     <Grid Style="{StaticResource GRD_Margin05}">
                         <Grid.RowDefinitions>
-                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <TextBox x:Name="TXTBX01_CategoryName"
+                        <ComboBox x:Name="CMBBX01_CategoryNames"
+                                  Width="200"
+                                  Margin="150,0,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  Text="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.CategoryName, Mode=OneWay}"
+                                  >
+                            <ComboBoxItem Content="WetterMin" />
+                            <ComboBoxItem Content="WetterMax" />
+                            <ComboBoxItem Content="Elektro" />
+                            <ComboBoxItem Content="Wasser" />
+                            <ComboBoxItem Content="Gas" />
+
+                        </ComboBox>
+                        <!--<TextBox x:Name="TXTBX01_CategoryName"
                                  Width="200"
                                  Height="23"
-                                 Margin="150,0,0,0"
+                                 Margin="150,3,0,0"
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Top"
                                  VerticalContentAlignment="Center"
                                  Text="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.CategoryName, Mode=OneWay}"
                                  TextWrapping="NoWrap"
-                                 />
+                                 />-->
                         <ComboBox x:Name="CMBBX01_CategoryUnits"
                                   Width="200"
                                   Margin="150,30,0,0"
@@ -85,6 +99,13 @@
                                   VerticalAlignment="Top"
                                   Content="Is Enabled"
                                   IsChecked="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.CategoryIsEnabled, Mode=OneWay}"
+                                  />
+                        <CheckBox x:Name="CHKBX01_CategoryRelativeTo1st"
+                                  Margin="255,90,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  Content="Values relative to 1st value"
+                                  IsChecked="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.CategoryValuesRelativeTo1st, Mode=OneWay}"
                                   />
                         <TextBox x:Name="TXTBX01_CategoryYear"
                                  Width="100"
@@ -147,7 +168,7 @@
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Top"
                                  VerticalContentAlignment="Center"
-                                 Text="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.CategoryChartColor, Mode=OneWay}"
+                                 Text="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.CategoryChartColor, Mode=OneWay, FallbackValue=#FFFF0000}"
                                  TextWrapping="NoWrap"
                                  />
                         <Label x:Name="LBL01_CatName"
@@ -246,6 +267,9 @@
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryIsEnabled}">
                                         <GridViewColumnHeader Padding="15,3,15,3" Content="Category Enabled" />
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryValuesRelativeTo1st}">
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Category RelativeTo1st" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryChartColor}">
                                         <GridViewColumnHeader Padding="15,3,15,3" Content="Chart Color" />
