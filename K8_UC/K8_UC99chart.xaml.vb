@@ -197,13 +197,25 @@ Public Class K8_UC99chart
 
     End Sub
 
-    Public Sub AddCurveToChart(ByRef CurveToAdd As ObservableCollection(Of K8_CL03measurement))
+    Public Sub AddCurveToChart(ByRef CurveToAdd As ObservableCollection(Of K8_CL03measurement), HighliteCurve As Boolean)
 
         Dim ItemCounter As Int32 = 0
         Dim Xold As Decimal
         Dim Yold As Decimal
         Dim ChartLine As New Line
         Dim FirstValue As Decimal = 0
+
+        Dim Curve_StrokeThickness As Double = 1
+        Dim Curve_StrokeDashArray As New DoubleCollection From {2, 2}
+        If SelectedCategory.CategoryChartColor Is Nothing Then SelectedCategory.CategoryChartColor = "#FFFF0000"
+        Dim Curve_Color As Windows.Media.Color = CType(ColorConverter.ConvertFromString(SelectedCategory.CategoryChartColor), Color)
+        Dim Curve_Brush As Windows.Media.Brush = New SolidColorBrush(Curve_Color)
+
+        If HighliteCurve = True Then
+            Curve_StrokeThickness = 2
+            Curve_StrokeDashArray = New DoubleCollection From {1, 0}
+            Curve_Brush = Brushes.Black
+        End If
 
         For Each item In CurveToAdd
             ItemCounter += 1
@@ -212,19 +224,18 @@ Public Class K8_UC99chart
             If ItemCounter > 1 Then
                 ChartLine = New Line
                 With ChartLine
-                    If SelectedCategory.CategoryChartColor Is Nothing Then SelectedCategory.CategoryChartColor = "#FFFF0000"
-                    Dim MyCol As Windows.Media.Color = CType(ColorConverter.ConvertFromString(SelectedCategory.CategoryChartColor), Color)
-
-                    Dim MyBrush As Windows.Media.Brush = New SolidColorBrush(MyCol)
-                    .Fill = MyBrush
-                    .Stroke = MyBrush
-                    .StrokeThickness = 2
-                    .StrokeDashArray = New DoubleCollection() From {2, 2}
+                    .Fill = Curve_Brush
+                    .Stroke = Curve_Brush
+                    .StrokeThickness = Curve_StrokeThickness
+                    .StrokeDashArray = Curve_StrokeDashArray
                     .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (Yold - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
                     .Y2 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (item.MeasValue - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
                     .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xold)
                     .X2 = CNVSmarginLeft + (ChartWidthPixel / 365 * item.MeasDayOfYear)
                 End With
+
+
+
             End If
 
             Xold = item.MeasDayOfYear

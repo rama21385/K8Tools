@@ -9,7 +9,7 @@ Public Class K8_UC01settings
         ' Dieser Aufruf ist für den Designer erforderlich.
         InitializeComponent()
 
-        LSTVW01_Categories.DataContext = KiebitzCats
+        LSTVW01_Categories.DataContext = KiebitzCategories
 
         'K8_CL02category.LoadXMLIntoCollection()
 
@@ -28,13 +28,13 @@ Public Class K8_UC01settings
 
         If sender Is BTN01_CategoryAdd Then
 
-            For Each TempCategory In KiebitzCats
+            For Each TempCategory In KiebitzCategories
                 If TempCatID = TempCategory.CategoryInternalID Then
                     Exit Sub
                 End If
             Next
 
-            KiebitzCats.Add(New K8_CL02category With {
+            KiebitzCategories.Add(New K8_CL02category With {
                             .CategoryStatus = K8ENUMS.CollectionItemStatus.add,
                             .CategoryIsEnabled = CBool(CHKBX01_CategoryEnabled.IsChecked),
                             .CategoryValuesRelativeTo1st = CBool(CHKBX01_CategoryRelativeTo1st.IsChecked),
@@ -47,7 +47,7 @@ Public Class K8_UC01settings
                             .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text))})
 
         ElseIf sender Is BTN01_CategoryModify Then
-            For Each TempCategory In KiebitzCats
+            For Each TempCategory In KiebitzCategories
                 If TempCatID = TempCategory.CategoryInternalID Then
                     With TempCategory
                         .CategoryStatus = K8ENUMS.CollectionItemStatus.modify
@@ -65,7 +65,7 @@ Public Class K8_UC01settings
                 End If
             Next
         ElseIf sender Is BTN01_CategoryDelete Then
-            For Each TempCategory In KiebitzCats
+            For Each TempCategory In KiebitzCategories
                 If TempCatID = TempCategory.CategoryInternalID Then
                     If TempCategory.CategoryStatus = K8ENUMS.CollectionItemStatus.delete Then
                         TempCategory.CategoryStatus = K8ENUMS.CollectionItemStatus.none
@@ -88,7 +88,7 @@ Public Class K8_UC01settings
             K8_CL02category.SaveCollectionAsXML()
         ElseIf sender Is BTN01_EXITnosave Then
             K8_CL02category.LoadXMLIntoCollection()
-            LSTVW01_Categories.DataContext = KiebitzCats
+            LSTVW01_Categories.DataContext = KiebitzCategories
         End If
 
     End Sub

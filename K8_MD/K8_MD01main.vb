@@ -12,8 +12,8 @@ Module K8_MD01main
 
     Public NumberOfActiveMenu As UserControlItems
 
-    Public KiebitzCats As New ObservableCollection(Of K8_CL02category)
-    Public KiebitzCurve As New ObservableCollection(Of K8_CL03measurement)
+    Public KiebitzCategories As New ObservableCollection(Of K8_CL02category)
+    Public KiebitzMeasCurve As New ObservableCollection(Of K8_CL03measurement)
     Public KiebitzAnalyse As New ObservableCollection(Of K8_CL04analyse)
     Public KiebitzAllAnalysis As New ObservableCollection(Of K8_CL05analysis)
 
@@ -25,5 +25,11 @@ Module K8_MD01main
     Public ListOfHalfYears() As Int32 = {0, 31 + 29 + 31 + 30 + 31 + 30,
                                             31 + 31 + 30 + 31 + 30 + 31}
     Public ListOfYear() As Int32 = {0, 366}
+
+    Public K8_DirHome As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\..\Kiebitz8\"
+    Public K8_DirCSV As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\..\Kiebitz8\Import_CSV\"
+    Public K8_DirReport As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\..\Kiebitz8\Reports\"
+    Public K8_DirSettings As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\..\Kiebitz8\Settings\"
+
 
 End Module

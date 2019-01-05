@@ -42,7 +42,7 @@ Public Class K8_CL05analysis
         If KiebitzAllAnalysis.Count = 0 Then Exit Sub
 
         Dim xs As New XmlSerializer(KiebitzAllAnalysis.GetType, "AllAnalysis")
-        Dim tw As TextWriter = New StreamWriter("AllAnalysis.xml", False)
+        Dim tw As TextWriter = New StreamWriter(K8_DirSettings & "AllAnalysis.xml", False)
         xs.Serialize(tw, KiebitzAllAnalysis)
         tw.Close()
 
@@ -53,10 +53,10 @@ Public Class K8_CL05analysis
 
         KiebitzAllAnalysis.Clear()
 
-        If File.Exists("AllAnalysis.xml") = True Then
+        If File.Exists(K8_DirSettings & "AllAnalysis.xml") = True Then
 
             Dim document As New XmlDocument
-            document.Load("AllAnalysis.xml")
+            document.Load(K8_DirSettings & "AllAnalysis.xml")
             Dim LoadedNamespace As String = document.DocumentElement.NamespaceURI
 
             Dim xs As New XmlSerializer(KiebitzAllAnalysis.GetType, "AllAnalysis")

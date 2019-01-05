@@ -126,6 +126,7 @@
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          ItemsSource="{Binding}"
+                         SelectionChanged="LoadAndSortTheList"
                          SelectionMode="Single"
                          >
                     <ListBox.ItemTemplate>

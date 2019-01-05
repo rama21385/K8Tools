@@ -109,44 +109,48 @@ Public Class K8_CL03measurement
     End Property
 
 
-    Public Shared Sub SaveCollectionAsXML()
+    Public Shared Sub SaveCollectionAsXML(CategoryName As String)
 
-        If KiebitzCurve.Count = 0 Then Exit Sub
+        If KiebitzMeasCurve.Count = 0 Then Exit Sub
 
-        For Each item In KiebitzCurve.ToList 'otherwise error because removing an item from a list makes the list shorter than it was at the beginning of the loop
+        For Each item In KiebitzMeasCurve.ToList 'otherwise error because removing an item from a list makes the list shorter than it was at the beginning of the loop
             If item.MeasStatus = CollectionItemStatus.delete Then
-                KiebitzCurve.Remove(item)
+                KiebitzMeasCurve.Remove(item)
             Else
                 item.MeasStatus = CollectionItemStatus.none
             End If
         Next
 
-        Dim xs As New XmlSerializer(KiebitzCurve.GetType, KiebitzCurve.Item(0).CategoryInternalID) '"K8_CL03curve")
-        Dim tw As TextWriter = New StreamWriter(KiebitzCurve.Item(0).CategoryInternalID & ".xml", False)
-        xs.Serialize(tw, KiebitzCurve)
+        If System.IO.Directory.Exists(K8_DirHome & CategoryName) = False Then
+            System.IO.Directory.CreateDirectory(K8_DirHome & CategoryName)
+        End If
+
+        Dim xs As New XmlSerializer(KiebitzMeasCurve.GetType, KiebitzMeasCurve.Item(0).CategoryInternalID) '"K8_CL03curve")
+        Dim tw As TextWriter = New StreamWriter(K8_DirHome & CategoryName & "\" & KiebitzMeasCurve.Item(0).CategoryInternalID & ".xml", False)
+        xs.Serialize(tw, KiebitzMeasCurve)
         tw.Close()
 
     End Sub
 
 
-    Public Shared Sub LoadXMLIntoCollection(ByRef TempCategoryID As String)
+    Public Shared Sub LoadXMLIntoCollection(ByRef TempCategoryID As String, CategoryName As String)
 
-        KiebitzCurve.Clear()
+        KiebitzMeasCurve.Clear()
 
-        If File.Exists(TempCategoryID & ".xml") = True Then
+        If File.Exists(K8_DirHome & CategoryName & "\" & TempCategoryID & ".xml") = True Then
 
             Dim document As New XmlDocument
-            document.Load(TempCategoryID & ".xml")
+            document.Load(K8_DirHome & CategoryName & "\" & TempCategoryID & ".xml")
             Dim LoadedNamespace As String = document.DocumentElement.NamespaceURI
 
-            Dim xs As New XmlSerializer(KiebitzCurve.GetType, TempCategoryID)
+            Dim xs As New XmlSerializer(KiebitzMeasCurve.GetType, TempCategoryID)
             Dim stream As New MemoryStream
             document.Save(stream)
             stream.Flush()
             stream.Position = 0
 
             If LoadedNamespace = TempCategoryID Then
-                KiebitzCurve = CType(xs.Deserialize(stream), ObservableCollection(Of K8_CL03measurement))
+                KiebitzMeasCurve = CType(xs.Deserialize(stream), ObservableCollection(Of K8_CL03measurement))
                 'eventually run updates
             Else
                 Beep()

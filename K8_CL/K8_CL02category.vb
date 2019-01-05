@@ -583,17 +583,22 @@ Public Class K8_CL02category
 
     Public Shared Sub SaveCollectionAsXML()
 
-        For Each item In KiebitzCats.ToList 'otherwise error because removing an item from a list makes the list shorter than it was at the beginning of the loop
+        For Each item In KiebitzCategories.ToList 'otherwise error because removing an item from a list makes the list shorter than it was at the beginning of the loop
+
+            If System.IO.Directory.Exists(K8_DirHome & item.CategoryName) = False Then
+                System.IO.Directory.CreateDirectory(K8_DirHome & item.CategoryName.ToUpper)
+            End If
+
             If item.CategoryStatus = CollectionItemStatus.delete Then
-                KiebitzCats.Remove(item)
+                KiebitzCategories.Remove(item)
             Else
                 item.CategoryStatus = CollectionItemStatus.none
             End If
         Next
 
-        Dim xs As New XmlSerializer(KiebitzCats.GetType, "K8_CL02category")
-        Dim tw As TextWriter = New StreamWriter("K8_Categories.xml")
-        xs.Serialize(tw, KiebitzCats)
+        Dim xs As New XmlSerializer(KiebitzCategories.GetType, "K8_CL02category")
+        Dim tw As TextWriter = New StreamWriter(K8_DirSettings & "K8_Categories.xml")
+        xs.Serialize(tw, KiebitzCategories)
         tw.Close()
 
     End Sub
@@ -601,22 +606,22 @@ Public Class K8_CL02category
 
     Public Shared Sub LoadXMLIntoCollection()
 
-        KiebitzCats.Clear()
+        KiebitzCategories.Clear()
 
-        If File.Exists("K8_Categories.xml") = True Then
+        If File.Exists(K8_DirSettings & "K8_Categories.xml") = True Then
 
             Dim document As New XmlDocument
-            document.Load("K8_Categories.xml")
+            document.Load(K8_DirSettings & "K8_Categories.xml")
             Dim LoadedNamespace As String = document.DocumentElement.NamespaceURI
 
-            Dim xs As New XmlSerializer(KiebitzCats.GetType, "K8_CL02category")
+            Dim xs As New XmlSerializer(KiebitzCategories.GetType, "K8_CL02category")
             Dim stream As New MemoryStream
             document.Save(stream)
             stream.Flush()
             stream.Position = 0
 
             If LoadedNamespace = "K8_CL02category" Then
-                KiebitzCats = CType(xs.Deserialize(stream), ObservableCollection(Of K8_CL02category))
+                KiebitzCategories = CType(xs.Deserialize(stream), ObservableCollection(Of K8_CL02category))
                 'eventually run updates
             Else
                 Beep()

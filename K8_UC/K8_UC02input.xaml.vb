@@ -50,8 +50,8 @@ Public Class K8_UC02input
 
         ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
 
-        CMBBX02_Category.DataContext = KiebitzCats
-        DTGRD02_Measurements.DataContext = KiebitzCurve
+        CMBBX02_Category.DataContext = KiebitzCategories
+        DTGRD02_Measurements.DataContext = KiebitzMeasCurve
 
         CMBBX02_Category.SelectedIndex = -1
 
@@ -74,7 +74,7 @@ Public Class K8_UC02input
 
         Dim CurveItemFound As Boolean = False
 
-        For Each CurveItem In KiebitzCurve
+        For Each CurveItem In KiebitzMeasCurve
             If CurveItem.MeasDate = NewDate Then
                 CurveItemFound = True
                 Exit For
@@ -83,7 +83,7 @@ Public Class K8_UC02input
 
         If CurveItemFound = False Then
 
-            KiebitzCurve.Add(New K8_CL03measurement With {
+            KiebitzMeasCurve.Add(New K8_CL03measurement With {
                 .CategoryInternalID = CStr(CMBBX02_Category.SelectedValue),
                 .MeasComment = TXTBX0_MeasComment.Text,
                 .MeasValue = CDec(Val(TXTBX0_MeasValue.Text)),
@@ -93,8 +93,8 @@ Public Class K8_UC02input
                 .MeasStatus = K8ENUMS.CollectionItemStatus.add})
 
 
-            DTGRD02_Measurements.DataContext = KiebitzCurve
-            DTGRD02_Measurements.ScrollIntoView(KiebitzCurve.Item(KiebitzCurve.Count - 1))
+            DTGRD02_Measurements.DataContext = KiebitzMeasCurve
+            DTGRD02_Measurements.ScrollIntoView(KiebitzMeasCurve.Item(KiebitzMeasCurve.Count - 1))
 
             RefreshChart()
 
@@ -106,7 +106,7 @@ Public Class K8_UC02input
 
         Dim SelItem As New K8_CL03measurement
         SelItem = CType(DTGRD02_Measurements.SelectedItem, K8_CL03measurement)
-        KiebitzCurve.Remove(SelItem)
+        KiebitzMeasCurve.Remove(SelItem)
 
         RefreshChart()
 
@@ -127,15 +127,15 @@ Public Class K8_UC02input
 
         ChangesMade = False
         Dim TempCategoryID As String = CStr(CMBBX02_Category.SelectedValue)
-        K8_CL03measurement.LoadXMLIntoCollection(TempCategoryID)
+        K8_CL03measurement.LoadXMLIntoCollection(TempCategoryID, TempCategoryID.Substring(0, InStr(TempCategoryID, "_") - 1))
 
-        For Each item In KiebitzCurve
+        For Each item In KiebitzMeasCurve
             item.CategoryInternalID = TempCategoryID
         Next
 
-        DTGRD02_Measurements.DataContext = KiebitzCurve
+        DTGRD02_Measurements.DataContext = KiebitzMeasCurve
 
-        For Each CategoryItem In KiebitzCats
+        For Each CategoryItem In KiebitzCategories
             If CategoryItem.CategoryInternalID = TempCategoryID Then
                 SelectedCategory = CategoryItem
                 Exit For
@@ -155,7 +155,7 @@ Public Class K8_UC02input
     Private Sub SaveSettings(sender As Object, e As RoutedEventArgs)
 
         If sender Is BTN02_SAVEsettings Then
-            K8_CL03measurement.SaveCollectionAsXML()
+            K8_CL03measurement.SaveCollectionAsXML(SelectedCategory.CategoryName)
             K8_CL02category.SaveCollectionAsXML()
         ElseIf sender Is BTN02_EXITnosave Then
             CloseMe(Nothing, Nothing)
@@ -174,13 +174,18 @@ Public Class K8_UC02input
 
         Dim CSVselect As New K8_WW01
         CSVselect.WindowStartupLocation = WindowStartupLocation.CenterOwner
+
+        CSVselect.Owner = Application.Current.MainWindow
+        CSVselect.StartFolder = K8_DirCSV
+        CSVselect.ShowExistingFiles()
         CSVselect.ShowDialog()
         If CSVselect.DialogResult = False Then Exit Sub
 
-        KiebitzCurve.Clear()
+        KiebitzMeasCurve.Clear()
 
         Dim Dateiname As String = CStr(CSVselect.SelectedCSVfile)
-        Using csvParser As New TextFieldParser(Dateiname)
+
+        Using csvParser As New TextFieldParser(K8_DirCSV & "\" & Dateiname)
             With csvParser
                 ' Feld-Trennzeichen
                 .SetDelimiters(";")
@@ -201,7 +206,7 @@ Public Class K8_UC02input
                         If Val(CurveDate(2)) < 2000 Then CurveDate(2) = CStr(Val(CurveDate(2)) + 2000)
                         If FieldData(0) <> String.Empty And FieldData(1) <> String.Empty Then
 
-                            KiebitzCurve.Add(New K8_CL03measurement With {
+                            KiebitzMeasCurve.Add(New K8_CL03measurement With {
                                 .CategoryInternalID = CStr(CMBBX02_Category.SelectedValue),
                                 .MeasComment = String.Empty,
                                 .MeasValue = CDec(Val(FieldData(1).Replace(",", "."))),
@@ -217,8 +222,8 @@ Public Class K8_UC02input
         End Using
 
 
-        DTGRD02_Measurements.DataContext = KiebitzCurve
-        DTGRD02_Measurements.ScrollIntoView(KiebitzCurve.Item(KiebitzCurve.Count - 1))
+        DTGRD02_Measurements.DataContext = KiebitzMeasCurve
+        DTGRD02_Measurements.ScrollIntoView(KiebitzMeasCurve.Item(KiebitzMeasCurve.Count - 1))
 
         RefreshChart()
 
@@ -229,8 +234,8 @@ Public Class K8_UC02input
         CalculateStatistics()
         SingleCurveChart.SelectedCategory = SelectedCategory
         SingleCurveChart.RefreshChart()
-        SingleCurveChart.AddCurveToChart(KiebitzCurve)
-        SingleCurveChart.AddStatisticLinesToChart(KiebitzCurve)
+        SingleCurveChart.AddCurveToChart(KiebitzMeasCurve, False)
+        SingleCurveChart.AddStatisticLinesToChart(KiebitzMeasCurve)
         ChangesMade = True
 
     End Sub
@@ -364,7 +369,7 @@ Public Class K8_UC02input
         Dim CurveDeltaDecb As Decimal = 0
         Dim CurveDeltaDec As Boolean = False
 
-        For Each CurveItem In KiebitzCurve
+        For Each CurveItem In KiebitzMeasCurve
             CurveNrItems += 1
             CurveItemsSum += CurveItem.MeasValue
             If CurveItem.MeasValue < SelectedCategory.CurveMin Then SelectedCategory.CurveMin = CurveItem.MeasValue
@@ -544,7 +549,7 @@ Public Class K8_UC02input
             SelectedCategory.CurveAvgNov = CurveItemsSumNov / CurveNrItemsNov
             SelectedCategory.CurveAvgDec = CurveItemsSumDec / CurveNrItemsDec
 
-            SelectedCategory.CurveDeltaYear = KiebitzCurve(KiebitzCurve.Count - 1).MeasValue - KiebitzCurve(0).MeasValue
+            SelectedCategory.CurveDeltaYear = KiebitzMeasCurve(KiebitzMeasCurve.Count - 1).MeasValue - KiebitzMeasCurve(0).MeasValue
             SelectedCategory.CurveDeltaHJ1 = CurveDeltaHJ1b - CurveDeltaHJ1a
             SelectedCategory.CurveDeltaHJ2 = CurveDeltaHJ2b - CurveDeltaHJ2a
             SelectedCategory.CurveDeltaQ1 = CurveDeltaQ1b - CurveDeltaQ1a

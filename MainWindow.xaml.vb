@@ -7,6 +7,14 @@ Class MainWindow
         ' Dieser Aufruf ist für den Designer erforderlich.
         InitializeComponent()
 
+        For Each K8Dir In {K8_DirHome, K8_DirCSV, K8_DirReport, K8_DirSettings}
+
+            If System.IO.Directory.Exists(K8Dir) = False Then
+                System.IO.Directory.CreateDirectory(K8Dir)
+            End If
+
+        Next
+
         K8_CL02category.LoadXMLIntoCollection()
 
     End Sub

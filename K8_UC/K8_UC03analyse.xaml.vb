@@ -24,7 +24,7 @@ Public Class K8_UC03analyse
         K8_CL05analysis.LoadXMLIntoCollection()
 
         CMBBX03_AnalysisCollection.DataContext = KiebitzAllAnalysis
-        LSTBX03_CategoriesLoaded.DataContext = KiebitzCats
+        LSTBX03_CategoriesLoaded.DataContext = KiebitzCategories
 
         ResetChart()
 
@@ -42,9 +42,9 @@ Public Class K8_UC03analyse
             For Each CollItem As K8_CL04analyse In LSTBX03_Categories.Items
                 CounterChart += 1
 
-                K8_CL03measurement.LoadXMLIntoCollection(CollItem.AnalyseCategoryName)
+                K8_CL03measurement.LoadXMLIntoCollection(CollItem.AnalyseCategoryName, CollItem.AnalyseCategoryName.Substring(0, InStr(CollItem.AnalyseCategoryName, "_") - 1))
 
-                For Each CategoryItem In KiebitzCats
+                For Each CategoryItem In KiebitzCategories
                     If CategoryItem.CategoryInternalID = CollItem.AnalyseCategoryName Then
                         SelectedCategory = CategoryItem
                         Exit For
@@ -54,7 +54,11 @@ Public Class K8_UC03analyse
                 MultiCurveChartLeft.SelectedCategory = SelectedCategory
                 If CounterChart = 1 Then MultiCurveChartLeft.RefreshChart()
 
-                MultiCurveChartLeft.AddCurveToChart(KiebitzCurve)
+                If LSTBX03_Categories.SelectedItem Is CollItem Then
+                    MultiCurveChartLeft.AddCurveToChart(KiebitzMeasCurve, True)
+                Else
+                    MultiCurveChartLeft.AddCurveToChart(KiebitzMeasCurve, False)
+                End If
 
             Next
         End If
@@ -124,7 +128,7 @@ Public Class K8_UC03analyse
                     If ItemOfCollection.AnalyseCategoryName Is LSTBX03_CategoriesLoaded.SelectedValue Then Exit Sub
                 Next
 
-                For Each CategoryItem In KiebitzCats
+                For Each CategoryItem In KiebitzCategories
                     If CategoryItem.CategoryInternalID = LSTBX03_CategoriesLoaded.SelectedValue.ToString Then
                         SelectedCategory = CategoryItem
                         Exit For
@@ -154,7 +158,7 @@ Public Class K8_UC03analyse
         If sender Is BTN03_Update Then
 
             For Each CollItem In KiebitzAllAnalysis(CMBBX03_AnalysisCollection.SelectedIndex).AnalysisCollectionItems
-                For Each LoadedItem In KiebitzCats
+                For Each LoadedItem In KiebitzCategories
                     If LoadedItem.CategoryInternalID = CollItem.AnalyseCategoryName Then
                         CollItem.AnalyseCategoryColor = LoadedItem.CategoryChartColor
                         Exit For
