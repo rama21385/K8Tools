@@ -979,16 +979,7 @@
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch"
                              Stretch="Uniform"
-                             >
-
-                        <Canvas Name="CNVS02_Chart"
-                                Width="800"
-                                Height="400"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Background="Beige"
-                                />
-                    </Viewbox>
+                             />
                 </Grid>
             </Grid>
         </Grid>

@@ -233,7 +233,7 @@ Public Class K8_UC02input
 
         CalculateStatistics()
         SingleCurveChart.SelectedCategory = SelectedCategory
-        SingleCurveChart.RefreshChart()
+        SingleCurveChart.RefreshChart(False)
         SingleCurveChart.AddCurveToChart(KiebitzMeasCurve, False)
         SingleCurveChart.AddStatisticLinesToChart(KiebitzMeasCurve)
         ChangesMade = True

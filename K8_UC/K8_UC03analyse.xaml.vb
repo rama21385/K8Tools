@@ -11,8 +11,8 @@ Public Class K8_UC03analyse
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
 
-    Dim MultiCurveChartLeft As New K8_UC99chart
-    Dim MultiCurveChartRight As New K8_UC99chart
+    Dim MultiCurveChart1 As New K8_UC99chart
+    Dim MultiCurveChart2 As New K8_UC99chart
     Private SelectedCategory As New K8_CL02category
 
     Public Sub New()
@@ -25,6 +25,7 @@ Public Class K8_UC03analyse
 
         CMBBX03_AnalysisCollection.DataContext = KiebitzAllAnalysis
         LSTBX03_CategoriesLoaded.DataContext = KiebitzCategories
+
 
         ResetChart()
 
@@ -51,13 +52,21 @@ Public Class K8_UC03analyse
                     End If
                 Next
 
-                MultiCurveChartLeft.SelectedCategory = SelectedCategory
-                If CounterChart = 1 Then MultiCurveChartLeft.RefreshChart()
+
+                MultiCurveChart1.SelectedCategory = SelectedCategory
+                MultiCurveChart2.SelectedCategory = SelectedCategory
+
+                If CounterChart = 1 Then
+                    MultiCurveChart1.RefreshChart(False)
+                    MultiCurveChart2.RefreshChart(True)
+                End If
 
                 If LSTBX03_Categories.SelectedItem Is CollItem Then
-                    MultiCurveChartLeft.AddCurveToChart(KiebitzMeasCurve, True)
+                    MultiCurveChart1.AddCurveToChart(KiebitzMeasCurve, True)
+                    'MultiCurveChart2.AddCurveToChart(KiebitzMeasCurve, True)
                 Else
-                    MultiCurveChartLeft.AddCurveToChart(KiebitzMeasCurve, False)
+                    MultiCurveChart1.AddCurveToChart(KiebitzMeasCurve, False)
+                    'MultiCurveChart2.AddCurveToChart(KiebitzMeasCurve, False)
                 End If
 
             Next
@@ -98,12 +107,9 @@ Public Class K8_UC03analyse
     Private Sub ResetChart()
 
         VWBX03A.Child = Nothing
-        'MultiCurveChartLeft = New K8_UC99chart
-        VWBX03A.Child = MultiCurveChartLeft
-
+        VWBX03A.Child = MultiCurveChart1
         VWBX03B.Child = Nothing
-        'MultiCurveChartRight = New K8_UC99chart
-        VWBX03B.Child = MultiCurveChartRight
+        VWBX03B.Child = MultiCurveChart2
 
     End Sub
 
@@ -204,6 +210,16 @@ Public Class K8_UC03analyse
             KiebitzAllAnalysis.Add(New K8_CL05analysis With {.AnalysisCollectionName = TXTBX03_CollectionName.Text.Trim, .AnalysisCollectionItems = New ObservableCollection(Of K8_CL04analyse)})
             CMBBX03_AnalysisCollection.SelectedIndex = CMBBX03_AnalysisCollection.Items.Count - 1
         End If
+
+    End Sub
+
+    Private Sub ChangeOrderOfChart(sender As Object, e As RoutedEventArgs)
+
+        VWBX03A.Visibility = Visibility.Hidden
+        VWBX03B.Visibility = Visibility.Hidden
+
+        If sender Is RDBTN_VWBX01 Then VWBX03A.Visibility = Visibility.Visible
+        If sender Is RDBTN_VWBX02 Then VWBX03B.Visibility = Visibility.Visible
 
     End Sub
 End Class

@@ -1,4 +1,5 @@
-﻿Imports System.Drawing
+﻿Imports System.ComponentModel
+Imports System.Drawing
 Imports MRLColorPicker
 
 Public Class K8_UC01settings
@@ -45,6 +46,12 @@ Public Class K8_UC01settings
                             .CategoryChartColor = TXTBX01_CategoryColor.Text,
                             .CategoryChartYMin = CInt(Val(TXTBX01_ChartMin.Text)),
                             .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text))})
+
+            LSTVW01_Categories.Items.SortDescriptions.Clear()
+            LSTVW01_Categories.Items.SortDescriptions.Add(New SortDescription("CategoryInternalID", ListSortDirection.Ascending))
+            LSTVW01_Categories.Items.Refresh()
+
+
 
         ElseIf sender Is BTN01_CategoryModify Then
             For Each TempCategory In KiebitzCategories

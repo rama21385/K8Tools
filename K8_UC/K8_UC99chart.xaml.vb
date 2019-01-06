@@ -23,10 +23,12 @@ Public Class K8_UC99chart
 
     End Sub
 
-    Public Sub RefreshChart()
+    Public Sub RefreshChart(StatisticChart As Boolean)
 
         Dim ChartMonths As Int32 = 0
         Dim ChartMonthIndex As Int32 = 0
+        Dim ChartStatItems As Int32 = 0
+        Dim ChartStatItemIndex As Int32 = 0
         Dim Xticks As New Line
         Dim Xgrid As New Line
 
@@ -77,35 +79,63 @@ Public Class K8_UC99chart
         Next
 
 
+        If StatisticChart = False Then
+            For Each ChartMonth As Int32 In ListOfMonths
+                ChartMonths += ChartMonth
+                ChartMonthIndex += 1
+                Xgrid = New Line
+                Xticks = New Line
 
-        For Each ChartMonth As Int32 In ListOfMonths
-            ChartMonths += ChartMonth
-            ChartMonthIndex += 1
-            Xgrid = New Line
-            Xticks = New Line
+                DesignXgridMonth(Xgrid, ChartMonths, 366)
+                DesignXticksMonth(Xticks, ChartMonths, 366)
 
-            DesignXgrid(Xgrid, ChartMonths)
-            DesignXticks(Xticks, ChartMonths)
+                CNVS99.Children.Add(Xgrid)
+                CNVS99.Children.Add(Xticks)
 
-            CNVS99.Children.Add(Xgrid)
-            CNVS99.Children.Add(Xticks)
+                If ChartMonthIndex <= 12 Then
 
-            If ChartMonthIndex <= 12 Then
+                    Dim XaxisLabelMonths As New TextBlock
+                    DesignXaxisMonthLabels(XaxisLabelMonths, ChartMonthIndex, ChartMonths, 366)
+                    CNVS99.Children.Add(XaxisLabelMonths)
 
-                Dim XaxisLabelMonths As New TextBlock
-                DesignXaxislabels(XaxisLabelMonths, ChartMonthIndex, ChartMonths)
-                CNVS99.Children.Add(XaxisLabelMonths)
+                End If
+            Next
 
-            End If
-        Next
+            Dim AxisX As New Line
+            DesignXaxis(AxisX)
+            CNVS99.Children.Add(AxisX)
+        Else
+            'ListOfStatItems = ListOfMonths
+            For Each ChartStatItem As Int32 In ListOfStatItems
+                ChartStatItems += ChartStatItem
+                ChartStatItemIndex += 1
+                Xgrid = New Line
+                Xticks = New Line
+
+                DesignXgridMonth(Xgrid, ChartStatItems, 100)
+                DesignXticksMonth(Xticks, ChartStatItems, 100)
+
+                CNVS99.Children.Add(Xgrid)
+                CNVS99.Children.Add(Xticks)
+
+                'If ChartMonthIndex <= 12 Then
+
+                '    Dim XaxisLabelMonths As New TextBlock
+                '    DesignXaxisMonthLabels(XaxisLabelMonths, ChartMonthIndex, ChartMonths, 100)
+                '    CNVS99.Children.Add(XaxisLabelMonths)
+
+                'End If
+            Next
+
+            Dim AxisX As New Line
+            DesignXaxis(AxisX)
+            CNVS99.Children.Add(AxisX)
+        End If
 
         Dim AxisY As New Line
         DesignYaxis(AxisY)
         CNVS99.Children.Add(AxisY)
 
-        Dim AxisX As New Line
-        DesignXaxis(AxisX)
-        CNVS99.Children.Add(AxisX)
 
 
     End Sub
@@ -153,8 +183,8 @@ Public Class K8_UC99chart
                     .StrokeThickness = 2
                     .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Ymonth) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
                     .Y2 = .Y1
-                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xold)
-                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 365 * ChartMonths)
+                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 366 * Xold)
+                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 366 * ChartMonths)
                 End With
 
                 CNVS99.Children.Add(ChartLine)
@@ -186,8 +216,8 @@ Public Class K8_UC99chart
                     .StrokeThickness = 2
                     .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Ymonth) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
                     .Y2 = .Y1
-                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xold)
-                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 365 * ChartQuarters)
+                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 366 * Xold)
+                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 366 * ChartQuarters)
                 End With
 
                 CNVS99.Children.Add(ChartLine)
@@ -230,11 +260,9 @@ Public Class K8_UC99chart
                     .StrokeDashArray = Curve_StrokeDashArray
                     .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (Yold - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
                     .Y2 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (item.MeasValue - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
-                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xold)
-                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 365 * item.MeasDayOfYear)
+                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 366 * Xold)
+                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 366 * item.MeasDayOfYear)
                 End With
-
-
 
             End If
 
@@ -303,7 +331,7 @@ Public Class K8_UC99chart
 
     End Sub
 
-    Private Sub DesignXgrid(ByRef Xgrid As Line, Xpos As Int32)
+    Private Sub DesignXgridMonth(ByRef Xgrid As Line, Xpos As Int32, Xgridmax As Int32)
 
         With Xgrid
             .Fill = Brushes.LightGray
@@ -311,13 +339,13 @@ Public Class K8_UC99chart
             .StrokeThickness = 1
             .Y1 = CNVSheight - CNVSmarginBottom
             .Y2 = 0 + CNVSmarginTop
-            .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xpos)
+            .X1 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * Xpos)
             .X2 = .X1
         End With
 
     End Sub
 
-    Private Sub DesignXticks(ByRef Xticks As Line, Xpos As Int32)
+    Private Sub DesignXticksMonth(ByRef Xticks As Line, Xpos As Int32, Xgridmax As Int32)
 
         With Xticks
             .Fill = Windows.Media.Brushes.Black
@@ -325,13 +353,13 @@ Public Class K8_UC99chart
             .StrokeThickness = 1
             .Y1 = CNVSheight - CNVSmarginBottom - 5 + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
             .Y2 = CNVSheight - CNVSmarginBottom + 5 + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
-            .X1 = CNVSmarginLeft + (ChartWidthPixel / 365 * Xpos)
+            .X1 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * Xpos)
             .X2 = .X1
         End With
 
     End Sub
 
-    Private Sub DesignXaxislabels(ByRef XaxisLabelMonths As TextBlock, ByRef ChartMonthIndex As Int32, ByRef ChartMonths As Int32)
+    Private Sub DesignXaxisMonthLabels(ByRef XaxisLabelMonths As TextBlock, ByRef ChartMonthIndex As Int32, ByRef ChartMonths As Int32, Xgridmax As Int32)
 
         With XaxisLabelMonths
             .Text = Format(New DateTime(1968, ChartMonthIndex, 1), "MMM")
@@ -340,7 +368,7 @@ Public Class K8_UC99chart
             .FontWeight = FontWeights.Normal
             .FontFamily = New FontFamily("Arial")
         End With
-        Canvas.SetLeft(XaxisLabelMonths, CNVSmarginLeft + (ChartWidthPixel / 365 * ChartMonths) + 5)
+        Canvas.SetLeft(XaxisLabelMonths, CNVSmarginLeft + (ChartWidthPixel / Xgridmax * ChartMonths) + 5)
         Canvas.SetTop(XaxisLabelMonths, CNVSheight - CNVSmarginBottom + 5 + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin))
 
     End Sub

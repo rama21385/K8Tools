@@ -25,6 +25,7 @@ Module K8_MD01main
     Public ListOfHalfYears() As Int32 = {0, 31 + 29 + 31 + 30 + 31 + 30,
                                             31 + 31 + 30 + 31 + 30 + 31}
     Public ListOfYear() As Int32 = {0, 366}
+    Public ListOfStatItems() As Int32 = {0, 50, 100}
 
     Public K8_DirHome As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\..\Kiebitz8\"
     Public K8_DirCSV As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\..\Kiebitz8\Import_CSV\"
