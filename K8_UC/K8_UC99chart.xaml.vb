@@ -105,9 +105,8 @@ Public Class K8_UC99chart
             DesignXaxis(AxisX)
             CNVS99.Children.Add(AxisX)
         Else
-            'ListOfStatItems = ListOfMonths
             For Each ChartStatItem As Int32 In ListOfStatItems
-                ChartStatItems += ChartStatItem
+                ChartStatItems = ChartStatItem
                 ChartStatItemIndex += 1
                 Xgrid = New Line
                 Xticks = New Line
@@ -227,7 +226,7 @@ Public Class K8_UC99chart
 
     End Sub
 
-    Public Sub AddCurveToChart(ByRef CurveToAdd As ObservableCollection(Of K8_CL03measurement), HighliteCurve As Boolean)
+    Public Sub AddCurveToChart(ByRef CurveToAdd As ObservableCollection(Of K8_CL03measurement), HighliteCurve As Boolean, Xgridmax As Int32, StatisticChart As Boolean)
 
         Dim ItemCounter As Int32 = 0
         Dim Xold As Decimal
@@ -241,15 +240,15 @@ Public Class K8_UC99chart
         Dim Curve_Color As Windows.Media.Color = CType(ColorConverter.ConvertFromString(SelectedCategory.CategoryChartColor), Color)
         Dim Curve_Brush As Windows.Media.Brush = New SolidColorBrush(Curve_Color)
 
-        If HighliteCurve = True Then
+        If HighliteCurve = True Or StatisticChart=True Then
             Curve_StrokeThickness = 2
             Curve_StrokeDashArray = New DoubleCollection From {1, 0}
-            Curve_Brush = Brushes.Black
+            If StatisticChart = False Then Curve_Brush = Brushes.Black
         End If
 
         For Each item In CurveToAdd
             ItemCounter += 1
-            If ItemCounter = 1 And SelectedCategory.CategoryValuesRelativeTo1st = True Then FirstValue = item.MeasValue
+            If (ItemCounter = 1 And SelectedCategory.CategoryValuesRelativeTo1st = True) And (StatisticChart = False) Then FirstValue = item.MeasValue
 
             If ItemCounter > 1 Then
                 ChartLine = New Line
@@ -260,13 +259,21 @@ Public Class K8_UC99chart
                     .StrokeDashArray = Curve_StrokeDashArray
                     .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (Yold - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
                     .Y2 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (item.MeasValue - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
-                    .X1 = CNVSmarginLeft + (ChartWidthPixel / 366 * Xold)
-                    .X2 = CNVSmarginLeft + (ChartWidthPixel / 366 * item.MeasDayOfYear)
+                    .X1 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * Xold)
+                    If StatisticChart = False Then
+                        .X2 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * item.MeasDayOfYear)
+                    Else
+                        .X2 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * item.MeasDateYear)
+                    End If
                 End With
 
             End If
 
-            Xold = item.MeasDayOfYear
+                If StatisticChart = False Then
+                    Xold = item.MeasDayOfYear
+                Else
+                    Xold = item.MeasDateYear
+            End If
             Yold = item.MeasValue
 
             CNVS99.Children.Add(ChartLine)

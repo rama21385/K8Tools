@@ -51,6 +51,9 @@ Public Class K8_UC02input
         ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
 
         CMBBX02_Category.DataContext = KiebitzCategories
+
+        CMBBX02_Category.Items.SortDescriptions.Add(New SortDescription("CategoryInternalID", ListSortDirection.Ascending))
+
         DTGRD02_Measurements.DataContext = KiebitzMeasCurve
 
         CMBBX02_Category.SelectedIndex = -1
@@ -69,6 +72,7 @@ Public Class K8_UC02input
         Try
             NewDate = New DateTime(CInt(Val(TXTBX0_MeasYear.Text)), CInt(Val(TXTBX0_MeasMonth.Text)), CInt(Val(TXTBX0_MeasDay.Text)))
         Catch ex As Exception
+            TXTBX0_MeasDay.Focus()
             Exit Sub
         End Try
 
@@ -89,7 +93,7 @@ Public Class K8_UC02input
                 .MeasValue = CDec(Val(TXTBX0_MeasValue.Text)),
                 .MeasDateDay = CUShort(Val(TXTBX0_MeasDay.Text)),
                 .MeasDateMonth = CUShort(Val(TXTBX0_MeasMonth.Text)),
-                .MeasDateYear = CUShort((TXTBX0_MeasYear.Text)),
+                .MeasDateYear = SelectedCategory.CategoryYear,
                 .MeasStatus = K8ENUMS.CollectionItemStatus.add})
 
 
@@ -234,7 +238,7 @@ Public Class K8_UC02input
         CalculateStatistics()
         SingleCurveChart.SelectedCategory = SelectedCategory
         SingleCurveChart.RefreshChart(False)
-        SingleCurveChart.AddCurveToChart(KiebitzMeasCurve, False)
+        SingleCurveChart.AddCurveToChart(KiebitzMeasCurve, False, 366, False)
         SingleCurveChart.AddStatisticLinesToChart(KiebitzMeasCurve)
         ChangesMade = True
 
@@ -572,4 +576,30 @@ Public Class K8_UC02input
 
     End Sub
 
+    Private Sub IncreaseDecreaseDayMonth(sender As Object, e As KeyEventArgs)
+
+        Dim CurrentValue As Int32 = 0
+        Dim MaxValue As Int32 = 0
+
+        If sender Is TXTBX0_MeasDay Then
+            CurrentValue = CInt(Val(TXTBX0_MeasDay.Text))
+            MaxValue = 31
+        ElseIf sender Is TXTBX0_MeasMonth Then
+            CurrentValue = CInt(Val(TXTBX0_MeasMonth.Text))
+            MaxValue = 12
+        End If
+
+        If sender Is TXTBX0_MeasDay Or sender Is TXTBX0_MeasMonth Then
+            If e.Key = Key.Up Then
+                CurrentValue = (CurrentValue Mod MaxValue) + 1
+            ElseIf e.Key = Key.Down Then
+                CurrentValue -= 1
+                If CurrentValue = 0 Then CurrentValue = MaxValue
+            End If
+
+            TXTBX0_MeasDay.Text = CStr(CurrentValue)
+
+        End If
+
+    End Sub
 End Class

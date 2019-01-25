@@ -33,12 +33,22 @@ Public Class K8_UC03analyse
 
     Private Sub LoadAndSortTheList(sender As Object, e As SelectionChangedEventArgs)
 
+        Dim StatisticStep As Int32 = 0
         Dim CounterChart As Int32 = 0
         ResetChart()
 
         If CMBBX03_AnalysisCollection.SelectedIndex > -1 Then
 
             LSTBX03_Categories.ItemsSource = KiebitzAllAnalysis(CMBBX03_AnalysisCollection.SelectedIndex).AnalysisCollectionItems
+
+            ListOfStatItems.Clear()
+
+            StatisticStep = 100 \ (LSTBX03_Categories.Items.Count)
+            For I = 0 To 100 Step StatisticStep
+                ListOfStatItems.Add(I)
+            Next
+
+            Dim KiebitzStatCurve As New ObservableCollection(Of K8_CL03measurement)
 
             For Each CollItem As K8_CL04analyse In LSTBX03_Categories.Items
                 CounterChart += 1
@@ -52,7 +62,6 @@ Public Class K8_UC03analyse
                     End If
                 Next
 
-
                 MultiCurveChart1.SelectedCategory = SelectedCategory
                 MultiCurveChart2.SelectedCategory = SelectedCategory
 
@@ -62,14 +71,18 @@ Public Class K8_UC03analyse
                 End If
 
                 If LSTBX03_Categories.SelectedItem Is CollItem Then
-                    MultiCurveChart1.AddCurveToChart(KiebitzMeasCurve, True)
-                    'MultiCurveChart2.AddCurveToChart(KiebitzMeasCurve, True)
+                    MultiCurveChart1.AddCurveToChart(KiebitzMeasCurve, True, 366, False)
                 Else
-                    MultiCurveChart1.AddCurveToChart(KiebitzMeasCurve, False)
-                    'MultiCurveChart2.AddCurveToChart(KiebitzMeasCurve, False)
+                    MultiCurveChart1.AddCurveToChart(KiebitzMeasCurve, False, 366, False)
                 End If
 
+                KiebitzStatCurve.Add(New K8_CL03measurement With {
+                                     .MeasValue = SelectedCategory.CurveDeltaYear,
+                                     .MeasDateMonth = 1,
+                                     .MeasDateDay = 1,
+                                     .MeasDateYear = CUShort((100 \ LSTBX03_Categories.Items.Count) * CounterChart - StatisticStep \ 2)})
             Next
+            MultiCurveChart2.AddCurveToChart(KiebitzStatCurve, False, 100, True)
         End If
 
     End Sub
@@ -209,6 +222,7 @@ Public Class K8_UC03analyse
 
             KiebitzAllAnalysis.Add(New K8_CL05analysis With {.AnalysisCollectionName = TXTBX03_CollectionName.Text.Trim, .AnalysisCollectionItems = New ObservableCollection(Of K8_CL04analyse)})
             CMBBX03_AnalysisCollection.SelectedIndex = CMBBX03_AnalysisCollection.Items.Count - 1
+            TXTBX03_CollectionName.Text = String.Empty
         End If
 
     End Sub

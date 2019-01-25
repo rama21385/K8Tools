@@ -30,6 +30,7 @@
                         VerticalAlignment="Bottom"
                         Click="ImportCSV"
                         Content="CSV Import"
+                        IsEnabled="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryIsEnabled}"
                         Style="{StaticResource STLButton51}"
                         />
                 <Button x:Name="BTN02_EXITnosave"
@@ -81,6 +82,7 @@
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          HorizontalContentAlignment="Right"
+                         PreviewKeyDown="IncreaseDecreaseDayMonth"
                          Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateDay, Mode=OneWay}"
                          TextWrapping="Wrap"
                          />
@@ -103,7 +105,9 @@
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          HorizontalContentAlignment="Right"
-                         Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateYear, Mode=OneWay}"
+                         IsEnabled="False"
+                         IsReadOnly="True"
+                         Text="{Binding ElementName=CMBBX02_Category, Path=SelectedItem.CategoryYear, Mode=OneWay}"
                          TextWrapping="Wrap"
                          />
                 <TextBox x:Name="TXTBX0_MeasValue"

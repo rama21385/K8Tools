@@ -11,6 +11,7 @@ Public Class K8_UC01settings
         InitializeComponent()
 
         LSTVW01_Categories.DataContext = KiebitzCategories
+        LSTVW01_Categories.Items.SortDescriptions.Add(New SortDescription("CategoryInternalID", ListSortDirection.Ascending))
 
         'K8_CL02category.LoadXMLIntoCollection()
 

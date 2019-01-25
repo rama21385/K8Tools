@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:K8Tools"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="MainWindow"
+        Title="Kiebitz8-Tools"
         Width="1000"
         Height="800"
         MinWidth="1000"
@@ -29,7 +29,7 @@
                         >
                 <TabItem Name="TBTM_Main01"
                          FontSize="16"
-                         Header="TAB ITEM"
+                         Header="Tools 01"
                          >
                     <Grid Name="GRDMAIN_01" Style="{StaticResource GRD_Margin00}">
                         <Grid.Background>
@@ -72,7 +72,7 @@
                             <Button Name="BTN_01settings"
                                     Grid.Column="0"
                                     Click="OpenMyUserControl"
-                                    Content="SETTINGS"
+                                    Content="Einstellungen"
                                     IsEnabled="True"
                                     Style="{StaticResource STLButton51}"
                                     >
@@ -85,7 +85,7 @@
                             <Button Name="BTN_02input"
                                     Grid.Column="1"
                                     Click="OpenMyUserControl"
-                                    Content="DATA INPUT"
+                                    Content="Daten- Eingabe"
                                     IsEnabled="True"
                                     Style="{StaticResource STLButton51}"
                                     >
@@ -98,20 +98,7 @@
                             <Button Name="BTN_03analyse"
                                     Grid.Column="2"
                                     Click="OpenMyUserControl"
-                                    Content="ANALYSE"
-                                    IsEnabled="True"
-                                    Style="{StaticResource STLButton51}"
-                                    >
-                                <!--<Button.Tag>
-                                    <ImageSource></ImageSource>
-                                </Button.Tag>-->
-                            </Button>
-
-
-                            <Button Name="BTN_04"
-                                    Grid.Column="3"
-                                    Click="OpenMyUserControl"
-                                    Content="BTN4"
+                                    Content="Auswertung"
                                     IsEnabled="True"
                                     Style="{StaticResource STLButton51}"
                                     >
@@ -150,7 +137,7 @@
                                    VerticalAlignment="Center"
                                    FontSize="18"
                                    FontWeight="Bold"
-                                   Text="TEXTBLCK2-1"
+                                   Text="Messwerte erfassen und auswerten"
                                    >
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Blue020}" />
@@ -162,7 +149,7 @@
                                    VerticalAlignment="Center"
                                    FontSize="18"
                                    FontWeight="Bold"
-                                   Text="TXTBLCK2-3"
+                                   Text=""
                                    >
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Blue020}" />
