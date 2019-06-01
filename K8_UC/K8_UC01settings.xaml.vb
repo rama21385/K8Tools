@@ -40,13 +40,16 @@ Public Class K8_UC01settings
                             .CategoryStatus = K8ENUMS.CollectionItemStatus.add,
                             .CategoryIsEnabled = CBool(CHKBX01_CategoryEnabled.IsChecked),
                             .CategoryValuesRelativeTo1st = CBool(CHKBX01_CategoryRelativeTo1st.IsChecked),
-                            .CategoryMeasValues = Nothing,
+                            .CategoryMeasValuesCount = .CategoryMeasValuesCount,
                             .CategoryName = TempName,
                             .CategoryUnit = CType([Enum].Parse(GetType(K8ENUMS.ValueUnits), CMBBX01_CategoryUnits.Text), K8ENUMS.ValueUnits),
                             .CategoryYear = TempYear,
                             .CategoryChartColor = TXTBX01_CategoryColor.Text,
                             .CategoryChartYMin = CInt(Val(TXTBX01_ChartMin.Text)),
-                            .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text))})
+                            .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text)),
+                            .NewCounterActive = CBool(CHKBX01_CategoryNewCounter.IsChecked),
+                            .NewCounterDate = DTPCKR_NewCounterDate.DisplayDate,
+                            .NewCounterOffsetValue = CDec(TXTBX01_NewCounterOffset.Text)})
 
             LSTVW01_Categories.Items.SortDescriptions.Clear()
             LSTVW01_Categories.Items.SortDescriptions.Add(New SortDescription("CategoryInternalID", ListSortDirection.Ascending))
@@ -61,13 +64,16 @@ Public Class K8_UC01settings
                         .CategoryStatus = K8ENUMS.CollectionItemStatus.modify
                         .CategoryIsEnabled = CBool(CHKBX01_CategoryEnabled.IsChecked)
                         .CategoryValuesRelativeTo1st = CBool(CHKBX01_CategoryRelativeTo1st.IsChecked)
-                        .CategoryMeasValues = Nothing
+                        .CategoryMeasValuesCount = .CategoryMeasValuesCount 'don't change
                         .CategoryName = TempName
                         .CategoryUnit = CType([Enum].Parse(GetType(K8ENUMS.ValueUnits), CMBBX01_CategoryUnits.Text), K8ENUMS.ValueUnits)
                         .CategoryYear = TempYear
                         .CategoryChartColor = TXTBX01_CategoryColor.Text
                         .CategoryChartYMin = CInt(Val(TXTBX01_ChartMin.Text))
                         .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text))
+                        .NewCounterActive = CBool(CHKBX01_CategoryNewCounter.IsChecked)
+                        .NewCounterDate = DTPCKR_NewCounterDate.DisplayDate
+                        .NewCounterOffsetValue = CDec(TXTBX01_NewCounterOffset.Text)
                     End With
                     Exit For
                 End If

@@ -90,7 +90,7 @@ Public Class K8_UC02input
             KiebitzMeasCurve.Add(New K8_CL03measurement With {
                 .CategoryInternalID = CStr(CMBBX02_Category.SelectedValue),
                 .MeasComment = TXTBX0_MeasComment.Text,
-                .MeasValue = CDec(Val(TXTBX0_MeasValue.Text)),
+                .MeasValue = CDec(Val(TXTBX0_MeasValue.Text.Replace(",", "."))),
                 .MeasDateDay = CUShort(Val(TXTBX0_MeasDay.Text)),
                 .MeasDateMonth = CUShort(Val(TXTBX0_MeasMonth.Text)),
                 .MeasDateYear = SelectedCategory.CategoryYear,
@@ -121,7 +121,11 @@ Public Class K8_UC02input
         Dim SelItem As New K8_CL03measurement
         SelItem = CType(DTGRD02_Measurements.SelectedItem, K8_CL03measurement)
         SelItem.MeasComment = TXTBX0_MeasComment.Text
-
+        SelItem.MeasValue = CDec(Val(TXTBX0_MeasValue.Text.Replace(",", ".")))
+        SelItem.MeasDateDay = CUShort(Val(TXTBX0_MeasDay.Text))
+        SelItem.MeasDateMonth = CUShort(Val(TXTBX0_MeasMonth.Text))
+        SelItem.MeasDateYear = SelectedCategory.CategoryYear
+        SelItem.MeasStatus = K8ENUMS.CollectionItemStatus.modify
         RefreshChart()
 
     End Sub
@@ -237,7 +241,7 @@ Public Class K8_UC02input
 
         CalculateStatistics()
         SingleCurveChart.SelectedCategory = SelectedCategory
-        SingleCurveChart.RefreshChart(False)
+        SingleCurveChart.RefreshChart(StatisticChart:=False)
         SingleCurveChart.AddCurveToChart(KiebitzMeasCurve, False, 366, False)
         SingleCurveChart.AddStatisticLinesToChart(KiebitzMeasCurve)
         ChangesMade = True
@@ -373,206 +377,297 @@ Public Class K8_UC02input
         Dim CurveDeltaDecb As Decimal = 0
         Dim CurveDeltaDec As Boolean = False
 
+        Dim FirstValueOfYear As Decimal = 0
+        Dim NewCounterOffset As Decimal = 0
+
+
         For Each CurveItem In KiebitzMeasCurve
             CurveNrItems += 1
-            CurveItemsSum += CurveItem.MeasValue
-            If CurveItem.MeasValue < SelectedCategory.CurveMin Then SelectedCategory.CurveMin = CurveItem.MeasValue
-            If CurveItem.MeasValue > SelectedCategory.CurveMax Then SelectedCategory.CurveMax = CurveItem.MeasValue
+
+            If CurveNrItems = 1 AndAlso SelectedCategory.CategoryValuesRelativeTo1st = True Then
+                FirstValueOfYear = CurveItem.MeasValue
+            End If
+
+            If SelectedCategory.NewCounterActive = True AndAlso CurveItem.MeasDate >= SelectedCategory.NewCounterDate Then
+                NewCounterOffset = SelectedCategory.NewCounterOffsetValue
+            End If
+
+            CurveItemsSum += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
+            If CurveItem.MeasValue < SelectedCategory.CurveMin Then SelectedCategory.CurveMin = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
+            If CurveItem.MeasValue > SelectedCategory.CurveMax Then SelectedCategory.CurveMax = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
 
             If CurveItem.MeasDate.Month <= 6 Then
-                CurveItemsSumHJ1 += CurveItem.MeasValue
+                CurveItemsSumHJ1 += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 CurveNrItemsHJ1 += 1
                 If CurveDeltaHJ1 = False Then
-                    CurveDeltaHJ1a = CurveItem.MeasValue
+                    CurveDeltaHJ1a = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                     CurveDeltaHJ1 = True
                 End If
-                CurveDeltaHJ1b = CurveItem.MeasValue
+                CurveDeltaHJ1b = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month <= 12 Then
-                CurveItemsSumHJ2 += CurveItem.MeasValue
+                CurveItemsSumHJ2 += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 CurveNrItemsHJ2 += 1
                 If CurveDeltaHJ2 = False Then
                     CurveDeltaHJ2a = CurveDeltaHJ1b 'last day of previous half year is first value of next half year
                     CurveDeltaHJ2 = True
                 End If
-                CurveDeltaHJ2b = CurveItem.MeasValue
+                CurveDeltaHJ2b = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             End If
 
             If CurveItem.MeasDate.Month <= 3 Then
-                CurveItemsSumQ1 += CurveItem.MeasValue
+                CurveItemsSumQ1 += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 CurveNrItemsQ1 += 1
                 If CurveDeltaQ1 = False Then
-                    CurveDeltaQ1a = CurveItem.MeasValue
+                    CurveDeltaQ1a = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                     CurveDeltaQ1 = True
                 End If
-                CurveDeltaQ1b = CurveItem.MeasValue
+                CurveDeltaQ1b = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month <= 6 Then
-                CurveItemsSumQ2 += CurveItem.MeasValue
+                CurveItemsSumQ2 += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 CurveNrItemsQ2 += 1
                 If CurveDeltaQ2 = False Then
                     CurveDeltaQ2a = CurveDeltaQ1b 'last day of previous quarter is first value of next quarter
                     CurveDeltaQ2 = True
                 End If
-                CurveDeltaQ2b = CurveItem.MeasValue
+                CurveDeltaQ2b = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month <= 9 Then
-                CurveItemsSumQ3 += CurveItem.MeasValue
+                CurveItemsSumQ3 += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 CurveNrItemsQ3 += 1
                 If CurveDeltaQ3 = False Then
                     CurveDeltaQ3a = CurveDeltaQ2b
                     CurveDeltaQ3 = True
                 End If
-                CurveDeltaQ3b = CurveItem.MeasValue
+                CurveDeltaQ3b = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month <= 12 Then
-                CurveItemsSumQ4 += CurveItem.MeasValue
+                CurveItemsSumQ4 += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 CurveNrItemsQ4 += 1
                 If CurveDeltaQ4 = False Then
                     CurveDeltaQ4a = CurveDeltaQ3b
                     CurveDeltaQ4 = True
                 End If
-                CurveDeltaQ4b = CurveItem.MeasValue
+                CurveDeltaQ4b = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             End If
 
             If CurveItem.MeasDate.Month = 1 Then
                 CurveNrItemsJan += 1
-                CurveItemsSumJan += CurveItem.MeasValue
+                CurveItemsSumJan += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaJan = False Then
-                    CurveDeltaJana = CurveItem.MeasValue
+                    CurveDeltaJana = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                     CurveDeltaJan = True
                 End If
-                CurveDeltaJanb = CurveItem.MeasValue
+                CurveDeltaJanb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 2 Then
                 CurveNrItemsFeb += 1
-                CurveItemsSumFeb += CurveItem.MeasValue
+                CurveItemsSumFeb += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaFeb = False Then
                     CurveDeltaFeba = CurveDeltaJanb
                     CurveDeltaFeb = True
                 End If
-                CurveDeltaFebb = CurveItem.MeasValue
+                CurveDeltaFebb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 3 Then
                 CurveNrItemsMar += 1
-                CurveItemsSumMar += CurveItem.MeasValue
+                CurveItemsSumMar += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaMar = False Then
                     CurveDeltaMara = CurveDeltaFebb
                     CurveDeltaMar = True
                 End If
-                CurveDeltaMarb = CurveItem.MeasValue
+                CurveDeltaMarb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 4 Then
                 CurveNrItemsApr += 1
-                CurveItemsSumApr += CurveItem.MeasValue
+                CurveItemsSumApr += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaApr = False Then
                     CurveDeltaApra = CurveDeltaMarb
                     CurveDeltaApr = True
                 End If
-                CurveDeltaAprb = CurveItem.MeasValue
+                CurveDeltaAprb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 5 Then
                 CurveNrItemsMay += 1
-                CurveItemsSumMay += CurveItem.MeasValue
+                CurveItemsSumMay += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaMay = False Then
                     CurveDeltaMaya = CurveDeltaAprb
                     CurveDeltaMay = True
                 End If
-                CurveDeltaMayb = CurveItem.MeasValue
+                CurveDeltaMayb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 6 Then
                 CurveNrItemsJun += 1
-                CurveItemsSumJun += CurveItem.MeasValue
+                CurveItemsSumJun += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaJun = False Then
                     CurveDeltaJuna = CurveDeltaMayb
                     CurveDeltaJun = True
                 End If
-                CurveDeltaJunb = CurveItem.MeasValue
+                CurveDeltaJunb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 7 Then
                 CurveNrItemsJul += 1
-                CurveItemsSumJul += CurveItem.MeasValue
+                CurveItemsSumJul += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaJul = False Then
                     CurveDeltaJula = CurveDeltaJunb
                     CurveDeltaJul = True
                 End If
-                CurveDeltaJulb = CurveItem.MeasValue
+                CurveDeltaJulb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 8 Then
                 CurveNrItemsAug += 1
-                CurveItemsSumAug += CurveItem.MeasValue
+                CurveItemsSumAug += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaAug = False Then
                     CurveDeltaAuga = CurveDeltaJulb
                     CurveDeltaAug = True
                 End If
-                CurveDeltaAugb = CurveItem.MeasValue
+                CurveDeltaAugb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 9 Then
                 CurveNrItemsSep += 1
-                CurveItemsSumSep += CurveItem.MeasValue
+                CurveItemsSumSep += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaSep = False Then
                     CurveDeltaSepa = CurveDeltaAugb
                     CurveDeltaSep = True
                 End If
-                CurveDeltaSepb = CurveItem.MeasValue
+                CurveDeltaSepb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 10 Then
                 CurveNrItemsOct += 1
-                CurveItemsSumOct += CurveItem.MeasValue
+                CurveItemsSumOct += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaOct = False Then
                     CurveDeltaOcta = CurveDeltaSepb
                     CurveDeltaOct = True
                 End If
-                CurveDeltaOctb = CurveItem.MeasValue
+                CurveDeltaOctb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 11 Then
                 CurveNrItemsNov += 1
-                CurveItemsSumNov += CurveItem.MeasValue
+                CurveItemsSumNov += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaNov = False Then
                     CurveDeltaNova = CurveDeltaOctb
                     CurveDeltaNov = True
                 End If
-                CurveDeltaNovb = CurveItem.MeasValue
+                CurveDeltaNovb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             ElseIf CurveItem.MeasDate.Month = 12 Then
                 CurveNrItemsDec += 1
-                CurveItemsSumDec += CurveItem.MeasValue
+                CurveItemsSumDec += CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
                 If CurveDeltaDec = False Then
                     CurveDeltaDeca = CurveDeltaNovb
                     CurveDeltaDec = True
                 End If
-                CurveDeltaDecb = CurveItem.MeasValue
+                CurveDeltaDecb = CurveItem.MeasValue - FirstValueOfYear + NewCounterOffset
             End If
 
         Next
 
+        SelectedCategory.CategoryMeasValuesCount = KiebitzMeasCurve.Count
         If CurveNrItems > 0 Then
-
             SelectedCategory.CurveAvgYear = CurveItemsSum / CurveNrItems
-            SelectedCategory.CurveAvgHJ1 = CurveItemsSumHJ1 / CurveNrItemsHJ1
-            SelectedCategory.CurveAvgHJ2 = CurveItemsSumHJ2 / CurveNrItemsHJ2
-            SelectedCategory.CurveAvgQ1 = CurveItemsSumQ1 / CurveNrItemsQ1
-            SelectedCategory.CurveAvgQ2 = CurveItemsSumQ2 / CurveNrItemsQ2
-            SelectedCategory.CurveAvgQ3 = CurveItemsSumQ3 / CurveNrItemsQ3
-            SelectedCategory.CurveAvgQ4 = CurveItemsSumQ4 / CurveNrItemsQ4
-            SelectedCategory.CurveAvgJan = CurveItemsSumJan / CurveNrItemsJan
-            SelectedCategory.CurveAvgFeb = CurveItemsSumFeb / CurveNrItemsFeb
-            SelectedCategory.CurveAvgMar = CurveItemsSumMar / CurveNrItemsMar
-            SelectedCategory.CurveAvgApr = CurveItemsSumApr / CurveNrItemsApr
-            SelectedCategory.CurveAvgMay = CurveItemsSumMay / CurveNrItemsMay
-            SelectedCategory.CurveAvgJun = CurveItemsSumJun / CurveNrItemsJun
-            SelectedCategory.CurveAvgJul = CurveItemsSumJul / CurveNrItemsJul
-            SelectedCategory.CurveAvgAug = CurveItemsSumAug / CurveNrItemsAug
-            SelectedCategory.CurveAvgSep = CurveItemsSumSep / CurveNrItemsSep
-            SelectedCategory.CurveAvgOct = CurveItemsSumOct / CurveNrItemsOct
-            SelectedCategory.CurveAvgNov = CurveItemsSumNov / CurveNrItemsNov
-            SelectedCategory.CurveAvgDec = CurveItemsSumDec / CurveNrItemsDec
-
-            SelectedCategory.CurveDeltaYear = KiebitzMeasCurve(KiebitzMeasCurve.Count - 1).MeasValue - KiebitzMeasCurve(0).MeasValue
-            SelectedCategory.CurveDeltaHJ1 = CurveDeltaHJ1b - CurveDeltaHJ1a
-            SelectedCategory.CurveDeltaHJ2 = CurveDeltaHJ2b - CurveDeltaHJ2a
-            SelectedCategory.CurveDeltaQ1 = CurveDeltaQ1b - CurveDeltaQ1a
-            SelectedCategory.CurveDeltaQ2 = CurveDeltaQ2b - CurveDeltaQ2a
-            SelectedCategory.CurveDeltaQ3 = CurveDeltaQ3b - CurveDeltaQ3a
-            SelectedCategory.CurveDeltaQ4 = CurveDeltaQ4b - CurveDeltaQ4a
-            SelectedCategory.CurveDeltaJan = CurveDeltaJanb - CurveDeltaJana
-            SelectedCategory.CurveDeltaFeb = CurveDeltaFebb - CurveDeltaFeba
-            SelectedCategory.CurveDeltaMar = CurveDeltaMarb - CurveDeltaMara
-            SelectedCategory.CurveDeltaApr = CurveDeltaAprb - CurveDeltaApra
-            SelectedCategory.CurveDeltaMay = CurveDeltaMayb - CurveDeltaMaya
-            SelectedCategory.CurveDeltaJun = CurveDeltaJunb - CurveDeltaJuna
-            SelectedCategory.CurveDeltaJul = CurveDeltaJulb - CurveDeltaJula
-            SelectedCategory.CurveDeltaAug = CurveDeltaAugb - CurveDeltaAuga
-            SelectedCategory.CurveDeltaSep = CurveDeltaSepb - CurveDeltaSepa
-            SelectedCategory.CurveDeltaOct = CurveDeltaOctb - CurveDeltaOcta
-            SelectedCategory.CurveDeltaNov = CurveDeltaNovb - CurveDeltaNova
-            SelectedCategory.CurveDeltaDec = CurveDeltaDecb - CurveDeltaDeca
+        Else
+            SelectedCategory.CurveAvgYear = 0
         End If
+        If CurveNrItemsHJ1 > 0 Then
+            SelectedCategory.CurveAvgHJ1 = CurveItemsSumHJ1 / CurveNrItemsHJ1
+        Else
+            SelectedCategory.CurveAvgHJ1 = 0
+        End If
+        If CurveNrItemsHJ2 > 0 Then
+            SelectedCategory.CurveAvgHJ2 = CurveItemsSumHJ2 / CurveNrItemsHJ2
+        Else
+            SelectedCategory.CurveAvgHJ2 = 0
+        End If
+        If CurveNrItemsQ1 > 0 Then
+            SelectedCategory.CurveAvgQ1 = CurveItemsSumQ1 / CurveNrItemsQ1
+        Else
+            SelectedCategory.CurveAvgQ1 = 0
+        End If
+        If CurveNrItemsQ2 > 0 Then
+            SelectedCategory.CurveAvgQ2 = CurveItemsSumQ2 / CurveNrItemsQ2
+        Else
+            SelectedCategory.CurveAvgQ2 = 0
+
+        End If
+        If CurveNrItemsQ3 > 0 Then
+            SelectedCategory.CurveAvgQ3 = CurveItemsSumQ3 / CurveNrItemsQ3
+        Else
+            SelectedCategory.CurveAvgQ3 = 0
+        End If
+        If CurveNrItemsQ4 > 0 Then
+            SelectedCategory.CurveAvgQ4 = CurveItemsSumQ4 / CurveNrItemsQ4
+        Else
+            SelectedCategory.CurveAvgQ4 = 0
+        End If
+        If CurveNrItemsJan > 0 Then
+            SelectedCategory.CurveAvgJan = CurveItemsSumJan / CurveNrItemsJan
+        Else
+            SelectedCategory.CurveAvgJan = 0
+        End If
+        If CurveNrItemsFeb > 0 Then
+            SelectedCategory.CurveAvgFeb = CurveItemsSumFeb / CurveNrItemsFeb
+        Else
+            SelectedCategory.CurveAvgFeb = 0
+        End If
+        If CurveNrItemsMar > 0 Then
+            SelectedCategory.CurveAvgMar = CurveItemsSumMar / CurveNrItemsMar
+        Else
+            SelectedCategory.CurveAvgMar = 0
+        End If
+        If CurveNrItemsApr > 0 Then
+            SelectedCategory.CurveAvgApr = CurveItemsSumApr / CurveNrItemsApr
+        Else
+            SelectedCategory.CurveAvgApr = 0
+        End If
+        If CurveNrItemsMay > 0 Then
+            SelectedCategory.CurveAvgMay = CurveItemsSumMay / CurveNrItemsMay
+        Else
+            SelectedCategory.CurveAvgMay = 0
+        End If
+        If CurveNrItemsJun > 0 Then
+            SelectedCategory.CurveAvgJun = CurveItemsSumJun / CurveNrItemsJun
+        Else
+            SelectedCategory.CurveAvgJun = 0
+        End If
+        If CurveNrItemsJul > 0 Then
+            SelectedCategory.CurveAvgJul = CurveItemsSumJul / CurveNrItemsJul
+        Else
+            SelectedCategory.CurveAvgJul = 0
+        End If
+        If CurveNrItemsAug > 0 Then
+            SelectedCategory.CurveAvgAug = CurveItemsSumAug / CurveNrItemsAug
+        Else
+            SelectedCategory.CurveAvgAug = 0
+        End If
+        If CurveNrItemsSep > 0 Then
+            SelectedCategory.CurveAvgSep = CurveItemsSumSep / CurveNrItemsSep
+        Else
+            SelectedCategory.CurveAvgSep = 0
+        End If
+        If CurveNrItemsOct > 0 Then
+            SelectedCategory.CurveAvgOct = CurveItemsSumOct / CurveNrItemsOct
+        Else
+            SelectedCategory.CurveAvgOct = 0
+        End If
+        If CurveNrItemsNov > 0 Then
+            SelectedCategory.CurveAvgNov = CurveItemsSumNov / CurveNrItemsNov
+        Else
+            SelectedCategory.CurveAvgNov = 0
+        End If
+        If CurveNrItemsDec > 0 Then
+            SelectedCategory.CurveAvgDec = CurveItemsSumDec / CurveNrItemsDec
+        Else
+            SelectedCategory.CurveAvgDec = 0
+        End If
+        If KiebitzMeasCurve.Count > 0 Then
+            SelectedCategory.CurveDeltaYear = KiebitzMeasCurve(KiebitzMeasCurve.Count - 1).MeasValue - KiebitzMeasCurve(0).MeasValue
+        Else
+            SelectedCategory.CurveDeltaYear = 0
+        End If
+        SelectedCategory.CurveDeltaHJ1 = CurveDeltaHJ1b - CurveDeltaHJ1a
+        SelectedCategory.CurveDeltaHJ2 = CurveDeltaHJ2b - CurveDeltaHJ2a
+        SelectedCategory.CurveDeltaQ1 = CurveDeltaQ1b - CurveDeltaQ1a
+        SelectedCategory.CurveDeltaQ2 = CurveDeltaQ2b - CurveDeltaQ2a
+        SelectedCategory.CurveDeltaQ3 = CurveDeltaQ3b - CurveDeltaQ3a
+        SelectedCategory.CurveDeltaQ4 = CurveDeltaQ4b - CurveDeltaQ4a
+        SelectedCategory.CurveDeltaJan = CurveDeltaJanb - CurveDeltaJana
+        SelectedCategory.CurveDeltaFeb = CurveDeltaFebb - CurveDeltaFeba
+        SelectedCategory.CurveDeltaMar = CurveDeltaMarb - CurveDeltaMara
+        SelectedCategory.CurveDeltaApr = CurveDeltaAprb - CurveDeltaApra
+        SelectedCategory.CurveDeltaMay = CurveDeltaMayb - CurveDeltaMaya
+        SelectedCategory.CurveDeltaJun = CurveDeltaJunb - CurveDeltaJuna
+        SelectedCategory.CurveDeltaJul = CurveDeltaJulb - CurveDeltaJula
+        SelectedCategory.CurveDeltaAug = CurveDeltaAugb - CurveDeltaAuga
+        SelectedCategory.CurveDeltaSep = CurveDeltaSepb - CurveDeltaSepa
+        SelectedCategory.CurveDeltaOct = CurveDeltaOctb - CurveDeltaOcta
+        SelectedCategory.CurveDeltaNov = CurveDeltaNovb - CurveDeltaNova
+        SelectedCategory.CurveDeltaDec = CurveDeltaDecb - CurveDeltaDeca
 
     End Sub
 

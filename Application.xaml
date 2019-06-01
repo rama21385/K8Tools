@@ -1,10 +1,10 @@
-﻿<Application x:Class="Application"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:clr="clr-namespace:System;assembly=mscorlib"
-             xmlns:local="clr-namespace:K8Tools"
-             StartupUri="MainWindow.xaml"
-             >
+﻿<Application
+    x:Class="Application"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:clr="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:K8Tools"
+    StartupUri="MainWindow.xaml">
     <Application.Resources>
 
         <!--#region XSTRAHL COLORS-->
@@ -152,10 +152,10 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DocumentViewer}">
-                        <Border BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                Focusable="False"
-                                >
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Focusable="False">
                             <Grid KeyboardNavigation.TabNavigation="Local">
                                 <Grid.Background>
                                     <SolidColorBrush Color="{DynamicResource ControlLightColor}" />
@@ -167,59 +167,59 @@
                                 </Grid.RowDefinitions>
                                 <ToolBar KeyboardNavigation.TabNavigation="Continue" ToolBarTray.IsLocked="True">
 
-                                    <Button Margin="10,0,10,0"
-                                            Command="ApplicationCommands.Print"
-                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-                                            Content="PRINT"
-                                            />
-                                    <Button Command="ApplicationCommands.Copy"
-                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-                                            Content="COPY"
-                                            Visibility="Collapsed"
-                                            />
+                                    <Button
+                                        Margin="10,0,10,0"
+                                        Command="ApplicationCommands.Print"
+                                        CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        Content="PRINT" />
+                                    <Button
+                                        Command="ApplicationCommands.Copy"
+                                        CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        Content="COPY"
+                                        Visibility="Collapsed" />
                                     <Separator />
-                                    <Button Margin="10,0,10,0"
-                                            Command="NavigationCommands.IncreaseZoom"
-                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-                                            Content="ZOOM IN"
-                                            />
-                                    <Button Margin="10,0,10,0"
-                                            Command="NavigationCommands.DecreaseZoom"
-                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-                                            Content="ZOOM OUT"
-                                            />
+                                    <Button
+                                        Margin="10,0,10,0"
+                                        Command="NavigationCommands.IncreaseZoom"
+                                        CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        Content="ZOOM IN" />
+                                    <Button
+                                        Margin="10,0,10,0"
+                                        Command="NavigationCommands.DecreaseZoom"
+                                        CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        Content="ZOOM OUT" />
                                     <Separator />
-                                    <Button Margin="10,0,10,0"
-                                            Command="NavigationCommands.Zoom"
-                                            CommandParameter="100.0"
-                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-                                            Content="ZOOM"
-                                            />
-                                    <Button Margin="10,0,10,0"
-                                            Command="DocumentViewer.FitToWidthCommand"
-                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-                                            Content="FIT TO WIDTH"
-                                            />
-                                    <Button Margin="10,0,10,0"
-                                            Command="DocumentViewer.FitToMaxPagesAcrossCommand"
-                                            CommandParameter="1"
-                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-                                            Content="FIT TO 1 PAGE"
-                                            />
-                                    <Button Margin="10,0,10,0"
-                                            Command="DocumentViewer.FitToMaxPagesAcrossCommand"
-                                            CommandParameter="2"
-                                            CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-                                            Content="FIT TO 2 PAGES"
-                                            />
+                                    <Button
+                                        Margin="10,0,10,0"
+                                        Command="NavigationCommands.Zoom"
+                                        CommandParameter="100.0"
+                                        CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        Content="ZOOM" />
+                                    <Button
+                                        Margin="10,0,10,0"
+                                        Command="DocumentViewer.FitToWidthCommand"
+                                        CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        Content="FIT TO WIDTH" />
+                                    <Button
+                                        Margin="10,0,10,0"
+                                        Command="DocumentViewer.FitToMaxPagesAcrossCommand"
+                                        CommandParameter="1"
+                                        CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        Content="FIT TO 1 PAGE" />
+                                    <Button
+                                        Margin="10,0,10,0"
+                                        Command="DocumentViewer.FitToMaxPagesAcrossCommand"
+                                        CommandParameter="2"
+                                        CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                        Content="FIT TO 2 PAGES" />
                                 </ToolBar>
-                                <ScrollViewer x:Name="PART_ContentHost"
-                                              Grid.Row="1"
-                                              HorizontalAlignment="Right"
-                                              CanContentScroll="true"
-                                              HorizontalScrollBarVisibility="Auto"
-                                              IsTabStop="true"
-                                              >
+                                <ScrollViewer
+                                    x:Name="PART_ContentHost"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Right"
+                                    CanContentScroll="true"
+                                    HorizontalScrollBarVisibility="Auto"
+                                    IsTabStop="true">
                                     <ScrollViewer.Resources>
                                         <clr:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">30</clr:Double>
                                         <clr:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey}">30</clr:Double>
@@ -258,32 +258,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Vertical"
-                                        >
-                                <Image Width="40"
-                                       Height="40"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="0,1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Top"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Vertical">
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -313,32 +313,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Vertical"
-                                        >
-                                <Image Width="40"
-                                       Height="40"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="0,1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Top"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Vertical">
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -368,32 +368,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Vertical"
-                                        >
-                                <Image Width="40"
-                                       Height="40"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="0,1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Top"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Vertical">
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -423,32 +423,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Vertical"
-                                        >
-                                <Image Width="40"
-                                       Height="40"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="0,1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Top"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Vertical">
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -478,32 +478,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Vertical"
-                                        >
-                                <Image Width="40"
-                                       Height="40"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="0,1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Top"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Vertical">
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -533,32 +533,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Vertical"
-                                        >
-                                <Image Width="40"
-                                       Height="40"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="0,1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Top"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Vertical">
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -588,32 +588,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Vertical"
-                                        >
-                                <Image Width="40"
-                                       Height="40"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="0,1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Top"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Vertical">
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -644,32 +644,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Horizontal"
-                                        >
-                                <Image Width="20"
-                                       Height="20"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="5,0,0,0"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Horizontal">
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -707,32 +707,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Horizontal"
-                                        >
-                                <Image Width="20"
-                                       Height="20"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="5,0,0,0"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Horizontal">
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -770,32 +770,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Horizontal"
-                                        >
-                                <Image Width="20"
-                                       Height="20"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="5,0,0,0"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Horizontal">
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -833,32 +833,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Horizontal"
-                                        >
-                                <Image Width="20"
-                                       Height="20"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="5,0,0,0"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Horizontal">
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -896,32 +896,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Horizontal"
-                                        >
-                                <Image Width="20"
-                                       Height="20"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="5,0,0,0"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Horizontal">
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -959,32 +959,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Horizontal"
-                                        >
-                                <Image Width="20"
-                                       Height="20"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="5,0,0,0"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Horizontal">
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -1022,32 +1022,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Horizontal"
-                                        >
-                                <Image Width="20"
-                                       Height="20"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="5,0,0,0"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Horizontal">
+                                <Image
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -1087,21 +1087,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <TextBlock Name="TXTBLCK"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Text="{TemplateBinding Content}"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"
-                                       />
+                            <TextBlock
+                                Name="TXTBLCK"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -1131,21 +1131,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <TextBlock Name="TXTBLCK"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Text="{TemplateBinding Content}"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"
-                                       />
+                            <TextBlock
+                                Name="TXTBLCK"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -1175,21 +1175,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <TextBlock Name="TXTBLCK"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Text="{TemplateBinding Content}"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"
-                                       />
+                            <TextBlock
+                                Name="TXTBLCK"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -1219,21 +1219,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <TextBlock Name="TXTBLCK"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Text="{TemplateBinding Content}"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"
-                                       />
+                            <TextBlock
+                                Name="TXTBLCK"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -1263,21 +1263,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <TextBlock Name="TXTBLCK"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Text="{TemplateBinding Content}"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"
-                                       />
+                            <TextBlock
+                                Name="TXTBLCK"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -1307,21 +1307,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <TextBlock Name="TXTBLCK"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Text="{TemplateBinding Content}"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"
-                                       />
+                            <TextBlock
+                                Name="TXTBLCK"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -1351,21 +1351,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <TextBlock Name="TXTBLCK"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Text="{TemplateBinding Content}"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"
-                                       />
+                            <TextBlock
+                                Name="TXTBLCK"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -1396,21 +1396,21 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{StaticResource Xstrahl_SCB_Purple080}"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{StaticResource Xstrahl_SCB_Purple080}"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <TextBlock Name="TXTBLCK"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Text="{TemplateBinding Content}"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"
-                                       />
+                            <TextBlock
+                                Name="TXTBLCK"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding Content}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -1454,32 +1454,32 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ToggleButton">
-                        <Border Name="BRDR"
-                                Padding="1"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                CornerRadius="3"
-                                >
+                        <Border
+                            Name="BRDR"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DarkGray"
+                            BorderThickness="1"
+                            CornerRadius="3">
 
-                            <StackPanel Name="STCKPNL"
-                                        Background="{TemplateBinding Background}"
-                                        Orientation="Vertical"
-                                        >
-                                <Image Width="40"
-                                       Height="40"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Source="{TemplateBinding Tag}"
-                                       Stretch="Uniform"
-                                       />
-                                <TextBlock Margin="0,1,0,0"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Top"
-                                           Text="{TemplateBinding Content}"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           />
+                            <StackPanel
+                                Name="STCKPNL"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Vertical">
+                                <Image
+                                    Width="40"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="{TemplateBinding Tag}"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Text="{TemplateBinding Content}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -1512,20 +1512,20 @@
         <SolidColorBrush x:Key="SliderThumb.Static.Background" Color="{StaticResource Xstrahl_Purple020}" />
         <SolidColorBrush x:Key="SliderThumb.Static.Border" Color="{StaticResource Xstrahl_Purple100}" />
         <ControlTemplate x:Key="SliderThumbHorizontalTop" TargetType="{x:Type Thumb}">
-            <Grid HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  UseLayoutRounding="True"
-                  >
-                <Path x:Name="grip"
-                      VerticalAlignment="Center"
-                      Data="M 0,6 C0,6 5.5,0 5.5,0 5.5,0 11,6 11,6 11,6 11,18 11,18 11,18 0,18 0,18 0,18 0,6 0,6 z"
-                      Fill="{StaticResource SliderThumb.Static.Background}"
-                      SnapsToDevicePixels="True"
-                      Stretch="Fill"
-                      Stroke="{StaticResource SliderThumb.Static.Border}"
-                      StrokeThickness="2"
-                      UseLayoutRounding="True"
-                      />
+            <Grid
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                UseLayoutRounding="True">
+                <Path
+                    x:Name="grip"
+                    VerticalAlignment="Center"
+                    Data="M 0,6 C0,6 5.5,0 5.5,0 5.5,0 11,6 11,6 11,6 11,18 11,18 11,18 0,18 0,18 0,18 0,6 0,6 z"
+                    Fill="{StaticResource SliderThumb.Static.Background}"
+                    SnapsToDevicePixels="True"
+                    Stretch="Fill"
+                    Stroke="{StaticResource SliderThumb.Static.Border}"
+                    StrokeThickness="2"
+                    UseLayoutRounding="True" />
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
@@ -1543,20 +1543,20 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
         <ControlTemplate x:Key="SliderThumbHorizontalBottom" TargetType="{x:Type Thumb}">
-            <Grid HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  UseLayoutRounding="True"
-                  >
-                <Path x:Name="grip"
-                      VerticalAlignment="Center"
-                      Data="M 0,12 C0,12 5.5,18 5.5,18 5.5,18 11,12 11,12 11,12 11,0 11,0 11,0 0,0 0,0 0,0 0,12 0,12 z"
-                      Fill="{StaticResource SliderThumb.Static.Background}"
-                      SnapsToDevicePixels="True"
-                      Stretch="Fill"
-                      Stroke="{StaticResource SliderThumb.Static.Border}"
-                      StrokeThickness="2"
-                      UseLayoutRounding="True"
-                      />
+            <Grid
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                UseLayoutRounding="True">
+                <Path
+                    x:Name="grip"
+                    VerticalAlignment="Center"
+                    Data="M 0,12 C0,12 5.5,18 5.5,18 5.5,18 11,12 11,12 11,12 11,0 11,0 11,0 0,0 0,0 0,0 0,12 0,12 z"
+                    Fill="{StaticResource SliderThumb.Static.Background}"
+                    SnapsToDevicePixels="True"
+                    Stretch="Fill"
+                    Stroke="{StaticResource SliderThumb.Static.Border}"
+                    StrokeThickness="2"
+                    UseLayoutRounding="True" />
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
@@ -1585,29 +1585,29 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RepeatButton}">
-                        <Rectangle Width="{TemplateBinding Width}"
-                                   Height="{TemplateBinding Height}"
-                                   Fill="{TemplateBinding Background}"
-                                   />
+                        <Rectangle
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            Fill="{TemplateBinding Background}" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
         <ControlTemplate x:Key="SliderThumbHorizontalDefault" TargetType="{x:Type Thumb}">
-            <Grid HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  UseLayoutRounding="True"
-                  >
-                <Path x:Name="grip"
-                      VerticalAlignment="Center"
-                      Data="M 0,0 C0,0 11,0 11,0 11,0 11,18 11,18 11,18 0,18 0,18 0,18 0,0 0,0 z"
-                      Fill="{StaticResource SliderThumb.Static.Background}"
-                      SnapsToDevicePixels="True"
-                      Stretch="Fill"
-                      Stroke="{StaticResource SliderThumb.Static.Border}"
-                      StrokeThickness="2"
-                      UseLayoutRounding="True"
-                      />
+            <Grid
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                UseLayoutRounding="True">
+                <Path
+                    x:Name="grip"
+                    VerticalAlignment="Center"
+                    Data="M 0,0 C0,0 11,0 11,0 11,0 11,18 11,18 11,18 0,18 0,18 0,18 0,0 0,0 z"
+                    Fill="{StaticResource SliderThumb.Static.Background}"
+                    SnapsToDevicePixels="True"
+                    Stretch="Fill"
+                    Stroke="{StaticResource SliderThumb.Static.Border}"
+                    StrokeThickness="2"
+                    UseLayoutRounding="True" />
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
@@ -1625,41 +1625,41 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
         <ControlTemplate x:Key="SliderHorizontal" TargetType="{x:Type Slider}">
-            <Border x:Name="border"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    SnapsToDevicePixels="True"
-                    >
+            <Border
+                x:Name="border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                SnapsToDevicePixels="True">
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TickBar x:Name="TopTick"
-                             Grid.Row="0"
-                             Height="4"
-                             Margin="0,0,0,2"
-                             Fill="{TemplateBinding Foreground}"
-                             Placement="Top"
-                             Visibility="Collapsed"
-                             />
-                    <Border x:Name="TrackBackground"
-                            Grid.Row="1"
-                            Height="8.0"
-                            Margin="5,0"
-                            VerticalAlignment="center"
-                            Background="{StaticResource SliderThumb.Track.Background}"
-                            BorderBrush="{StaticResource SliderThumb.Track.Border}"
-                            BorderThickness="1"
-                            >
+                    <TickBar
+                        x:Name="TopTick"
+                        Grid.Row="0"
+                        Height="4"
+                        Margin="0,0,0,2"
+                        Fill="{TemplateBinding Foreground}"
+                        Placement="Top"
+                        Visibility="Collapsed" />
+                    <Border
+                        x:Name="TrackBackground"
+                        Grid.Row="1"
+                        Height="8.0"
+                        Margin="5,0"
+                        VerticalAlignment="center"
+                        Background="{StaticResource SliderThumb.Track.Background}"
+                        BorderBrush="{StaticResource SliderThumb.Track.Border}"
+                        BorderThickness="1">
                         <Canvas Margin="-6,-1">
-                            <Rectangle x:Name="PART_SelectionRange"
-                                       Height="4.0"
-                                       Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
-                                       Visibility="Hidden"
-                                       />
+                            <Rectangle
+                                x:Name="PART_SelectionRange"
+                                Height="4.0"
+                                Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                                Visibility="Hidden" />
                         </Canvas>
                     </Border>
                     <Track x:Name="PART_Track" Grid.Row="1">
@@ -1670,24 +1670,24 @@
                             <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource RepeatButtonTransparent}" />
                         </Track.IncreaseRepeatButton>
                         <Track.Thumb>
-                            <Thumb x:Name="Thumb"
-                                   Width="12"
-                                   Height="22"
-                                   VerticalAlignment="Center"
-                                   Focusable="False"
-                                   OverridesDefaultStyle="True"
-                                   Template="{StaticResource SliderThumbHorizontalDefault}"
-                                   />
+                            <Thumb
+                                x:Name="Thumb"
+                                Width="12"
+                                Height="22"
+                                VerticalAlignment="Center"
+                                Focusable="False"
+                                OverridesDefaultStyle="True"
+                                Template="{StaticResource SliderThumbHorizontalDefault}" />
                         </Track.Thumb>
                     </Track>
-                    <TickBar x:Name="BottomTick"
-                             Grid.Row="2"
-                             Height="4"
-                             Margin="0,2,0,0"
-                             Fill="{TemplateBinding Foreground}"
-                             Placement="Bottom"
-                             Visibility="Collapsed"
-                             />
+                    <TickBar
+                        x:Name="BottomTick"
+                        Grid.Row="2"
+                        Height="4"
+                        Margin="0,2,0,0"
+                        Fill="{TemplateBinding Foreground}"
+                        Placement="Bottom"
+                        Visibility="Collapsed" />
                 </Grid>
             </Border>
             <ControlTemplate.Triggers>
@@ -1714,17 +1714,17 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
         <ControlTemplate x:Key="SliderThumbVerticalLeft" TargetType="{x:Type Thumb}">
-            <Grid HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  UseLayoutRounding="True"
-                  >
-                <Path x:Name="grip"
-                      Data="M 6,11 C6,11 0,5.5 0,5.5 0,5.5 6,0 6,0 6,0 18,0 18,0 18,0 18,11 18,11 18,11 6,11 6,11 z"
-                      Fill="{StaticResource SliderThumb.Static.Background}"
-                      Stretch="Fill"
-                      Stroke="{StaticResource SliderThumb.Static.Border}"
-                      StrokeThickness="2"
-                      />
+            <Grid
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                UseLayoutRounding="True">
+                <Path
+                    x:Name="grip"
+                    Data="M 6,11 C6,11 0,5.5 0,5.5 0,5.5 6,0 6,0 6,0 18,0 18,0 18,0 18,11 18,11 18,11 6,11 6,11 z"
+                    Fill="{StaticResource SliderThumb.Static.Background}"
+                    Stretch="Fill"
+                    Stroke="{StaticResource SliderThumb.Static.Border}"
+                    StrokeThickness="2" />
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
@@ -1742,17 +1742,17 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
         <ControlTemplate x:Key="SliderThumbVerticalRight" TargetType="{x:Type Thumb}">
-            <Grid HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  UseLayoutRounding="True"
-                  >
-                <Path x:Name="grip"
-                      Data="M 12,11 C12,11 18,5.5 18,5.5 18,5.5 12,0 12,0 12,0 0,0 0,0 0,0 0,11 0,11 0,11 12,11 12,11 z"
-                      Fill="{StaticResource SliderThumb.Static.Background}"
-                      Stretch="Fill"
-                      Stroke="{StaticResource SliderThumb.Static.Border}"
-                      StrokeThickness="2"
-                      />
+            <Grid
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                UseLayoutRounding="True">
+                <Path
+                    x:Name="grip"
+                    Data="M 12,11 C12,11 18,5.5 18,5.5 18,5.5 12,0 12,0 12,0 0,0 0,0 0,0 0,11 0,11 0,11 12,11 12,11 z"
+                    Fill="{StaticResource SliderThumb.Static.Background}"
+                    Stretch="Fill"
+                    Stroke="{StaticResource SliderThumb.Static.Border}"
+                    StrokeThickness="2" />
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
@@ -1770,17 +1770,17 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
         <ControlTemplate x:Key="SliderThumbVerticalDefault" TargetType="{x:Type Thumb}">
-            <Grid HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  UseLayoutRounding="True"
-                  >
-                <Path x:Name="grip"
-                      Data="M0.5,0.5 L18.5,0.5 18.5,11.5 0.5,11.5z"
-                      Fill="{StaticResource SliderThumb.Static.Background}"
-                      Stretch="Fill"
-                      Stroke="{StaticResource SliderThumb.Static.Border}"
-                      StrokeThickness="2"
-                      />
+            <Grid
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                UseLayoutRounding="True">
+                <Path
+                    x:Name="grip"
+                    Data="M0.5,0.5 L18.5,0.5 18.5,11.5 0.5,11.5z"
+                    Fill="{StaticResource SliderThumb.Static.Background}"
+                    Stretch="Fill"
+                    Stroke="{StaticResource SliderThumb.Static.Border}"
+                    StrokeThickness="2" />
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="true">
@@ -1798,41 +1798,41 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
         <ControlTemplate x:Key="SliderVertical" TargetType="{x:Type Slider}">
-            <Border x:Name="border"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    SnapsToDevicePixels="True"
-                    >
+            <Border
+                x:Name="border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                SnapsToDevicePixels="True">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" MinWidth="{TemplateBinding MinWidth}" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TickBar x:Name="TopTick"
-                             Grid.Column="0"
-                             Width="4"
-                             Margin="0,0,2,0"
-                             Fill="{TemplateBinding Foreground}"
-                             Placement="Left"
-                             Visibility="Collapsed"
-                             />
-                    <Border x:Name="TrackBackground"
-                            Grid.Column="1"
-                            Width="8.0"
-                            Margin="0,5"
-                            HorizontalAlignment="center"
-                            Background="{StaticResource SliderThumb.Track.Background}"
-                            BorderBrush="{StaticResource SliderThumb.Track.Border}"
-                            BorderThickness="1"
-                            >
+                    <TickBar
+                        x:Name="TopTick"
+                        Grid.Column="0"
+                        Width="4"
+                        Margin="0,0,2,0"
+                        Fill="{TemplateBinding Foreground}"
+                        Placement="Left"
+                        Visibility="Collapsed" />
+                    <Border
+                        x:Name="TrackBackground"
+                        Grid.Column="1"
+                        Width="8.0"
+                        Margin="0,5"
+                        HorizontalAlignment="center"
+                        Background="{StaticResource SliderThumb.Track.Background}"
+                        BorderBrush="{StaticResource SliderThumb.Track.Border}"
+                        BorderThickness="1">
                         <Canvas Margin="-1,-6">
-                            <Rectangle x:Name="PART_SelectionRange"
-                                       Width="4.0"
-                                       Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
-                                       Visibility="Hidden"
-                                       />
+                            <Rectangle
+                                x:Name="PART_SelectionRange"
+                                Width="4.0"
+                                Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                                Visibility="Hidden" />
                         </Canvas>
                     </Border>
                     <Track x:Name="PART_Track" Grid.Column="1">
@@ -1843,24 +1843,24 @@
                             <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource RepeatButtonTransparent}" />
                         </Track.IncreaseRepeatButton>
                         <Track.Thumb>
-                            <Thumb x:Name="Thumb"
-                                   Width="22"
-                                   Height="12"
-                                   VerticalAlignment="Top"
-                                   Focusable="False"
-                                   OverridesDefaultStyle="True"
-                                   Template="{StaticResource SliderThumbVerticalDefault}"
-                                   />
+                            <Thumb
+                                x:Name="Thumb"
+                                Width="22"
+                                Height="12"
+                                VerticalAlignment="Top"
+                                Focusable="False"
+                                OverridesDefaultStyle="True"
+                                Template="{StaticResource SliderThumbVerticalDefault}" />
                         </Track.Thumb>
                     </Track>
-                    <TickBar x:Name="BottomTick"
-                             Grid.Column="2"
-                             Width="4"
-                             Margin="2,0,0,0"
-                             Fill="{TemplateBinding Foreground}"
-                             Placement="Right"
-                             Visibility="Collapsed"
-                             />
+                    <TickBar
+                        x:Name="BottomTick"
+                        Grid.Column="2"
+                        Width="4"
+                        Margin="2,0,0,0"
+                        Fill="{TemplateBinding Foreground}"
+                        Placement="Right"
+                        Visibility="Collapsed" />
                 </Grid>
             </Border>
             <ControlTemplate.Triggers>
@@ -1924,24 +1924,24 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="6" />
                             </Grid.RowDefinitions>
-                            <Border x:Name="Header"
-                                    Grid.Row="0"
-                                    Grid.RowSpan="2"
-                                    Grid.Column="1"
-                                    Padding="3,1,3,0"
-                                    >
-                                <ContentPresenter ContentSource="Header"
-                                                  RecognizesAccessKey="True"
-                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                  />
+                            <Border
+                                x:Name="Header"
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                Padding="3,1,3,0">
+                                <ContentPresenter
+                                    ContentSource="Header"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </Border>
-                            <Border Grid.Row="1"
-                                    Grid.RowSpan="3"
-                                    Grid.ColumnSpan="4"
-                                    BorderBrush="{StaticResource Xstrahl_SCB_Purple060}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="4"
-                                    >
+                            <Border
+                                Grid.Row="1"
+                                Grid.RowSpan="3"
+                                Grid.ColumnSpan="4"
+                                BorderBrush="{StaticResource Xstrahl_SCB_Purple060}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
                                 <Border.OpacityMask>
                                     <MultiBinding Converter="{StaticResource BorderGapMaskConverter}" ConverterParameter="7">
                                         <Binding ElementName="Header" Path="ActualWidth" />
@@ -1949,31 +1949,31 @@
                                         <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}" />
                                     </MultiBinding>
                                 </Border.OpacityMask>
-                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                <Border
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="3">
+                                    <Border
+                                        BorderBrush="{StaticResource Xstrahl_SCB_Purple040}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                        CornerRadius="3"
-                                        >
-                                    <Border BorderBrush="{StaticResource Xstrahl_SCB_Purple040}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            CornerRadius="2"
-                                            />
+                                        CornerRadius="2" />
                                 </Border>
                             </Border>
-                            <Border Grid.Row="1"
-                                    Grid.RowSpan="3"
-                                    Grid.Column="0"
-                                    Grid.ColumnSpan="4"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="Transparent"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="4"
-                                    />
-                            <ContentPresenter Grid.Row="2"
-                                              Grid.Column="1"
-                                              Grid.ColumnSpan="2"
-                                              Margin="{TemplateBinding Padding}"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                              />
+                            <Border
+                                Grid.Row="1"
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="4"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="Transparent"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4" />
+                            <ContentPresenter
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Margin="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -1994,11 +1994,11 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TabControl}">
-                        <Grid x:Name="templateRoot"
-                              ClipToBounds="true"
-                              KeyboardNavigation.TabNavigation="Local"
-                              SnapsToDevicePixels="true"
-                              >
+                        <Grid
+                            x:Name="templateRoot"
+                            ClipToBounds="true"
+                            KeyboardNavigation.TabNavigation="Local"
+                            SnapsToDevicePixels="true">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition x:Name="ColumnDefinition0" />
                                 <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
@@ -2007,31 +2007,31 @@
                                 <RowDefinition x:Name="RowDefinition0" Height="Auto" />
                                 <RowDefinition x:Name="RowDefinition1" Height="*" />
                             </Grid.RowDefinitions>
-                            <TabPanel x:Name="headerPanel"
-                                      Grid.Row="0"
-                                      Grid.Column="0"
-                                      Margin="4,2,4,2"
-                                      Panel.ZIndex="1"
-                                      Background="{StaticResource Xstrahl_SCB_Grey020}"
-                                      IsItemsHost="true"
-                                      KeyboardNavigation.TabIndex="1"
-                                      />
-                            <Border x:Name="contentPanel"
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="3"
-                                    KeyboardNavigation.DirectionalNavigation="Contained"
-                                    KeyboardNavigation.TabIndex="2"
-                                    KeyboardNavigation.TabNavigation="Local"
-                                    >
-                                <ContentPresenter x:Name="PART_SelectedContentHost"
-                                                  Margin="{TemplateBinding Padding}"
-                                                  ContentSource="SelectedContent"
-                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                  />
+                            <TabPanel
+                                x:Name="headerPanel"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="4,2,4,2"
+                                Panel.ZIndex="1"
+                                Background="{StaticResource Xstrahl_SCB_Grey020}"
+                                IsItemsHost="true"
+                                KeyboardNavigation.TabIndex="1" />
+                            <Border
+                                x:Name="contentPanel"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                KeyboardNavigation.TabIndex="2"
+                                KeyboardNavigation.TabNavigation="Local">
+                                <ContentPresenter
+                                    x:Name="PART_SelectedContentHost"
+                                    Margin="{TemplateBinding Padding}"
+                                    ContentSource="SelectedContent"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </Border>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -2077,12 +2077,12 @@
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate>
-                        <Rectangle Margin="2"
-                                   SnapsToDevicePixels="true"
-                                   Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                                   StrokeDashArray="1 2"
-                                   StrokeThickness="1"
-                                   />
+                        <Rectangle
+                            Margin="2"
+                            SnapsToDevicePixels="true"
+                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                            StrokeDashArray="1 2"
+                            StrokeThickness="1" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -2117,31 +2117,31 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TabItem}">
                         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
-                            <Border x:Name="mainBorder"
+                            <Border
+                                x:Name="mainBorder"
+                                Margin="0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="2,2,2,2"
+                                CornerRadius="3">
+                                <Border
+                                    x:Name="innerBorder"
                                     Margin="0"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    Background="{StaticResource Xstrahl_SCB_Blue020}"
+                                    BorderBrush="{StaticResource Xstrahl_SCB_Blue100}"
                                     BorderThickness="2,2,2,2"
                                     CornerRadius="3"
-                                    >
-                                <Border x:Name="innerBorder"
-                                        Margin="0"
-                                        Background="{StaticResource Xstrahl_SCB_Blue020}"
-                                        BorderBrush="{StaticResource Xstrahl_SCB_Blue100}"
-                                        BorderThickness="2,2,2,2"
-                                        CornerRadius="3"
-                                        Opacity="0"
-                                        />
+                                    Opacity="0" />
                             </Border>
-                            <ContentPresenter x:Name="contentPresenter"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                                              VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                                              ContentSource="Header"
-                                              Focusable="False"
-                                              RecognizesAccessKey="True"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                              />
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                ContentSource="Header"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Grid>
                         <ControlTemplate.Triggers>
                             <MultiDataTrigger>
@@ -2328,13 +2328,13 @@
                     <ControlTemplate TargetType="{x:Type CheckBox}">
                         <BulletDecorator Background="Transparent">
                             <BulletDecorator.Bullet>
-                                <Border x:Name="Border"
-                                        Width="22"
-                                        Height="22"
-                                        Margin="0,5,0,0"
-                                        BorderThickness="1"
-                                        CornerRadius="2"
-                                        >
+                                <Border
+                                    x:Name="Border"
+                                    Width="22"
+                                    Height="22"
+                                    Margin="0,5,0,0"
+                                    BorderThickness="1"
+                                    CornerRadius="2">
                                     <Border.BorderBrush>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                             <LinearGradientBrush.GradientStops>
@@ -2357,26 +2357,26 @@
 
                                     </Border.Background>
                                     <Grid>
-                                        <Path x:Name="CheckMark"
-                                              Width="13"
-                                              Height="13"
-                                              Data="M 0 0 L 13 13 M 0 13 L 13 0"
-                                              SnapsToDevicePixels="False"
-                                              StrokeThickness="3"
-                                              Visibility="Collapsed"
-                                              >
+                                        <Path
+                                            x:Name="CheckMark"
+                                            Width="13"
+                                            Height="13"
+                                            Data="M 0 0 L 13 13 M 0 13 L 13 0"
+                                            SnapsToDevicePixels="False"
+                                            StrokeThickness="3"
+                                            Visibility="Collapsed">
                                             <Path.Stroke>
                                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Green100}" />
                                             </Path.Stroke>
                                         </Path>
-                                        <Path x:Name="InderminateMark"
-                                              Width="13"
-                                              Height="13"
-                                              Data="M 0 6.5 L 13 6.5"
-                                              SnapsToDevicePixels="False"
-                                              StrokeThickness="3"
-                                              Visibility="Collapsed"
-                                              >
+                                        <Path
+                                            x:Name="InderminateMark"
+                                            Width="13"
+                                            Height="13"
+                                            Data="M 0 6.5 L 13 6.5"
+                                            SnapsToDevicePixels="False"
+                                            StrokeThickness="3"
+                                            Visibility="Collapsed">
                                             <Path.Stroke>
                                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Red100}" />
                                             </Path.Stroke>
@@ -2384,16 +2384,16 @@
                                     </Grid>
                                 </Border>
                             </BulletDecorator.Bullet>
-                            <ContentPresenter Margin="3,0,0,0"
-                                              HorizontalAlignment="Left"
-                                              VerticalAlignment="Center"
-                                              RecognizesAccessKey="True"
-                                              >
+                            <ContentPresenter
+                                Margin="3,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True">
                                 <ContentPresenter.Content>
-                                    <TextBlock Name="TextBlock"
-                                               Text="{TemplateBinding Content}"
-                                               TextWrapping="Wrap"
-                                               />
+                                    <TextBlock
+                                        Name="TextBlock"
+                                        Text="{TemplateBinding Content}"
+                                        TextWrapping="Wrap" />
                                 </ContentPresenter.Content>
                             </ContentPresenter>
                             <VisualStateManager.VisualStateGroups>
@@ -2477,13 +2477,13 @@
                         <BulletDecorator Background="Transparent">
                             <BulletDecorator.Bullet>
                                 <Grid Width="32" Height="32">
-                                    <Ellipse x:Name="Border"
-                                             Width="22"
-                                             Height="22"
-                                             Margin="-10,0,0,0"
-                                             VerticalAlignment="Center"
-                                             StrokeThickness="1"
-                                             >
+                                    <Ellipse
+                                        x:Name="Border"
+                                        Width="22"
+                                        Height="22"
+                                        Margin="-10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        StrokeThickness="1">
                                         <Ellipse.Stroke>
                                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                                 <GradientStop Offset="0" Color="{DynamicResource Xstrahl_Purple060}" />
@@ -2501,29 +2501,29 @@
                                             </LinearGradientBrush>
                                         </Ellipse.Fill>
                                     </Ellipse>
-                                    <Ellipse x:Name="CheckMark"
-                                             Width="10"
-                                             Height="10"
-                                             Margin="-10,0,0,0"
-                                             VerticalAlignment="Center"
-                                             Visibility="Collapsed"
-                                             >
+                                    <Ellipse
+                                        x:Name="CheckMark"
+                                        Width="10"
+                                        Height="10"
+                                        Margin="-10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Visibility="Collapsed">
                                         <Ellipse.Fill>
                                             <SolidColorBrush Color="{DynamicResource Xstrahl_Purple100}" />
                                         </Ellipse.Fill>
                                     </Ellipse>
                                 </Grid>
                             </BulletDecorator.Bullet>
-                            <ContentPresenter Margin="-6,0,0,0"
-                                              HorizontalAlignment="Left"
-                                              VerticalAlignment="Center"
-                                              RecognizesAccessKey="True"
-                                              >
+                            <ContentPresenter
+                                Margin="-6,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True">
                                 <ContentPresenter.Content>
-                                    <TextBlock Name="TextBlock"
-                                               Text="{TemplateBinding Content}"
-                                               TextWrapping="Wrap"
-                                               />
+                                    <TextBlock
+                                        Name="TextBlock"
+                                        Text="{TemplateBinding Content}"
+                                        TextWrapping="Wrap" />
                                 </ContentPresenter.Content>
                             </ContentPresenter>
                             <VisualStateManager.VisualStateGroups>

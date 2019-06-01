@@ -231,6 +231,7 @@ Public Class K8_UC99chart
         Dim ItemCounter As Int32 = 0
         Dim Xold As Decimal
         Dim Yold As Decimal
+        Dim Ynew As Decimal
         Dim ChartLine As New Line
         Dim FirstValue As Decimal = 0
 
@@ -246,9 +247,18 @@ Public Class K8_UC99chart
             If StatisticChart = False Then Curve_Brush = Brushes.Black
         End If
 
-        For Each item In CurveToAdd
+        Dim NewCounterOffset As Decimal = 0
+
+        For Each CurveItem In CurveToAdd
+
+            If SelectedCategory.NewCounterActive = True AndAlso CurveItem.MeasDate >= SelectedCategory.NewCounterDate Then
+                NewCounterOffset = SelectedCategory.NewCounterOffsetValue
+            End If
+
             ItemCounter += 1
-            If (ItemCounter = 1 And SelectedCategory.CategoryValuesRelativeTo1st = True) And (StatisticChart = False) Then FirstValue = item.MeasValue
+            If (ItemCounter = 1 And SelectedCategory.CategoryValuesRelativeTo1st = True) And (StatisticChart = False) Then
+                FirstValue = CurveItem.MeasValue
+            End If
 
             If ItemCounter > 1 Then
                 ChartLine = New Line
@@ -257,24 +267,27 @@ Public Class K8_UC99chart
                     .Stroke = Curve_Brush
                     .StrokeThickness = Curve_StrokeThickness
                     .StrokeDashArray = Curve_StrokeDashArray
-                    .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (Yold - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
-                    .Y2 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * (item.MeasValue - FirstValue)) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
+
+
+                    .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Yold) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
+                    Ynew = CurveItem.MeasValue - FirstValue + NewCounterOffset
+                    .Y2 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Ynew) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
                     .X1 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * Xold)
                     If StatisticChart = False Then
-                        .X2 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * item.MeasDayOfYear)
+                        .X2 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * CurveItem.MeasDayOfYear)
                     Else
-                        .X2 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * item.MeasDateYear)
+                        .X2 = CNVSmarginLeft + (ChartWidthPixel / Xgridmax * CurveItem.MeasDateYear)
                     End If
                 End With
 
             End If
 
-                If StatisticChart = False Then
-                    Xold = item.MeasDayOfYear
-                Else
-                    Xold = item.MeasDateYear
+            If StatisticChart = False Then
+                Xold = CurveItem.MeasDayOfYear
+            Else
+                Xold = CurveItem.MeasDateYear
             End If
-            Yold = item.MeasValue
+            Yold = Ynew
 
             CNVS99.Children.Add(ChartLine)
 

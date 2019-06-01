@@ -24,8 +24,6 @@ Public Class K8_CL03measurement
     Private _MeasStatus As K8ENUMS.CollectionItemStatus
 
 
-
-
     <XmlIgnore>
     Public Property CategoryInternalID As String
         Get

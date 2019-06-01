@@ -55,7 +55,7 @@
                           VerticalAlignment="Top"
                           ExpandDirection="Right"
                           Header="Modify"
-                          IsExpanded="False"
+                          IsExpanded="True"
                           >
                     <Grid Margin="10,0,0,0">
                         <ListBox x:Name="LSTBX03_CategoriesLoaded"

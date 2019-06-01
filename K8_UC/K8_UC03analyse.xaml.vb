@@ -26,7 +26,6 @@ Public Class K8_UC03analyse
         CMBBX03_AnalysisCollection.DataContext = KiebitzAllAnalysis
         LSTBX03_CategoriesLoaded.DataContext = KiebitzCategories
 
-
         ResetChart()
 
     End Sub
@@ -37,7 +36,12 @@ Public Class K8_UC03analyse
         Dim CounterChart As Int32 = 0
         ResetChart()
 
-        If CMBBX03_AnalysisCollection.SelectedIndex > -1 Then
+        If CMBBX03_AnalysisCollection.SelectedIndex > -1 Then ' LSTBX03_Categories.Items.Count > 0 Then
+
+            If KiebitzAllAnalysis(CMBBX03_AnalysisCollection.SelectedIndex).AnalysisCollectionItems.Count <= 0 Then
+                LSTBX03_Categories.ItemsSource = Nothing
+                Exit Sub
+            End If
 
             LSTBX03_Categories.ItemsSource = KiebitzAllAnalysis(CMBBX03_AnalysisCollection.SelectedIndex).AnalysisCollectionItems
 

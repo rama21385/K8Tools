@@ -17,6 +17,8 @@ Class MainWindow
 
         K8_CL02category.LoadXMLIntoCollection()
 
+
+
     End Sub
 
     Private Sub K8Exit()

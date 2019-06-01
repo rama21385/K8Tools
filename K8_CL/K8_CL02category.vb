@@ -25,7 +25,7 @@ Public Class K8_CL02category
     Private _CategoryName As String
     Private _CategoryUnit As K8ENUMS.ValueUnits
     Private _CategoryYear As UInt16
-    Private _CategoryMeasValues As New ObservableCollection(Of K8_CL03measurement)
+    Private _CategoryMeasValuesCount As Int32 ' As New ObservableCollection(Of K8_CL03measurement)
     Private _CategoryIsEnabled As Boolean
     Private _CategoryValuesRelativeTo1st As Boolean
     Private _CategoryStatus As K8ENUMS.CollectionItemStatus
@@ -33,6 +33,9 @@ Public Class K8_CL02category
     Private _CategoryChartType As ChartType
     Private _CategoryChartYMin As Int32
     Private _CategoryChartYMax As Int32
+    Private _NewCounterActive As Boolean
+    Private _NewCounterDate As Date
+    Private _NewCounterOffsetValue As Decimal
 
     Private _CurveMin As Decimal
     Private _CurveMax As Decimal
@@ -115,13 +118,12 @@ Public Class K8_CL02category
         End Set
     End Property
 
-    <XmlIgnore>
-    Public Property CategoryMeasValues As ObservableCollection(Of K8_CL03measurement)
+    Public Property CategoryMeasValuesCount As Int32 ' ObservableCollection(Of K8_CL03measurement)
         Get
-            Return _CategoryMeasValues
+            Return _CategoryMeasValuesCount
         End Get
-        Set(value As ObservableCollection(Of K8_CL03measurement))
-            _CategoryMeasValues = value
+        Set(value As Int32) 'ObservableCollection(Of K8_CL03measurement))
+            _CategoryMeasValuesCount = value
             NotifyPropertyChanged()
         End Set
     End Property
@@ -581,6 +583,36 @@ Public Class K8_CL02category
         End Set
     End Property
 
+    Public Property NewCounterActive As Boolean
+        Get
+            Return _NewCounterActive
+        End Get
+        Set(value As Boolean)
+            _NewCounterActive = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property NewCounterDate As Date
+        Get
+            Return _NewCounterDate
+        End Get
+        Set(value As Date)
+            _NewCounterDate = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
+    Public Property NewCounterOffsetValue As Decimal
+        Get
+            Return _NewCounterOffsetValue
+        End Get
+        Set(value As Decimal)
+            _NewCounterOffsetValue = value
+            NotifyPropertyChanged()
+        End Set
+    End Property
+
     Public Shared Sub SaveCollectionAsXML()
 
         For Each item In KiebitzCategories.ToList 'otherwise error because removing an item from a list makes the list shorter than it was at the beginning of the loop
@@ -593,6 +625,7 @@ Public Class K8_CL02category
                 KiebitzCategories.Remove(item)
             Else
                 item.CategoryStatus = CollectionItemStatus.none
+
             End If
         Next
 

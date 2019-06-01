@@ -281,12 +281,56 @@
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryChartYMax}">
                                         <GridViewColumnHeader Padding="15,3,15,3" Content="Chart Y Max" />
                                     </GridViewColumn>
-                                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryMeasValues.Count}">
+                                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryMeasValuesCount}">
                                         <GridViewColumnHeader Padding="15,3,15,3" Content="Measurements" />
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding NewCounterActive}">
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="New Counter" />
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding NewCounterDate, StringFormat='yyyy-MM-dd'}">
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="New Counter Date" />
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding NewCounterOffsetValue}">
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="New Counter Offset" />
                                     </GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
+                        <GroupBox
+                            x:Name="GRPBX01_Counter"
+                            Width="200"
+                            Height="Auto"
+                            Margin="480,16,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Header="New Counter">
+                            <Grid>
+                                <StackPanel Margin="5">
+                                    <CheckBox
+                                        x:Name="CHKBX01_CategoryNewCounter"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Content="New Counter"
+                                        IsChecked="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.NewCounterActive, Mode=OneWay}" />
+                                    <DatePicker
+                                        Name="DTPCKR_NewCounterDate"
+                                        Margin="0,10,0,0"
+                                        FontWeight="Normal"
+                                        SelectedDate="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.NewCounterDate, Mode=OneWay}" />
+                                    <TextBox
+                                        x:Name="TXTBX01_NewCounterOffset"
+                                        Width="100"
+                                        Height="23"
+                                        Margin="0,10,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        VerticalContentAlignment="Center"
+                                        Text="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.NewCounterOffsetValue, Mode=OneWay}"
+                                        TextWrapping="NoWrap" />
+
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
                     </Grid>
                 </TabItem>
             </TabControl>
