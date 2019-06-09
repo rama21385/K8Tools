@@ -70,8 +70,8 @@ Public Class K8_UC03analyse
                 MultiCurveChart2.SelectedCategory = SelectedCategory
 
                 If CounterChart = 1 Then
-                    MultiCurveChart1.RefreshChart(False)
-                    MultiCurveChart2.RefreshChart(True)
+                    MultiCurveChart1.RefreshChart(False, CBool(Me.CHKBX_DarkMode.IsChecked))
+                    MultiCurveChart2.RefreshChart(True, CBool(Me.CHKBX_DarkMode.IsChecked))
                 End If
 
                 If LSTBX03_Categories.SelectedItem Is CollItem Then

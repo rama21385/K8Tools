@@ -24,6 +24,12 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
+                <CheckBox
+                    x:Name="CHKBX_DarkMode"
+                    Margin="0,0,20,10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Dark Mode" />
 
                 <Button
                     x:Name="BTN02_Import"
@@ -95,6 +101,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Right"
+                    PreviewKeyDown="IncreaseDecreaseDayMonth"
                     Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasDateMonth, Mode=OneWay}"
                     TextWrapping="Wrap" />
                 <TextBox
@@ -119,6 +126,8 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     HorizontalContentAlignment="Right"
+                    GotFocus="HighlightAll"
+                    PreviewKeyDown="AddNewValue"
                     Text="{Binding ElementName=DTGRD02_Measurements, Path=SelectedItem.MeasValue, Mode=OneWay}"
                     TextWrapping="Wrap" />
                 <TextBox
@@ -192,6 +201,7 @@
                     MinRowHeight="20"
                     RowHeaderWidth="0"
                     SelectedValuePath="MeasDate"
+                    SelectionChanged="SelectedNewItem"
                     SelectionMode="Single"
                     VerticalScrollBarVisibility="Visible">
                     <!--  ItemsSource="{Binding SelectedItem.CategoryMeasValues, ElementName=CMBBX02_Category}"  -->
@@ -229,7 +239,7 @@
                         </DataGridTextColumn>
                         <DataGridTextColumn
                             Width="*"
-                            Binding="{Binding MeasValue, Mode=OneWay}"
+                            Binding="{Binding MeasValue, Mode=OneWay, StringFormat={}{0:F2}}"
                             CanUserSort="False"
                             Header="Messwert"
                             IsReadOnly="False">
@@ -980,6 +990,7 @@
                     <Viewbox
                         Name="VWBX02"
                         Grid.Column="1"
+                        
                         Margin="0,0,0,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"

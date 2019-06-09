@@ -18,6 +18,12 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
+                <CheckBox
+                    x:Name="CHKBX_DarkMode"
+                    Margin="0,0,20,10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Dark Mode" />
                 <Button x:Name="BTN03_EXITnosave"
                         Margin="0,0,20,10"
                         VerticalAlignment="Bottom"

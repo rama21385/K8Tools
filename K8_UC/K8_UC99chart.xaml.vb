@@ -14,6 +14,8 @@ Public Class K8_UC99chart
     Public SelectedCategory As New K8_CL02category
     Private ChartYRangeValue As Double = 0
 
+    Dim ChartDarkMode As Boolean
+
     Public Sub New()
 
         ' This call is required by the designer.
@@ -23,7 +25,9 @@ Public Class K8_UC99chart
 
     End Sub
 
-    Public Sub RefreshChart(StatisticChart As Boolean)
+    Public Sub RefreshChart(StatisticChart As Boolean, DarkMode As Boolean)
+
+        ChartDarkMode = DarkMode
 
         Dim ChartMonths As Int32 = 0
         Dim ChartMonthIndex As Int32 = 0
@@ -33,7 +37,11 @@ Public Class K8_UC99chart
         Dim Xgrid As New Line
 
         CNVS99.Children.Clear()
-
+        If ChartDarkMode = True Then
+            CNVS99.Background = Brushes.DarkSlateGray
+        Else
+            CNVS99.Background = Brushes.WhiteSmoke
+        End If
         Dim PatternX As DoubleCollection = New DoubleCollection()
         PatternX.Add(1)
         PatternX.Add(2)
@@ -244,7 +252,13 @@ Public Class K8_UC99chart
         If HighliteCurve = True Or StatisticChart=True Then
             Curve_StrokeThickness = 2
             Curve_StrokeDashArray = New DoubleCollection From {1, 0}
-            If StatisticChart = False Then Curve_Brush = Brushes.Black
+            If StatisticChart = False Then
+                If ChartDarkMode = True Then
+                    Curve_Brush = Brushes.Yellow
+                Else
+                    Curve_Brush = Brushes.Black
+                End If
+            End If
         End If
 
         Dim NewCounterOffset As Decimal = 0
@@ -284,12 +298,20 @@ Public Class K8_UC99chart
 
             If StatisticChart = False Then
                 Xold = CurveItem.MeasDayOfYear
+                Yold = Ynew
             Else
                 Xold = CurveItem.MeasDateYear
+                Yold = CurveItem.MeasValue
             End If
-            Yold = Ynew
 
             CNVS99.Children.Add(ChartLine)
+            'If StatisticChart = False Then
+            '    CNVS99.Children.Add(ChartLine)
+            'Else
+            '    If ItemCounter > 2 Then
+            '        CNVS99.Children.Add(ChartLine)
+            '    End If
+            'End If
 
         Next
 
@@ -298,8 +320,13 @@ Public Class K8_UC99chart
     Private Sub DesignYaxis(ByRef AxisY As Line)
 
         With AxisY
-            .Fill = Brushes.Black
-            .Stroke = Brushes.Black
+            If ChartDarkMode = True Then
+                .Fill = Brushes.White
+                .Stroke = Brushes.White
+            Else
+                .Fill = Brushes.Black
+                .Stroke = Brushes.Black
+            End If
             .StrokeThickness = 1
             .X1 = CNVSmarginLeft
             .X2 = CNVSmarginLeft
@@ -312,8 +339,13 @@ Public Class K8_UC99chart
     Private Sub DesignYgrid(ByRef Ygrid As Line, Ypos As Int32)
 
         With Ygrid
-            .Fill = Brushes.LightGray
-            .Stroke = Brushes.LightGray
+            If ChartDarkMode = True Then
+                .Fill = Brushes.White
+                .Stroke = Brushes.White
+            Else
+                .Fill = Brushes.Black
+                .Stroke = Brushes.Black
+            End If
             .StrokeThickness = 1
             .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Ypos) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
             .Y2 = .Y1
@@ -326,8 +358,13 @@ Public Class K8_UC99chart
     Private Sub DesignYticks(ByRef Yticks As Line, Ypos As Int32)
 
         With Yticks
-            .Fill = Brushes.Black
-            .Stroke = Brushes.Black
+            If ChartDarkMode = True Then
+                .Fill = Brushes.White
+                .Stroke = Brushes.White
+            Else
+                .Fill = Brushes.Black
+                .Stroke = Brushes.Black
+            End If
             .StrokeThickness = 1
             .Y1 = CNVSheight - CNVSmarginBottom - (ChartHeightPixel / ChartYRangeValue * Ypos) + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
             .Y2 = .Y1
@@ -340,8 +377,13 @@ Public Class K8_UC99chart
     Private Sub DesignXaxis(ByRef AxisX As Line)
 
         With AxisX
-            .Fill = Brushes.Black
-            .Stroke = Brushes.Black
+            If ChartDarkMode = True Then
+                .Fill = Brushes.White
+                .Stroke = Brushes.White
+            Else
+                .Fill = Brushes.Black
+                .Stroke = Brushes.Black
+            End If
             .StrokeThickness = 1
             .X1 = 0 + CNVSmarginLeft
             .X2 = CNVSwidth - CNVSmarginRight
@@ -354,8 +396,13 @@ Public Class K8_UC99chart
     Private Sub DesignXgridMonth(ByRef Xgrid As Line, Xpos As Int32, Xgridmax As Int32)
 
         With Xgrid
-            .Fill = Brushes.LightGray
-            .Stroke = Brushes.LightGray
+            If ChartDarkMode = True Then
+                .Fill = Brushes.White
+                .Stroke = Brushes.White
+            Else
+                .Fill = Brushes.Black
+                .Stroke = Brushes.Black
+            End If
             .StrokeThickness = 1
             .Y1 = CNVSheight - CNVSmarginBottom
             .Y2 = 0 + CNVSmarginTop
@@ -368,8 +415,13 @@ Public Class K8_UC99chart
     Private Sub DesignXticksMonth(ByRef Xticks As Line, Xpos As Int32, Xgridmax As Int32)
 
         With Xticks
-            .Fill = Windows.Media.Brushes.Black
-            .Stroke = Windows.Media.Brushes.Black
+            If ChartDarkMode = True Then
+                .Fill = Brushes.White
+                .Stroke = Brushes.White
+            Else
+                .Fill = Brushes.Black
+                .Stroke = Brushes.Black
+            End If
             .StrokeThickness = 1
             .Y1 = CNVSheight - CNVSmarginBottom - 5 + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
             .Y2 = CNVSheight - CNVSmarginBottom + 5 + (ChartHeightPixel / ChartYRangeValue * SelectedCategory.CategoryChartYMin)
@@ -382,8 +434,12 @@ Public Class K8_UC99chart
     Private Sub DesignXaxisMonthLabels(ByRef XaxisLabelMonths As TextBlock, ByRef ChartMonthIndex As Int32, ByRef ChartMonths As Int32, Xgridmax As Int32)
 
         With XaxisLabelMonths
+            If ChartDarkMode = True Then
+                .Foreground = Brushes.White
+            Else
+                .Foreground = Brushes.Black
+            End If
             .Text = Format(New DateTime(1968, ChartMonthIndex, 1), "MMM")
-
             .FontStyle = FontStyles.Italic
             .FontWeight = FontWeights.Normal
             .FontFamily = New FontFamily("Arial")

@@ -13,6 +13,8 @@ Public Class K8_UC02input
     End Sub
 
     Dim SingleCurveChart As New K8_UC99chart
+    Dim SelItem As New K8_CL03measurement
+    Dim SelItemTemp As New K8_CL03measurement
 
 #Region "Local properties"
 
@@ -65,6 +67,14 @@ Public Class K8_UC02input
 
     End Sub
 
+    Private Sub AddNewValue(sender As Object, e As KeyEventArgs)
+
+        If sender Is TXTBX0_MeasValue And  e.Key = Key.Return Then
+            Call AddNewMeasValue(BTN02_AddNewMeasValue, Nothing)
+            TXTBX0_MeasDay.Focus()
+        End If
+
+    End Sub
 
     Private Sub AddNewMeasValue(sender As Object, e As RoutedEventArgs)
 
@@ -99,7 +109,7 @@ Public Class K8_UC02input
 
             DTGRD02_Measurements.DataContext = KiebitzMeasCurve
             DTGRD02_Measurements.ScrollIntoView(KiebitzMeasCurve.Item(KiebitzMeasCurve.Count - 1))
-
+            DTGRD02_Measurements.SelectedIndex = -1
             RefreshChart()
 
         End If
@@ -108,7 +118,7 @@ Public Class K8_UC02input
 
     Private Sub DeleteMeasValue(sender As Object, e As RoutedEventArgs)
 
-        Dim SelItem As New K8_CL03measurement
+        'Dim SelItem As New K8_CL03measurement
         SelItem = CType(DTGRD02_Measurements.SelectedItem, K8_CL03measurement)
         KiebitzMeasCurve.Remove(SelItem)
 
@@ -118,7 +128,7 @@ Public Class K8_UC02input
 
     Private Sub ModifyMeasValue(sender As Object, e As RoutedEventArgs)
 
-        Dim SelItem As New K8_CL03measurement
+        'Dim SelItem As New K8_CL03measurement
         SelItem = CType(DTGRD02_Measurements.SelectedItem, K8_CL03measurement)
         SelItem.MeasComment = TXTBX0_MeasComment.Text
         SelItem.MeasValue = CDec(Val(TXTBX0_MeasValue.Text.Replace(",", ".")))
@@ -241,7 +251,7 @@ Public Class K8_UC02input
 
         CalculateStatistics()
         SingleCurveChart.SelectedCategory = SelectedCategory
-        SingleCurveChart.RefreshChart(StatisticChart:=False)
+        SingleCurveChart.RefreshChart(StatisticChart:=False, DarkMode:=CBool(Me.CHKBX_DarkMode.IsChecked))
         SingleCurveChart.AddCurveToChart(KiebitzMeasCurve, False, 366, False)
         SingleCurveChart.AddStatisticLinesToChart(KiebitzMeasCurve)
         ChangesMade = True
@@ -692,9 +702,31 @@ Public Class K8_UC02input
                 If CurrentValue = 0 Then CurrentValue = MaxValue
             End If
 
-            TXTBX0_MeasDay.Text = CStr(CurrentValue)
+            If sender Is TXTBX0_MeasDay Then
+                SelItem.MeasDateDay = CUShort(CurrentValue)
+                'TXTBX0_MeasDay.Text = CStr(CurrentValue)
+            ElseIf sender Is TXTBX0_MeasMonth Then
+                SelItem.MeasDateMonth = CUShort(CurrentValue)
+                'TXTBX0_MeasMonth.Text = CStr(CurrentValue)
+            End If
 
         End If
+
+    End Sub
+
+    Private Sub HighlightAll(sender As Object, e As RoutedEventArgs)
+
+        If sender Is TXTBX0_MeasValue Then
+            TXTBX0_MeasValue.SelectAll()
+        End If
+
+    End Sub
+
+    Private Sub SelectedNewItem(sender As Object, e As SelectionChangedEventArgs)
+
+        SelItemTemp = CType(DTGRD02_Measurements.SelectedItem, K8_CL03measurement)
+
+
 
     End Sub
 End Class
