@@ -8,9 +8,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
     Name="K8UC02"
-    Unloaded="DoThingsWhenUnloading"
     d:DesignHeight="550"
     d:DesignWidth="1000"
+    Unloaded="DoThingsWhenUnloading"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -27,10 +27,10 @@
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
                 <CheckBox
                     x:Name="CHKBX_DarkMode"
-                    Click="RefreshChart"
                     Margin="0,0,20,10"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
+                    Click="RefreshChart"
                     Content="Dark Mode" />
 
                 <Button
@@ -992,7 +992,6 @@
                     <Viewbox
                         Name="VWBX02"
                         Grid.Column="1"
-                        
                         Margin="0,0,0,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"

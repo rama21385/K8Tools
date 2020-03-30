@@ -11,20 +11,42 @@
 
     <Grid Background="{StaticResource Xstrahl_SCB_Grey020}" Style="{StaticResource GRD_Margin00}">
         <Grid Style="{StaticResource GRD_Margin10}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2.5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
             <TextBox
                 x:Name="TXTBX_Input01"
-                Width="200"
+                Grid.Row="0"
+                Width="150"
                 Height="25"
-                Margin="10,10,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Text="3.14159265"
                 TextWrapping="Wrap" />
             <ListBox
-                Name="LSTBX_Formats"
-                Width="200"
-                Height="100"
-                Margin="10,40,0,0"
+                Name="LSTBX_Formats1"
+                Grid.Row="1"
+                Grid.RowSpan="10"
+                Grid.Column="0"
+                Width="150"
+                Height="380"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 SelectionChanged="ShowNewFormattedText">
@@ -32,25 +54,118 @@
                 <ListBoxItem Content="0,10:D5" />
                 <ListBoxItem Content="0,-15:0000000000" />
                 <ListBoxItem Content="0,15:0000000000" />
+                <ListBoxItem Content="0:F2" />
+                <ListBoxItem Content="0:F5" />
+                <ListBoxItem Content="0:C2" />
+                <ListBoxItem Content="0:C5" />
+                <ListBoxItem Content="0:P2" />
+                <ListBoxItem Content="0:P5" />
+                <ListBoxItem Content="0:E3" />
+                <ListBoxItem Content="0:E5" />
+                <ListBoxItem Content="0:X4" />
+                <ListBoxItem Content="0:x4" />
+                <ListBoxItem Content="0:X2" />
+                <ListBoxItem Content="0:x2" />
+                <ListBoxItem Content="0:d" />
+                <ListBoxItem Content="0:t" />
             </ListBox>
-            <Label
-                x:Name="LBL_Output"
-                Width="450"
-                Margin="230,40,0,0"
+            <ListBox
+                Name="LSTBX_Formats2"
+                Grid.Row="1"
+                Grid.RowSpan="10"
+                Grid.Column="0"
+                Width="150"
+                Height="380"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="Label"
-                FontFamily="Lucida Console"
-                FontSize="14" />
-            <Label
-                x:Name="LBL_Count"
-                Width="450"
-                Margin="230,65,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="12345678901234567890123456789012345678901234567890"
-                FontFamily="Lucida Console"
-                FontSize="14" />
+                SelectionChanged="ShowNewFormattedText"
+                Visibility="Hidden">
+                <ListBoxItem Content="D2" />
+                <ListBoxItem Content="D5" />
+                <ListBoxItem Content="0.00" />
+                <ListBoxItem Content="0.00000" />
+                <ListBoxItem Content="F2" />
+                <ListBoxItem Content="F5" />
+                <ListBoxItem Content="C2" />
+                <ListBoxItem Content="C5" />
+                <ListBoxItem Content="P2" />
+                <ListBoxItem Content="P5" />
+                <ListBoxItem Content="E2" />
+                <ListBoxItem Content="E5" />
+                <ListBoxItem Content="d" />
+                <ListBoxItem Content="t" />
+            </ListBox>
+            <StackPanel
+                Grid.Row="1"
+                Grid.RowSpan="5"
+                Grid.Column="2">
+
+                <Label
+                    x:Name="LBL_Output"
+                    Width="450"
+                    HorizontalAlignment="Left"
+                    Content="Label"
+                    FontFamily="Lucida Console"
+                    FontSize="14" />
+                <Label
+                    x:Name="LBL_Count"
+                    Width="450"
+                    HorizontalAlignment="Left"
+                    Content="12345678901234567890123456789012345678901234567890"
+                    FontFamily="Lucida Console"
+                    FontSize="14" />
+            </StackPanel>
+            <StackPanel
+                Grid.Row="0"
+                Grid.RowSpan="5"
+                Grid.Column="1"
+                Orientation="Vertical">
+                <CheckBox x:Name="CHKBX_Integer" Content="Input is Integer" />
+                <RadioButton
+                    x:Name="RDBTN_02_StringFormat"
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    Click="ChangeListOfFormats"
+                    Content="String.Format"
+                    GroupName="GroupFormatter"
+                    IsChecked="True" />
+                <RadioButton
+                    x:Name="RDBTN_02_ToString"
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    Click="ChangeListOfFormats"
+                    Content="Value.ToString"
+                    GroupName="GroupFormatter"
+                    IsChecked="False" />
+            </StackPanel>
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="2"
+                Orientation="Horizontal">
+
+                <RadioButton
+                    x:Name="RDBTN_01_Input"
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    Content="Use Input"
+                    GroupName="SourceOfInput"
+                    IsChecked="True" />
+                <RadioButton
+                    x:Name="RDBTN_01_Now"
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    Content="Use NOW"
+                    GroupName="SourceOfInput"
+                    IsChecked="False" />
+                <RadioButton
+                    x:Name="RDBTN_01_PI"
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center"
+                    Click="SetDefaultValue"
+                    Content="Use PI"
+                    GroupName="SourceOfInput"
+                    IsChecked="False" />
+            </StackPanel>
         </Grid>
     </Grid>
 

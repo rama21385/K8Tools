@@ -243,7 +243,7 @@
                             </Button>
 
                         </Grid>
-                        </Grid>
+                    </Grid>
                 </TabItem>
             </TabControl>
 
@@ -278,7 +278,7 @@
                         x:Name="LBLmain_StatusChanges"
                         Height="28"
                         BorderThickness="1"
-                        Content="{Binding StatusbarMessageA, FallbackValue='...'}"
+                        Content="..."
                         FontWeight="Bold">
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />

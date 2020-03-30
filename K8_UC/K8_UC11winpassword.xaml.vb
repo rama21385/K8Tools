@@ -61,26 +61,30 @@ Public Class K8_UC11winpassword
         End If
 
         Dim IsPasswordValid As Boolean
-            IsPasswordValid = MyPrincipalContext.ValidateCredentials(CMBBX_WindowsUsers.Text, Me.TXTBX_Password.Text)
+        IsPasswordValid = MyPrincipalContext.ValidateCredentials(CMBBX_WindowsUsers.Text, Me.PSSWRDBX_Password.Password)
 
-            If IsPasswordValid Then
-                '--- Ok
+        Dim userFullName As String = UserPrincipal.FindByIdentity(MyPrincipalContext, CMBBX_WindowsUsers.Text).DisplayName
+        Dim userGroups As PrincipalSearchResult(Of Principal) = UserPrincipal.FindByIdentity(MyPrincipalContext, CMBBX_WindowsUsers.Text).GetGroups
 
-                'Dim userFullName As String = UserPrincipal.FindByIdentity(MyPrincipalContext, "rayv2").DisplayName
-                Dim userFullName As String = UserPrincipal.FindByIdentity(MyPrincipalContext, CMBBX_WindowsUsers.Text).DisplayName
-                Dim userGroups As PrincipalSearchResult(Of Principal) = UserPrincipal.FindByIdentity(MyPrincipalContext, CMBBX_WindowsUsers.Text).GetGroups
+        LBL_Password2.Content = "Principal Context Name: " & MyPrincipalContext.Name
+        LBL_Password3.Content = "Principal Context Username: " & MyPrincipalContext.UserName
+        LBL_Password4.Content = "Is administrator? " & IsAdministrator()
+        LBL_Password5.Content = "User Full Name: " & userFullName
 
-                LBL_Password.Content = "Password Validity: valid! - " & MyPrincipalContext.Name & " - " & MyPrincipalContext.UserName & " - " & IsAdministrator() & " - " & userFullName
+        If IsPasswordValid Then
+            '--- Ok
 
-                TXTBLCK_Gruppen.Text = ""
-                For Each Ergebnis In userGroups
-                    TXTBLCK_Gruppen.Text &= Ergebnis.Name & " - " & Ergebnis.DisplayName & vbCrLf
-                Next
-            Else
-                '--- Nicht Ok
-                LBL_Password.Content = "Password Validity: not valid!"
+            LBL_Password1.Content = "Password Validity: valid!"
 
-            End If
+            TXTBLCK_Gruppen.Text = ""
+            For Each Ergebnis In userGroups
+                TXTBLCK_Gruppen.Text &= Ergebnis.Name & " - " & Ergebnis.DisplayName & " - " & Ergebnis.Description & vbCrLf
+            Next
+        Else
+            '--- Nicht Ok
+            LBL_Password1.Content = "Password Validity: not valid!"
+
+        End If
 
 
 
