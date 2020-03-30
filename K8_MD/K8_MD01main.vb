@@ -8,6 +8,9 @@ Module K8_MD01main
         UC02input = 2
         UC03analyse = 3
 
+        UC11password = 11
+        UC12stringformat = 12
+
     End Enum
 
     Public NumberOfActiveMenu As UserControlItems

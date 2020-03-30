@@ -1,23 +1,43 @@
-﻿Imports K8Tools.K8ENUMS
+﻿Imports System.ComponentModel
+Imports System.Runtime.CompilerServices
+Imports K8Tools.K8ENUMS
 
 Class MainWindow
+    Implements INotifyPropertyChanged
+
+    Public Event PropertyChanged(sender As Object, e As PropertyChangedEventArgs) Implements INotifyPropertyChanged.PropertyChanged
+
+    Public Sub NotifyPropertyChanged(<CallerMemberName()> Optional ByVal propertyName As String = Nothing)
+        RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+    End Sub
+
+    Private _selectedTheme As ResourceDictionary
+
+    Public Property SelectedTheme As ResourceDictionary
+        Get
+            Return _selectedTheme
+        End Get
+        Set(value As ResourceDictionary)
+            Try
+                Resources.MergedDictionaries.Remove(SelectedTheme)
+            Catch ex As Exception
+            End Try
+
+            _selectedTheme = value
+            Me.Resources.MergedDictionaries.Add(_selectedTheme)
+            NotifyPropertyChanged()
+        End Set
+    End Property
 
     Public Sub New()
 
+        Dim myResourceDictionary As New ResourceDictionary With {
+            .Source = New Uri("/Resources/Style_Default.xaml", UriKind.RelativeOrAbsolute)
+        }
+        SelectedTheme = myResourceDictionary
+
         ' Dieser Aufruf ist für den Designer erforderlich.
         InitializeComponent()
-
-        For Each K8Dir In {K8_DirHome, K8_DirCSV, K8_DirReport, K8_DirSettings}
-
-            If System.IO.Directory.Exists(K8Dir) = False Then
-                System.IO.Directory.CreateDirectory(K8Dir)
-            End If
-
-        Next
-
-        K8_CL02category.LoadXMLIntoCollection()
-
-
 
     End Sub
 
@@ -30,13 +50,16 @@ Class MainWindow
     Private Sub OpenMyUserControl(sender As Object, e As RoutedEventArgs)
 
         If RemoveChildWindow() = False Then Exit Sub
-
         If sender Is BTN_01settings Then
             NumberOfActiveMenu = UserControlItems.UC01settings
         ElseIf sender Is BTN_02input Then
             NumberOfActiveMenu = UserControlItems.UC02input
         ElseIf sender Is BTN_03analyse Then
             NumberOfActiveMenu = UserControlItems.UC03analyse
+        ElseIf sender Is BTN_21password Then
+            NumberOfActiveMenu = UserControlItems.UC11password
+        ElseIf sender Is BTN_22stringFormat Then
+            NumberOfActiveMenu = UserControlItems.UC12stringformat
         End If
 
         If NumberOfActiveMenu > UserControlItems.none Then
@@ -56,6 +79,11 @@ Class MainWindow
                 K8UC = New K8_UC02input
             Case UserControlItems.UC03analyse
                 K8UC = New K8_UC03analyse
+
+            Case UserControlItems.UC11password
+                K8UC = New K8_UC11winpassword
+            Case UserControlItems.UC12stringformat
+                K8UC = New K8_UC12stringformat
         End Select
 
         If IsNothing(K8UC) = True Then Exit Sub
@@ -95,4 +123,22 @@ Class MainWindow
         Return False
 
     End Function
+
+    Private Sub K8IsLoaded(sender As Object, e As RoutedEventArgs)
+
+        For Each K8Dir In {K8_DirHome, K8_DirCSV, K8_DirReport, K8_DirSettings}
+
+            If System.IO.Directory.Exists(K8Dir) = False Then
+                System.IO.Directory.CreateDirectory(K8Dir)
+            End If
+
+        Next
+
+        K8_CL02category.LoadXMLIntoCollection()
+
+        'Dim myResourceDictionary As New ResourceDictionary
+        'myResourceDictionary.Source = New Uri("/Resources/Style_Dark.xaml", UriKind.RelativeOrAbsolute)
+        'SelectedTheme = myResourceDictionary
+
+    End Sub
 End Class

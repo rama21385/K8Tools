@@ -1,17 +1,25 @@
-﻿<Window x:Class="MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:K8Tools"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="Kiebitz8-Tools"
-        Width="1000"
-        Height="800"
-        MinWidth="1000"
-        MinHeight="800"
-        ResizeMode="CanResizeWithGrip"
-        mc:Ignorable="d"
-        >
+﻿<Window
+    x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:K8Tools"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="MW"
+    Title="Kiebitz8-Tools"
+    Width="1000"
+    Height="800"
+    MinWidth="1000"
+    MinHeight="800"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    Loaded="K8IsLoaded"
+    ResizeMode="CanResizeWithGrip"
+    mc:Ignorable="d">
+
+    <!--<Window.Resources>
+        <ResourceDictionary Source="/Resources/Style_Default.xaml" />
+    </Window.Resources>-->
+
     <Grid>
         <Grid x:Name="MainGrid" Style="{StaticResource GRD_Margin00}">
             <Grid.RowDefinitions>
@@ -19,18 +27,18 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TabControl Grid.Row="0"
-                        Width="Auto"
-                        Height="Auto"
-                        Margin="0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Top"
-                        BorderThickness="1"
-                        >
-                <TabItem Name="TBTM_Main01"
-                         FontSize="16"
-                         Header="Tools 01"
-                         >
+            <TabControl
+                Grid.Row="0"
+                Width="Auto"
+                Height="Auto"
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                BorderThickness="1">
+                <TabItem
+                    Name="TBTM_Main01"
+                    FontSize="16"
+                    Header="Tools 01">
                     <Grid Name="GRDMAIN_01" Style="{StaticResource GRD_Margin00}">
                         <Grid.Background>
                             <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" EndPoint="0.5,1">
@@ -57,11 +65,11 @@
                         </Grid.RowDefinitions>
 
 
-                        <Grid Name="RBNGRP_01"
-                              Grid.Row="1"
-                              Grid.Column="1"
-                              Style="{StaticResource GRD_Margin00}"
-                              >
+                        <Grid
+                            Name="RBNGRP_01"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Style="{StaticResource GRD_Margin00}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
@@ -69,61 +77,39 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Button Name="BTN_01settings"
-                                    Grid.Column="0"
-                                    Click="OpenMyUserControl"
-                                    Content="Einstellungen"
-                                    IsEnabled="True"
-                                    Style="{StaticResource STLButton51}"
-                                    >
+                            <Button
+                                Name="BTN_01settings"
+                                Grid.Column="0"
+                                Click="OpenMyUserControl"
+                                Content="Einstellungen"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
                                 <!--<Button.Tag>
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
                             </Button>
 
 
-                            <Button Name="BTN_02input"
-                                    Grid.Column="1"
-                                    Click="OpenMyUserControl"
-                                    Content="Daten- Eingabe"
-                                    IsEnabled="True"
-                                    Style="{StaticResource STLButton51}"
-                                    >
+                            <Button
+                                Name="BTN_02input"
+                                Grid.Column="1"
+                                Click="OpenMyUserControl"
+                                Content="Daten- Eingabe"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
                                 <!--<Button.Tag>
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
                             </Button>
 
 
-                            <Button Name="BTN_03analyse"
-                                    Grid.Column="2"
-                                    Click="OpenMyUserControl"
-                                    Content="Auswertung"
-                                    IsEnabled="True"
-                                    Style="{StaticResource STLButton51}"
-                                    >
-                                <!--<Button.Tag>
-                                    <ImageSource></ImageSource>
-                                </Button.Tag>-->
-                            </Button>
-
-                        </Grid>
-
-
-
-
-                        <Grid Grid.Row="1"
-                              Grid.Column="7"
-                              Style="{StaticResource GRD_Margin00}"
-                              >
-
-                            <Button Name="BTN_Exit"
-                                    Grid.Column="0"
-                                    Click="K8Exit"
-                                    Content="EXIT"
-                                    IsEnabled="True"
-                                    Style="{StaticResource STLButton61}"
-                                    >
+                            <Button
+                                Name="BTN_03analyse"
+                                Grid.Column="2"
+                                Click="OpenMyUserControl"
+                                Content="Auswertung"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
                                 <!--<Button.Tag>
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
@@ -131,53 +117,142 @@
 
                         </Grid>
 
-                        <TextBlock Grid.Row="2"
-                                   Grid.Column="1"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   FontSize="18"
-                                   FontWeight="Bold"
-                                   Text="Messwerte erfassen und auswerten"
-                                   >
+
+
+
+                        <Grid
+                            Grid.Row="1"
+                            Grid.Column="7"
+                            Style="{StaticResource GRD_Margin00}">
+
+                            <Button
+                                Name="BTN_Exit"
+                                Grid.Column="0"
+                                Click="K8Exit"
+                                Content="EXIT"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton61}">
+                                <!--<Button.Tag>
+                                    <ImageSource></ImageSource>
+                                </Button.Tag>-->
+                            </Button>
+
+                        </Grid>
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Text="Messwerte erfassen und auswerten">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Blue020}" />
                             </TextBlock.Foreground>
                         </TextBlock>
-                        <TextBlock Grid.Row="2"
-                                   Grid.Column="3"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   FontSize="18"
-                                   FontWeight="Bold"
-                                   Text=""
-                                   >
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Text="">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Blue020}" />
                             </TextBlock.Foreground>
                         </TextBlock>
-                        <TextBlock Grid.Row="2"
-                                   Grid.Column="7"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   FontSize="18"
-                                   FontWeight="Bold"
-                                   Text="K8-Tools"
-                                   >
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="7"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Text="K8-Tools">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource Xstrahl_Blue020}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                     </Grid>
                 </TabItem>
+                <TabItem
+                    Name="TBTM_Main02"
+                    FontSize="16"
+                    Header="Tools 02">
+                    <Grid Name="GRDMAIN_02" Style="{StaticResource GRD_Margin00}">
+                        <Grid.Background>
+                            <LinearGradientBrush MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="{DynamicResource Xstrahl_Blue020}" />
+                                <GradientStop Offset="1" Color="{DynamicResource Xstrahl_Blue100}" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="10" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="82" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="5" />
+                        </Grid.RowDefinitions>
 
+
+                        <Grid
+                            Name="RBNGRP_02"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Style="{StaticResource GRD_Margin00}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button
+                                Name="BTN_21password"
+                                Grid.Column="0"
+                                Click="OpenMyUserControl"
+                                Content="Password Verify"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
+                                <!--<Button.Tag>
+                                    <ImageSource></ImageSource>
+                                </Button.Tag>-->
+                            </Button>
+                            <Button
+                                Name="BTN_22stringFormat"
+                                Grid.Column="1"
+                                Click="OpenMyUserControl"
+                                Content="String Format"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
+                                <!--<Button.Tag>
+                                    <ImageSource></ImageSource>
+                                </Button.Tag>-->
+                            </Button>
+
+                        </Grid>
+                        </Grid>
+                </TabItem>
             </TabControl>
 
-            <StatusBar Name="STTSBR"
-                       Grid.Row="2"
-                       Height="auto"
-                       HorizontalAlignment="Stretch"
-                       VerticalAlignment="Top"
-                       >
+            <StatusBar
+                Name="STTSBR"
+                Grid.Row="2"
+                Height="auto"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top">
                 <StatusBar.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Grid Margin="0,0,15,0" Style="{StaticResource GRD_Margin00}">
@@ -195,71 +270,71 @@
                         </Grid>
                     </ItemsPanelTemplate>
                 </StatusBar.ItemsPanel>
-                <StatusBarItem Grid.Column="0"
-                               Margin="2,0,0,2"
-                               HorizontalContentAlignment="Stretch"
-                               >
-                    <Label x:Name="LBLmain_StatusChanges"
-                           Height="28"
-                           BorderThickness="1"
-                           Content="{Binding StatusbarMessageA, FallbackValue='...'}"
-                           FontWeight="Bold"
-                           >
+                <StatusBarItem
+                    Grid.Column="0"
+                    Margin="2,0,0,2"
+                    HorizontalContentAlignment="Stretch">
+                    <Label
+                        x:Name="LBLmain_StatusChanges"
+                        Height="28"
+                        BorderThickness="1"
+                        Content="{Binding StatusbarMessageA, FallbackValue='...'}"
+                        FontWeight="Bold">
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
                     </Label>
                 </StatusBarItem>
                 <StatusBarItem Grid.Column="1" Margin="0,0,0,2">
-                    <Button x:Name="BTNmain_MPPSstatus"
-                            Width="Auto"
-                            Height="28"
-                            MinWidth="150"
-                            Margin="0"
-                            HorizontalContentAlignment="Left"
-                            Content="STATUS"
-                            Style="{StaticResource STLButton53}"
-                            ToolTip=""
-                            />
+                    <Button
+                        x:Name="BTNmain_MPPSstatus"
+                        Width="Auto"
+                        Height="28"
+                        MinWidth="150"
+                        Margin="0"
+                        HorizontalContentAlignment="Left"
+                        Content="STATUS"
+                        Style="{StaticResource STLButton53}"
+                        ToolTip="" />
                 </StatusBarItem>
                 <StatusBarItem Grid.Column="2" Margin="0,0,0,2">
-                    <Label x:Name="LBLmain_ExportStatus"
-                           MinWidth="150"
-                           Margin="0"
-                           BorderThickness="1"
-                           Content=""
-                           >
+                    <Label
+                        x:Name="LBLmain_ExportStatus"
+                        MinWidth="150"
+                        Margin="0"
+                        BorderThickness="1"
+                        Content="">
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
                     </Label>
                 </StatusBarItem>
                 <StatusBarItem Grid.Column="3" Margin="0,0,0,2">
-                    <Label x:Name="LBLmain_NetworkStatus"
-                           MinWidth="150"
-                           BorderThickness="1"
-                           Content="Network Status unknown"
-                           >
+                    <Label
+                        x:Name="LBLmain_NetworkStatus"
+                        MinWidth="150"
+                        BorderThickness="1"
+                        Content="Network Status unknown">
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
                     </Label>
                 </StatusBarItem>
                 <StatusBarItem Grid.Column="4" Margin="0,0,0,2">
-                    <Label x:Name="LBLmain_DateTime"
-                           BorderThickness="1"
-                           Content="Date and Time"
-                           >
+                    <Label
+                        x:Name="LBLmain_DateTime"
+                        BorderThickness="1"
+                        Content="Date and Time">
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>
                     </Label>
                 </StatusBarItem>
                 <StatusBarItem Grid.Column="5" Margin="0,0,0,2">
-                    <Label x:Name="LBLmain_Version"
-                           BorderThickness="1"
-                           Content="Version"
-                           >
+                    <Label
+                        x:Name="LBLmain_Version"
+                        BorderThickness="1"
+                        Content="Version">
                         <Label.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource Xstrahl_Blue100}" />
                         </Label.BorderBrush>

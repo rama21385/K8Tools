@@ -53,7 +53,7 @@
                     Style="{StaticResource STLButton61}" />
             </StackPanel>
             <TabControl Grid.Column="1" Background="{StaticResource Xstrahl_SCB_Grey020}">
-                <TabItem Header="Categories">
+                <TabItem Header="Kategorien">
                     <Grid Style="{StaticResource GRD_Margin05}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -98,14 +98,14 @@
                             Margin="150,90,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Is Enabled"
+                            Content="editierbar"
                             IsChecked="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.CategoryIsEnabled, Mode=OneWay}" />
                         <CheckBox
                             x:Name="CHKBX01_CategoryRelativeTo1st"
                             Margin="255,90,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Values relative to 1st value"
+                            Content="Werte relativ zum ersten Wert"
                             IsChecked="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.CategoryValuesRelativeTo1st, Mode=OneWay}" />
                         <TextBox
                             x:Name="TXTBX01_CategoryYear"
@@ -143,24 +143,24 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Click="ClearCategory"
-                            Content="Clear/Reset"
+                            Content="Löschen/Reset"
                             Style="{StaticResource STLButton53}" />
                         <Label
                             x:Name="label"
                             Margin="0,120,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Chart Color and Type" />
+                            Content="Kurve - Farbe und Stil" />
                         <Label
                             Margin="0,150,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Chart Y Min" />
+                            Content="Y-Achse Min" />
                         <Label
                             Margin="0,180,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Chart Y Max" />
+                            Content="Y-Achse Max" />
                         <TextBox
                             x:Name="TXTBX01_CategoryColor"
                             Width="100"
@@ -176,19 +176,19 @@
                             Margin="0,0,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Category Name" />
+                            Content="Kategorie - Bezeichnung" />
                         <Label
                             x:Name="LBL01_CatUnit"
                             Margin="0,30,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Category Unit" />
+                            Content="Kategory - Einheit" />
                         <Label
                             x:Name="LBL01_CatYear"
                             Margin="0,60,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Category Year" />
+                            Content="Kategorie - Jahr" />
                         <Button
                             x:Name="BTN01_SelectColor"
                             Margin="355,120,0,0"
@@ -223,7 +223,7 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
                                 Click="AddModifyDeleteCategory"
-                                Content="Add new"
+                                Content="neu hinzufügen"
                                 Style="{StaticResource STLButton53}" />
                             <Button
                                 x:Name="BTN01_CategoryModify"
@@ -231,7 +231,7 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
                                 Click="AddModifyDeleteCategory"
-                                Content="Modify"
+                                Content="modifizieren"
                                 Style="{StaticResource STLButton53}" />
                             <Button
                                 x:Name="BTN01_CategoryDelete"
@@ -239,7 +239,7 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
                                 Click="AddModifyDeleteCategory"
-                                Content="(don't) delete"
+                                Content="(nicht) löschen"
                                 Style="{StaticResource STLButton53}" />
                         </StackPanel>
                         <ListView
@@ -252,46 +252,46 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryStatus}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Category Status" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Kategorie Status" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="150" DisplayMemberBinding="{Binding CategoryInternalID}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Category ID" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Kategorie ID" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryName}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Category Name" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Bezeichnung" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryUnit}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Category Unit" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Einheit" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryYear}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Category Year" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Kategorie Jahr" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryIsEnabled}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Category Enabled" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Kategorie editierbar" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryValuesRelativeTo1st}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Category RelativeTo1st" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Werte rel. zum ersten Wert" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryChartColor}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Chart Color" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Kurve Farbe und Stil" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryChartYMin}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Chart Y Min" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Y-Achse Min" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryChartYMax}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Chart Y Max" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Y-Achse Max" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding CategoryMeasValuesCount}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Measurements" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Anzahl Messwerte" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding NewCounterActive}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="New Counter" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Neuer Zähler" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding NewCounterDate, StringFormat='yyyy-MM-dd'}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="New Counter Date" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Datum neuer Zähler" />
                                     </GridViewColumn>
                                     <GridViewColumn Width="Auto" DisplayMemberBinding="{Binding NewCounterOffsetValue}">
-                                        <GridViewColumnHeader Padding="15,3,15,3" Content="New Counter Offset" />
+                                        <GridViewColumnHeader Padding="15,3,15,3" Content="Offset für neuen Zähler" />
                                     </GridViewColumn>
                                 </GridView>
                             </ListView.View>
@@ -303,30 +303,39 @@
                             Margin="480,16,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Header="New Counter">
+                            Header="Neuer Zähler">
                             <Grid>
                                 <StackPanel Margin="5">
                                     <CheckBox
                                         x:Name="CHKBX01_CategoryNewCounter"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Top"
-                                        Content="New Counter"
+                                        Content="Neuer Zähler"
                                         IsChecked="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.NewCounterActive, Mode=OneWay}" />
                                     <DatePicker
                                         Name="DTPCKR_NewCounterDate"
                                         Margin="0,10,0,0"
                                         FontWeight="Normal"
                                         SelectedDate="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.NewCounterDate, Mode=OneWay}" />
-                                    <TextBox
-                                        x:Name="TXTBX01_NewCounterOffset"
-                                        Width="100"
-                                        Height="23"
-                                        Margin="0,10,0,0"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Top"
-                                        VerticalContentAlignment="Center"
-                                        Text="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.NewCounterOffsetValue, Mode=OneWay}"
-                                        TextWrapping="NoWrap" />
+                                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+
+                                        <Label
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Content="Offset"
+                                            FontWeight="Normal" />
+
+                                        <TextBox
+                                            x:Name="TXTBX01_NewCounterOffset"
+                                            Width="100"
+                                            Height="23"
+                                            Margin="10,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            Text="{Binding ElementName=LSTVW01_Categories, Path=SelectedItem.NewCounterOffsetValue, Mode=OneWay}"
+                                            TextWrapping="NoWrap" />
+                                    </StackPanel>
 
                                 </StackPanel>
                             </Grid>

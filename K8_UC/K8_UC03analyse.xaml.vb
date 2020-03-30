@@ -14,6 +14,11 @@ Public Class K8_UC03analyse
     Dim MultiCurveChart1 As New K8_UC99chart
     Dim MultiCurveChart2 As New K8_UC99chart
     Private SelectedCategory As New K8_CL02category
+    Private Sub DoThingsWhenUnloading(sender As Object, e As RoutedEventArgs)
+
+        KiebitzMeasCurve.Clear()
+
+    End Sub
 
     Public Sub New()
 
@@ -25,18 +30,22 @@ Public Class K8_UC03analyse
 
         CMBBX03_AnalysisCollection.DataContext = KiebitzAllAnalysis
         LSTBX03_CategoriesLoaded.DataContext = KiebitzCategories
-
+        LSTBX03_CategoriesLoaded.Items.SortDescriptions.Add(New SortDescription("CategoryInternalID", ListSortDirection.Ascending))
         ResetChart()
 
     End Sub
 
+    Private Sub LoadAndSortTheList(sender As Object, e As RoutedEventArgs)
+        LoadAndSortTheList(Nothing, Nothing)
+    End Sub
+
     Private Sub LoadAndSortTheList(sender As Object, e As SelectionChangedEventArgs)
 
-        Dim StatisticStep As Int32 = 0
+        Dim StatisticStep As Int32 = 0 'wird verwendet für Chart02: Statistik "von Jahr zu Jahr"
         Dim CounterChart As Int32 = 0
         ResetChart()
 
-        If CMBBX03_AnalysisCollection.SelectedIndex > -1 Then ' LSTBX03_Categories.Items.Count > 0 Then
+        If CMBBX03_AnalysisCollection.SelectedIndex > -1 Then
 
             If KiebitzAllAnalysis(CMBBX03_AnalysisCollection.SelectedIndex).AnalysisCollectionItems.Count <= 0 Then
                 LSTBX03_Categories.ItemsSource = Nothing
@@ -47,7 +56,7 @@ Public Class K8_UC03analyse
 
             ListOfStatItems.Clear()
 
-            StatisticStep = 100 \ (LSTBX03_Categories.Items.Count)
+            StatisticStep = 100 \ LSTBX03_Categories.Items.Count
             For I = 0 To 100 Step StatisticStep
                 ListOfStatItems.Add(I)
             Next
@@ -62,12 +71,11 @@ Public Class K8_UC03analyse
                 For Each CategoryItem In KiebitzCategories
                     If CategoryItem.CategoryInternalID = CollItem.AnalyseCategoryName Then
                         SelectedCategory = CategoryItem
+                        MultiCurveChart1.SelectedCategory = SelectedCategory
+                        MultiCurveChart2.SelectedCategory = SelectedCategory
                         Exit For
                     End If
                 Next
-
-                MultiCurveChart1.SelectedCategory = SelectedCategory
-                MultiCurveChart2.SelectedCategory = SelectedCategory
 
                 If CounterChart = 1 Then
                     MultiCurveChart1.RefreshChart(False, CBool(Me.CHKBX_DarkMode.IsChecked))
@@ -86,7 +94,9 @@ Public Class K8_UC03analyse
                                      .MeasDateDay = 1,
                                      .MeasDateYear = CUShort((100 \ LSTBX03_Categories.Items.Count) * CounterChart - StatisticStep \ 2)})
             Next
+
             MultiCurveChart2.AddCurveToChart(KiebitzStatCurve, False, 100, True)
+
         End If
 
     End Sub
@@ -148,7 +158,9 @@ Public Class K8_UC03analyse
             If CMBBX03_AnalysisCollection.SelectedIndex > -1 Then
 
                 For Each ItemOfCollection In KiebitzAllAnalysis(CMBBX03_AnalysisCollection.SelectedIndex).AnalysisCollectionItems
-                    If ItemOfCollection.AnalyseCategoryName Is LSTBX03_CategoriesLoaded.SelectedValue Then Exit Sub
+                    If ItemOfCollection.AnalyseCategoryName = LSTBX03_CategoriesLoaded.SelectedValue.ToString Then
+                        Exit Sub
+                    End If
                 Next
 
                 For Each CategoryItem In KiebitzCategories
@@ -240,4 +252,5 @@ Public Class K8_UC03analyse
         If sender Is RDBTN_VWBX02 Then VWBX03B.Visibility = Visibility.Visible
 
     End Sub
+
 End Class

@@ -726,7 +726,11 @@ Public Class K8_UC02input
 
         SelItemTemp = CType(DTGRD02_Measurements.SelectedItem, K8_CL03measurement)
 
+    End Sub
 
+    Private Sub DoThingsWhenUnloading(sender As Object, e As RoutedEventArgs)
+
+        KiebitzMeasCurve.Clear()
 
     End Sub
 End Class

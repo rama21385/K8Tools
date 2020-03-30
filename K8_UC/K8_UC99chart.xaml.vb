@@ -58,23 +58,25 @@ Public Class K8_UC99chart
 
         Dim Yticks As New Line
         Dim Ygrid As New Line
-        Dim StepFactor As Int32 = 10
-        If Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 10 Then
-            StepFactor = 1
-        ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 100 Then
-            StepFactor = 10
-        ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 1000 Then
-            StepFactor = 100
-        ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 10000 Then
-            StepFactor = 1000
-        Else
-            StepFactor = 10
-        End If
+        Dim StepFactor As Double = 10
+        'If Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 10 Then
+        '    StepFactor = 1
+        'ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 100 Then
+        '    StepFactor = 10
+        'ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 1000 Then
+        '    StepFactor = 100
+        'ElseIf Math.Abs(SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax) <= 10000 Then
+        '    StepFactor = 1000
+        'Else
+        '    StepFactor = 10
+        'End If
+
+        StepFactor = 10 ^ Math.Abs(Math.Ceiling(Math.Log10((SelectedCategory.CategoryChartYMin) + Math.Abs(SelectedCategory.CategoryChartYMax))) - 1)
 
         For Each MinMax As Int32 In {SelectedCategory.CategoryChartYMin, SelectedCategory.CategoryChartYMax}
             If MinMax <> 0 Then
 
-                For I As Int32 = 0 To MinMax Step (CInt(MinMax / Math.Abs(MinMax)) * StepFactor)
+                For I As Int32 = 0 To MinMax Step (CInt(MinMax / Math.Abs(MinMax) * StepFactor))
                     Ygrid = New Line
                     Yticks = New Line
                     DesignYgrid(Ygrid, I)

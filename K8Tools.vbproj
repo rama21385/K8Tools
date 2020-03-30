@@ -69,6 +69,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -89,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="K8_UC\K8_UC12stringformat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="K8_UC\K8_UC01settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="K8_UC\K8_UC03analyse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="K8_UC\K8_UC11winpassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,6 +137,9 @@
     <Compile Include="K8_CL\K8_CON01boolean.vb" />
     <Compile Include="K8_CL\K8_CON02visibility.vb" />
     <Compile Include="K8_MD\K8_MD01main.vb" />
+    <Compile Include="K8_UC\K8_UC12stringformat.xaml.vb">
+      <DependentUpon>K8_UC12stringformat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="K8_UC\K8_UC01settings.xaml.vb">
       <DependentUpon>K8_UC01settings.xaml</DependentUpon>
     </Compile>
@@ -135,6 +148,9 @@
     </Compile>
     <Compile Include="K8_UC\K8_UC03analyse.xaml.vb">
       <DependentUpon>K8_UC03analyse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="K8_UC\K8_UC11winpassword.xaml.vb">
+      <DependentUpon>K8_UC11winpassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="K8_UC\K8_UC99chart.xaml.vb">
       <DependentUpon>K8_UC99chart.xaml</DependentUpon>
@@ -146,6 +162,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\Style_Dark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Style_Default.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Import Include="System.Threading.Tasks" />
@@ -218,5 +242,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

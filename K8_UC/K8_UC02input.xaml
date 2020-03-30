@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
     Name="K8UC02"
+    Unloaded="DoThingsWhenUnloading"
     d:DesignHeight="550"
     d:DesignWidth="1000"
     mc:Ignorable="d">
@@ -26,6 +27,7 @@
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
                 <CheckBox
                     x:Name="CHKBX_DarkMode"
+                    Click="RefreshChart"
                     Margin="0,0,20,10"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
