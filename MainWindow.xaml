@@ -241,6 +241,17 @@
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
                             </Button>
+                            <Button
+                                Name="BTN_23colors"
+                                Grid.Column="2"
+                                Click="OpenMyUserControl"
+                                Content="Colors"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
+                                <!--<Button.Tag>
+                                    <ImageSource></ImageSource>
+                                </Button.Tag>-->
+                            </Button>
 
                         </Grid>
                     </Grid>

@@ -60,6 +60,8 @@ Class MainWindow
             NumberOfActiveMenu = UserControlItems.UC11password
         ElseIf sender Is BTN_22stringFormat Then
             NumberOfActiveMenu = UserControlItems.UC12stringformat
+        ElseIf sender Is BTN_23colors Then
+            NumberOfActiveMenu = UserControlItems.UC13colors
         End If
 
         If NumberOfActiveMenu > UserControlItems.none Then
@@ -84,6 +86,8 @@ Class MainWindow
                 K8UC = New K8_UC11winpassword
             Case UserControlItems.UC12stringformat
                 K8UC = New K8_UC12stringformat
+            Case UserControlItems.UC13colors
+                K8UC = New K8_UC13colors
         End Select
 
         If IsNothing(K8UC) = True Then Exit Sub

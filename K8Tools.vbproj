@@ -111,6 +111,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="K8_UC\K8_UC13colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="K8_UC\K8_UC99chart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +155,9 @@
     </Compile>
     <Compile Include="K8_UC\K8_UC11winpassword.xaml.vb">
       <DependentUpon>K8_UC11winpassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="K8_UC\K8_UC13colors.xaml.vb">
+      <DependentUpon>K8_UC13colors.xaml</DependentUpon>
     </Compile>
     <Compile Include="K8_UC\K8_UC99chart.xaml.vb">
       <DependentUpon>K8_UC99chart.xaml</DependentUpon>
