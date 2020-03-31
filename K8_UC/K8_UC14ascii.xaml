@@ -1,0 +1,96 @@
+﻿<UserControl
+    x:Class="K8_UC14ascii"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:K8Tools"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="550"
+    d:DesignWidth="1000"
+    mc:Ignorable="d">
+    <Grid Background="{StaticResource Xstrahl_SCB_Grey020}" Style="{StaticResource GRD_Margin00}">
+        <Grid Style="{StaticResource GRD_Margin10}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button
+                Name="BTN14_ShowASCII"
+                Width="150"
+                Height="28"
+                HorizontalAlignment="Left"
+                Click="CreateASCIITable"
+                Content="ASCII Codes anzeigen" />
+            <TextBox
+                Name="TXTBX14_ASCII"
+                Grid.Row="3"
+                FontFamily="Liberation Mono"
+                FontSize="14"
+                HorizontalScrollBarVisibility="Auto"
+                Text=""
+                VerticalScrollBarVisibility="Visible" />
+            <WrapPanel Grid.Row="1" Grid.RowSpan="2">
+
+                <CheckBox
+                    Name="CHKBX_LET"
+                    Margin="0,5,15,0"
+                    Content="LET: Characters only"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_CON"
+                    Margin="0,5,15,0"
+                    Content="CON: Console Characters"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_DIG"
+                    Margin="0,5,15,0"
+                    Content="DIG: Numbers only"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_LOW"
+                    Margin="0,5,15,0"
+                    Content="LOW: lower case characters"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_NUM"
+                    Margin="0,5,15,0"
+                    Content="NUM: anything numerical"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_PUN"
+                    Margin="0,5,15,0"
+                    Content="PUN: punctuation signs"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_SEP"
+                    Margin="0,5,15,0"
+                    Content="SEP: separators"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_SYM"
+                    Margin="0,5,15,0"
+                    Content="SYM: symbols"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_UPP"
+                    Margin="0,5,15,0"
+                    Content="UPP: upper case characters"
+                    IsChecked="True" />
+                <CheckBox
+                    Name="CHKBX_LOD"
+                    Margin="0,5,15,0"
+                    Content="LOD: characters or numbers"
+                    IsChecked="True" />
+                <CheckBox
+                    x:Name="CHKBX_WHI"
+                    Margin="0,5,15,0"
+                    Content="WHI: WhiteSpace"
+                    IsChecked="True" />
+            </WrapPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -11,6 +11,8 @@ Module K8_MD01main
         UC11password = 11
         UC12stringformat = 12
         UC13colors = 13
+        UC14ascii = 14
+        UC15mosaiqcrc = 15
 
     End Enum
 

@@ -217,6 +217,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
                             <Button
@@ -246,6 +247,28 @@
                                 Grid.Column="2"
                                 Click="OpenMyUserControl"
                                 Content="Colors"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
+                                <!--<Button.Tag>
+                                    <ImageSource></ImageSource>
+                                </Button.Tag>-->
+                            </Button>
+                            <Button
+                                Name="BTN_24ascii"
+                                Grid.Column="3"
+                                Click="OpenMyUserControl"
+                                Content="ASCII"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
+                                <!--<Button.Tag>
+                                    <ImageSource></ImageSource>
+                                </Button.Tag>-->
+                            </Button>
+                            <Button
+                                Name="BTN_25mosaiqcrc"
+                                Grid.Column="4"
+                                Click="OpenMyUserControl"
+                                Content="MOSAIQ CRC"
                                 IsEnabled="True"
                                 Style="{StaticResource STLButton51}">
                                 <!--<Button.Tag>
