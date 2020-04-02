@@ -1,0 +1,165 @@
+﻿<UserControl
+    x:Class="K8_UC16math"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:K8Tools"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="550"
+    d:DesignWidth="1000"
+    mc:Ignorable="d">
+    <Grid Background="{StaticResource Xstrahl_SCB_Grey020}" Style="{StaticResource GRD_Margin00}">
+        <Grid Style="{StaticResource GRD_Margin10}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Row="0"
+                Width="100"
+                Height="28"
+                HorizontalAlignment="Left"
+                Content="MATH 1" />
+            <TextBox
+                Name="TXTBX16_Math1"
+                Grid.Row="0"
+                Width="200"
+                Height="32"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontFamily="Liberation Mono"
+                FontSize="14"
+                MaxLines="1"
+                Text="" />
+            <CheckBox
+                x:Name="CHBX16_IsBinary1"
+                Grid.Row="0"
+                Grid.Column="2"
+                Content="is binary" />
+            <CheckBox
+                x:Name="CHBX16_IsBinary2"
+                Grid.Row="2"
+                Grid.Column="2"
+                Content="is binary" />
+            <Label
+                Grid.Row="2"
+                Width="100"
+                Height="28"
+                HorizontalAlignment="Left"
+                Content="MATH 2" />
+            <TextBox
+                Name="TXTBX16_Math2"
+                Grid.Row="2"
+                Width="200"
+                Height="32"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontFamily="Liberation Mono"
+                FontSize="14"
+                MaxLines="1"
+                Text="" />
+            <Label
+                Grid.Row="4"
+                Width="100"
+                Height="28"
+                HorizontalAlignment="Left"
+                Content="MATH Result" />
+            <TextBox
+                Name="TXTBX16_MathResult"
+                Grid.Row="4"
+                Width="200"
+                Height="32"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontFamily="Liberation Mono"
+                FontSize="14"
+                MaxLines="1"
+                Text="" />
+            <WrapPanel
+                Grid.Row="4"
+                Grid.RowSpan="2"
+                Grid.Column="2"
+                Orientation="Horizontal">
+                <RadioButton
+                    Name="RDBTN16_Math_01"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="^"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_02"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="-"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_03"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="*"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_04"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="/"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_05"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="\"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_06"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="MOD"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_07"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="+"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_08"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="NOT"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_09"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="AND"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_10"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="OR"
+                    FontWeight="Bold" />
+                <RadioButton
+                    Name="RDBTN16_Math_11"
+                    Margin="0,0,10,0"
+                    Click="Calculate"
+                    Content="XOR"
+                    FontWeight="Bold" />
+
+            </WrapPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

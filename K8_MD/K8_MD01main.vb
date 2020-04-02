@@ -13,6 +13,7 @@ Module K8_MD01main
         UC13colors = 13
         UC14ascii = 14
         UC15mosaiqcrc = 15
+        UC16math = 16
 
     End Enum
 

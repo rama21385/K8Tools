@@ -218,6 +218,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
                             <Button
@@ -269,6 +271,17 @@
                                 Grid.Column="4"
                                 Click="OpenMyUserControl"
                                 Content="MOSAIQ CRC"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
+                                <!--<Button.Tag>
+                                    <ImageSource></ImageSource>
+                                </Button.Tag>-->
+                            </Button>
+                            <Button
+                                Name="BTN_26math"
+                                Grid.Column="5"
+                                Click="OpenMyUserControl"
+                                Content="MATH"
                                 IsEnabled="True"
                                 Style="{StaticResource STLButton51}">
                                 <!--<Button.Tag>
