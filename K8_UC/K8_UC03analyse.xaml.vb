@@ -82,17 +82,29 @@ Public Class K8_UC03analyse
                     MultiCurveChart2.RefreshChart(True, CBool(Me.CHKBX_DarkMode.IsChecked))
                 End If
 
+                'Highlite the selected curve
                 If LSTBX03_Categories.SelectedItem Is CollItem Then
                     MultiCurveChart1.AddCurveToChart(KiebitzMeasCurve, True, 366, False)
                 Else
                     MultiCurveChart1.AddCurveToChart(KiebitzMeasCurve, False, 366, False)
                 End If
 
-                KiebitzStatCurve.Add(New K8_CL03measurement With {
+
+
+                If SelectedCategory.CategoryUnit = K8ENUMS.ValueUnits.Temperature Then
+                    KiebitzStatCurve.Add(New K8_CL03measurement With {
+                                     .MeasValue = SelectedCategory.CurveAvgYear,
+                                     .MeasDateMonth = 1,
+                                     .MeasDateDay = 1,
+                                     .MeasDateYear = CUShort((100 \ LSTBX03_Categories.Items.Count) * CounterChart - StatisticStep \ 2)})
+                Else
+                    KiebitzStatCurve.Add(New K8_CL03measurement With {
                                      .MeasValue = SelectedCategory.CurveDeltaYear,
                                      .MeasDateMonth = 1,
                                      .MeasDateDay = 1,
                                      .MeasDateYear = CUShort((100 \ LSTBX03_Categories.Items.Count) * CounterChart - StatisticStep \ 2)})
+
+                End If
             Next
 
             MultiCurveChart2.AddCurveToChart(KiebitzStatCurve, False, 100, True)
@@ -176,6 +188,7 @@ Public Class K8_UC03analyse
 
                 KiebitzAllAnalysis(CMBBX03_AnalysisCollection.SelectedIndex).AnalysisCollectionItems.Add(ItemToAdd)
                 LSTBX03_Categories.SelectedIndex = LSTBX03_Categories.Items.Count - 1
+                LSTBX03_Categories.ScrollIntoView(LSTBX03_Categories.SelectedItem)
 
             End If
             Exit Sub

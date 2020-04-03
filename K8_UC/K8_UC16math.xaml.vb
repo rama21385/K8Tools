@@ -3,8 +3,10 @@
 
         Dim Math1Int As Int32
         Dim Math2Int As Int32
+        If TXTBX16_Math1.Text.Length = 0 Then TXTBX16_Math1.Text = "0"
+        If TXTBX16_Math2.Text.Length = 0 Then TXTBX16_Math2.Text = "0"
 
-        If CHBX16_IsBinary1.IsChecked = False Then
+        If CHKBX16_IsBinary1.IsChecked = False Then
             Math1Int = CInt(Val(Me.TXTBX16_Math1.Text))
             Math2Int = CInt(Val(Me.TXTBX16_Math2.Text))
         Else
@@ -19,16 +21,32 @@
             TXTBX16_MathResult.Text = (Math1Int - Math2Int).ToString
 
         ElseIf sender Is RDBTN16_Math_03 Then
-            TXTBX16_MathResult.Text = (Math1Int * Math2Int).ToString
+            Try
+                TXTBX16_MathResult.Text = (Math1Int * Math2Int).ToString
+            Catch ex As Exception
+
+            End Try
 
         ElseIf sender Is RDBTN16_Math_04 Then
-            TXTBX16_MathResult.Text = (Math1Int / Math2Int).ToString
+            Try
+                TXTBX16_MathResult.Text = (Math1Int / Math2Int).ToString
+            Catch ex As Exception
+
+            End Try
 
         ElseIf sender Is RDBTN16_Math_05 Then
-            TXTBX16_MathResult.Text = (Math1Int \ Math2Int).ToString
+            Try
+                TXTBX16_MathResult.Text = (Math1Int \ Math2Int).ToString
+            Catch ex As Exception
+
+            End Try
 
         ElseIf sender Is RDBTN16_Math_06 Then
-            TXTBX16_MathResult.Text = (Math1Int Mod Math2Int).ToString
+            Try
+                TXTBX16_MathResult.Text = (Math1Int Mod Math2Int).ToString
+            Catch ex As Exception
+
+            End Try
 
         ElseIf sender Is RDBTN16_Math_07 Then
             TXTBX16_MathResult.Text = (Math1Int + Math2Int).ToString
@@ -49,4 +67,20 @@
 
     End Sub
 
+    Private Sub DoThingsWhenClicked(sender As Object, e As RoutedEventArgs)
+
+        If sender Is CHKBX16_IsBinary1 Then
+            If CHKBX16_IsBinary1.IsChecked = True Then
+                TXTBX16_Math1.HorizontalContentAlignment = HorizontalAlignment.Right
+            Else
+                TXTBX16_Math1.HorizontalContentAlignment = HorizontalAlignment.Left
+            End If
+        ElseIf sender Is CHKBX16_IsBinary2 Then
+            If CHKBX16_IsBinary2.IsChecked = True Then
+                TXTBX16_Math2.HorizontalContentAlignment = HorizontalAlignment.Right
+            Else
+                TXTBX16_Math2.HorizontalContentAlignment = HorizontalAlignment.Left
+            End If
+            End If
+    End Sub
 End Class

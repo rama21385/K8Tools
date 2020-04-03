@@ -42,14 +42,14 @@
                     Margin="0,0,20,10"
                     VerticalAlignment="Bottom"
                     Click="SaveSettings"
-                    Content="EXIT (no save)"
+                    Content="EXIT ohne Speichern"
                     Style="{StaticResource STLButton61}" />
                 <Button
                     x:Name="BTN01_SAVEsettings"
                     Margin="0,0,0,1"
                     VerticalAlignment="Bottom"
                     Click="SaveSettings"
-                    Content="SAVE"
+                    Content="SPEICHERN"
                     Style="{StaticResource STLButton61}" />
             </StackPanel>
             <TabControl Grid.Column="1" Background="{StaticResource Xstrahl_SCB_Grey020}">
@@ -198,21 +198,37 @@
 
                         <Border
                             Name="RCTNGL01_CanvasBackground"
-                            Width="95"
-                            Height="20"
+                            Width="40"
+                            Height="10"
                             Margin="255,120,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Background="WhiteSmoke">
                             <Rectangle
                                 Name="RCTNGL01_Color"
-                                Height="2"
+                                Height="4"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Center"
                                 Fill="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}"
-                                Stroke="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}" />
-
-
+                                Stroke="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}"
+                                ToolTip="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}" />
+                        </Border>
+                        <Border
+                            Name="RCTNGL02_CanvasBackground"
+                            Width="40"
+                            Height="10"
+                            Margin="310,130,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Background="WhiteSmoke">
+                            <Rectangle
+                                Name="RCTNGL02_Color"
+                                Height="4"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Fill="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}"
+                                Stroke="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}"
+                                ToolTip="{Binding ElementName=TXTBX01_CategoryColor, Path=Text, FallbackValue=#FFFF0000}" />
                         </Border>
                         <!--  Fill="#FFF4F4F5"  -->
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -300,7 +316,7 @@
                             x:Name="GRPBX01_Counter"
                             Width="200"
                             Height="Auto"
-                            Margin="480,16,0,0"
+                            Margin="580,16,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Header="Neuer Zähler">

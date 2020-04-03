@@ -145,7 +145,7 @@ Public Class K8_CL02category
 
     Public Property CategoryChartColor As String
         Get
-            Return _CategoryChartColor
+            Return _CategoryChartColor.ToUpper
         End Get
         Set(value As String)
             _CategoryChartColor = value

@@ -42,6 +42,7 @@ Public Class K8_UC99chart
         Else
             CNVS99.Background = Brushes.WhiteSmoke
         End If
+
         Dim PatternX As DoubleCollection = New DoubleCollection()
         PatternX.Add(1)
         PatternX.Add(2)

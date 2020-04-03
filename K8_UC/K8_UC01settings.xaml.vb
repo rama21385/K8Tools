@@ -44,7 +44,7 @@ Public Class K8_UC01settings
                             .CategoryName = TempName,
                             .CategoryUnit = CType([Enum].Parse(GetType(K8ENUMS.ValueUnits), CMBBX01_CategoryUnits.Text), K8ENUMS.ValueUnits),
                             .CategoryYear = TempYear,
-                            .CategoryChartColor = TXTBX01_CategoryColor.Text,
+                            .CategoryChartColor = RCTNGL02_Color.ToolTip.ToString,'TXTBX01_CategoryColor.Text,
                             .CategoryChartYMin = CInt(Val(TXTBX01_ChartMin.Text)),
                             .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text)),
                             .NewCounterActive = CBool(CHKBX01_CategoryNewCounter.IsChecked),
@@ -68,7 +68,7 @@ Public Class K8_UC01settings
                         .CategoryName = TempName
                         .CategoryUnit = CType([Enum].Parse(GetType(K8ENUMS.ValueUnits), CMBBX01_CategoryUnits.Text), K8ENUMS.ValueUnits)
                         .CategoryYear = TempYear
-                        .CategoryChartColor = TXTBX01_CategoryColor.Text
+                        .CategoryChartColor = RCTNGL02_Color.ToolTip.ToString
                         .CategoryChartYMin = CInt(Val(TXTBX01_ChartMin.Text))
                         .CategoryChartYMax = CInt(Val(TXTBX01_ChartMax.Text))
                         .NewCounterActive = CBool(CHKBX01_CategoryNewCounter.IsChecked)
@@ -120,12 +120,14 @@ Public Class K8_UC01settings
         Dim MyForm As New MRLColorPicker.UCcolors
         MyForm.Owner = Window.GetWindow(dependencyObject)
         If MyForm.ShowDialog = True Then
-            TXTBX01_CategoryColor.Text = MyForm.SelectedRectangle.SelectedFillColor.ToString
+            RCTNGL02_Color.Fill = MyForm.SelectedRectangle.SelectedFillColor
+            RCTNGL02_Color.Stroke = MyForm.SelectedRectangle.SelectedFillColor
+            RCTNGL02_Color.ToolTip = MyForm.SelectedRectangle.SelectedFillColor.ToString
         Else
             Exit Sub
         End If
 
-        RCTNGL01_Color.Fill = MyForm.SelectedRectangle.SelectedFillColor
+        'RCTNGL01_Color.Fill = MyForm.SelectedRectangle.SelectedFillColor
 
     End Sub
 
