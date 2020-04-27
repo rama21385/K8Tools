@@ -127,6 +127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="K8_UC\K8_UC17trxreport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="K8_UC\K8_UC99chart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +152,7 @@
     <Compile Include="K8_CL\K8_CL03measurement.vb" />
     <Compile Include="K8_CL\K8_CL04analyse.vb" />
     <Compile Include="K8_CL\K8_CL05analysis.vb" />
+    <Compile Include="K8_CL\K8_CL17txreport.vb" />
     <Compile Include="K8_CL\K8_CL98functions.vb" />
     <Compile Include="K8_CL\K8_CL99enumerations.vb" />
     <Compile Include="K8_CL\K8_CON01boolean.vb" />
@@ -179,6 +184,9 @@
     </Compile>
     <Compile Include="K8_UC\K8_UC16math.xaml.vb">
       <DependentUpon>K8_UC16math.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="K8_UC\K8_UC17trxreport.xaml.vb">
+      <DependentUpon>K8_UC17trxreport.xaml</DependentUpon>
     </Compile>
     <Compile Include="K8_UC\K8_UC99chart.xaml.vb">
       <DependentUpon>K8_UC99chart.xaml</DependentUpon>

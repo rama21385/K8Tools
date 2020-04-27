@@ -68,6 +68,8 @@ Class MainWindow
             NumberOfActiveMenu = UserControlItems.UC15mosaiqcrc
         ElseIf sender Is BTN_26math Then
             NumberOfActiveMenu = UserControlItems.UC16math
+        ElseIf sender Is BTN_27trxreport Then
+            NumberOfActiveMenu = UserControlItems.UC17trxreport
         End If
 
         If NumberOfActiveMenu > UserControlItems.none Then
@@ -100,6 +102,8 @@ Class MainWindow
                 K8UC = New K8_UC15mosaiqcrc
             Case UserControlItems.UC16math
                 K8UC = New K8_UC16math
+            Case UserControlItems.UC17trxreport
+                K8UC = New K8_UC17trxreport
         End Select
 
         If IsNothing(K8UC) = True Then Exit Sub

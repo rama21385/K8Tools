@@ -250,8 +250,9 @@ Public Class K8_UC03analyse
             Next
 
             KiebitzAllAnalysis.Add(New K8_CL05analysis With {.AnalysisCollectionName = TXTBX03_CollectionName.Text.Trim, .AnalysisCollectionItems = New ObservableCollection(Of K8_CL04analyse)})
-            CMBBX03_AnalysisCollection.SelectedIndex = CMBBX03_AnalysisCollection.Items.Count - 1
             TXTBX03_CollectionName.Text = String.Empty
+            CMBBX03_AnalysisCollection.SelectedIndex = CMBBX03_AnalysisCollection.Items.Count - 1
+            LSTBX03_Categories.ItemsSource = KiebitzAllAnalysis(CMBBX03_AnalysisCollection.SelectedIndex).AnalysisCollectionItems
         End If
 
     End Sub

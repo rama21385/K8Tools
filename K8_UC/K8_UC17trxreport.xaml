@@ -1,0 +1,31 @@
+﻿<UserControl
+    x:Class="K8_UC17trxreport"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:K8Tools"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="550"
+    d:DesignWidth="1000"
+    mc:Ignorable="d">
+    <Grid Background="{StaticResource Xstrahl_SCB_Grey020}" Style="{StaticResource GRD_Margin00}">
+        <Grid Style="{StaticResource GRD_Margin10}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+    </Grid>
+</UserControl>

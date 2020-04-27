@@ -14,6 +14,7 @@ Module K8_MD01main
         UC14ascii = 14
         UC15mosaiqcrc = 15
         UC16math = 16
+        UC17trxreport = 17
 
     End Enum
 
@@ -23,6 +24,8 @@ Module K8_MD01main
     Public KiebitzMeasCurve As New ObservableCollection(Of K8_CL03measurement)
     Public KiebitzAnalyse As New ObservableCollection(Of K8_CL04analyse)
     Public KiebitzAllAnalysis As New ObservableCollection(Of K8_CL05analysis)
+
+    Public MyTRXreporter As New K8_CL17txreport
 
     Public ListOfMonths() As Int32 = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
     Public ListofQuarters() As Int32 = {0, 31 + 29 + 31,

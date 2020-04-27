@@ -288,6 +288,17 @@
                                     <ImageSource></ImageSource>
                                 </Button.Tag>-->
                             </Button>
+                            <Button
+                                Name="BTN_27trxreport"
+                                Grid.Column="6"
+                                Click="OpenMyUserControl"
+                                Content="TRX Report"
+                                IsEnabled="True"
+                                Style="{StaticResource STLButton51}">
+                                <!--<Button.Tag>
+                                    <ImageSource></ImageSource>
+                                </Button.Tag>-->
+                            </Button>
 
                         </Grid>
                     </Grid>
