@@ -256,6 +256,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="Resources\testresult1.trx" />
+    <None Include="Resources\testresult2.trx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -278,6 +280,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\testresult1.txt" />
+    <Resource Include="Resources\testresult2.txt" />
+    <Resource Include="Resources\testresult3.txt" />
+    <Resource Include="Resources\testresult4.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

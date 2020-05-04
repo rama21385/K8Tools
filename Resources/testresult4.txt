@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="6fc7278d-3f42-4ca9-977d-f75a69f86bb7" name="mrank@HPELITEONE1000 2020-04-28 07:45:09" runUser="HPELITEONE1000\mrank" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2020-04-28T07:45:09.3364119+02:00" queuing="2020-04-28T07:45:09.3364119+02:00" start="2020-04-28T07:45:08.9678421+02:00" finish="2020-04-28T07:45:09.7829393+02:00" />
+  <TestSettings name="default" id="3f0f898f-b83c-48db-ac8d-0e27e3cc3a0f">
+    <Deployment runDeploymentRoot="mrank_HPELITEONE1000_2020-04-28_07_45_09" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="25c0bf4a-1588-4047-a504-0ed573695740" testId="bc22859f-6c8e-8eb3-c932-1c38aa8e3c7c" testName="TST010_aa" computerName="HPELITEONE1000" duration="00:00:00.0005397" startTime="2020-04-28T07:45:09.3613452+02:00" endTime="2020-04-28T07:45:09.3633397+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="25c0bf4a-1588-4047-a504-0ed573695740" />
+    <UnitTestResult executionId="bd371e0b-6442-4fdd-853a-185b7d0d235f" testId="40f1800f-a2dc-af94-c0eb-e59861780b40" testName="TST004_ab" computerName="HPELITEONE1000" duration="00:00:00.0003792" startTime="2020-04-28T07:45:09.3324224+02:00" endTime="2020-04-28T07:45:09.3334196+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bd371e0b-6442-4fdd-853a-185b7d0d235f" />
+    <UnitTestResult executionId="dfe1bd55-cfcc-47e9-b7b0-8fd4ea30e1ae" testId="fccb8cea-d0ab-1d36-bf63-c563ba6a0488" testName="TST007_ae" computerName="HPELITEONE1000" duration="00:00:00.0003082" startTime="2020-04-28T07:45:09.3583591+02:00" endTime="2020-04-28T07:45:09.3583591+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dfe1bd55-cfcc-47e9-b7b0-8fd4ea30e1ae" />
+    <UnitTestResult executionId="b525d377-bb4a-4bd9-813a-8bd12290f315" testId="5a137794-418d-1165-a391-fd7375f3a625" testName="TST006_ag" computerName="HPELITEONE1000" duration="00:00:00.0002415" startTime="2020-04-28T07:45:09.3443909+02:00" endTime="2020-04-28T07:45:09.3443909+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b525d377-bb4a-4bd9-813a-8bd12290f315" />
+    <UnitTestResult executionId="b65dbebe-63ae-4fe4-8df3-f0903fef18c3" testId="40e4ad06-eafd-d734-7f36-dac3b27ab356" testName="TST006_al" computerName="HPELITEONE1000" duration="00:00:00.0002493" startTime="2020-04-28T07:45:09.3463858+02:00" endTime="2020-04-28T07:45:09.3463858+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b65dbebe-63ae-4fe4-8df3-f0903fef18c3" />
+    <UnitTestResult executionId="2e7861d7-1501-4edd-8f74-e88da5a9b7b1" testId="2860e661-a905-f6cb-f44c-2b5342d5534c" testName="TST008_aa" computerName="HPELITEONE1000" duration="00:00:00.0006639" startTime="2020-04-28T07:45:09.3593504+02:00" endTime="2020-04-28T07:45:09.3603480+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e7861d7-1501-4edd-8f74-e88da5a9b7b1" />
+    <UnitTestResult executionId="6dbc422d-b15c-4bc3-b2cc-7c848365871f" testId="9136e2d9-62ab-c9b4-e481-1aba18494b4f" testName="TST009_aa" computerName="HPELITEONE1000" duration="00:00:00.0005468" startTime="2020-04-28T07:45:09.3603480+02:00" endTime="2020-04-28T07:45:09.3613452+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6dbc422d-b15c-4bc3-b2cc-7c848365871f" />
+    <UnitTestResult executionId="20bed867-a9ce-434c-a87e-7de67a376c73" testId="e64cc3c7-8a24-07f4-9d15-4dd0117bdb06" testName="TST005_aj" computerName="HPELITEONE1000" duration="00:00:00.0003451" startTime="2020-04-28T07:45:09.3394044+02:00" endTime="2020-04-28T07:45:09.3394044+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="20bed867-a9ce-434c-a87e-7de67a376c73" />
+    <UnitTestResult executionId="30fe4b66-03b3-4c01-8709-ea7882f47835" testId="c02bdb86-0cb5-1289-67ec-307f7b97f66e" testName="TST006_ac" computerName="HPELITEONE1000" duration="00:00:00.0003025" startTime="2020-04-28T07:45:09.3424032+02:00" endTime="2020-04-28T07:45:09.3424032+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="30fe4b66-03b3-4c01-8709-ea7882f47835" />
+    <UnitTestResult executionId="11d4bef7-694e-4d16-b0e6-4e3576fc2eb9" testId="bcff2b1e-f124-0487-aa2e-d64b9a6d7774" testName="TST001_af" computerName="HPELITEONE1000" duration="00:00:00.0002775" startTime="2020-04-28T07:45:09.2301309+02:00" endTime="2020-04-28T07:45:09.2311282+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11d4bef7-694e-4d16-b0e6-4e3576fc2eb9" />
+    <UnitTestResult executionId="f78dde5e-4ccb-4f2a-9687-5b9322870e45" testId="deb2531a-a893-e3f2-914b-34d57fbf133b" testName="TST004_ac" computerName="HPELITEONE1000" duration="00:00:00.0005614" startTime="2020-04-28T07:45:09.3334196+02:00" endTime="2020-04-28T07:45:09.3344173+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f78dde5e-4ccb-4f2a-9687-5b9322870e45" />
+    <UnitTestResult executionId="dfd353a1-d0e0-4e1f-a95f-78ac443bd0a7" testId="4c0c810a-61fa-e372-f2f8-ef950447c7f0" testName="TST005_ak" computerName="HPELITEONE1000" duration="00:00:00.0004076" startTime="2020-04-28T07:45:09.3394044+02:00" endTime="2020-04-28T07:45:09.3404069+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dfd353a1-d0e0-4e1f-a95f-78ac443bd0a7" />
+    <UnitTestResult executionId="f5e9f165-a191-4e67-9cb7-a0c1b8220a4d" testId="4d649048-8a61-e3a5-97f7-23cd15025df9" testName="TST006_ab" computerName="HPELITEONE1000" duration="00:00:00.0002667" startTime="2020-04-28T07:45:09.3413992+02:00" endTime="2020-04-28T07:45:09.3424032+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f5e9f165-a191-4e67-9cb7-a0c1b8220a4d" />
+    <UnitTestResult executionId="4783a7b2-bbd5-4f9d-af0c-75059d8c8fe7" testId="28695428-1fa6-6441-0eb2-1e05fb8d157f" testName="TST010_aa" computerName="HPELITEONE1000" duration="00:00:00.0022453" startTime="2020-04-28T07:45:09.3633397+02:00" endTime="2020-04-28T07:45:09.3653348+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4783a7b2-bbd5-4f9d-af0c-75059d8c8fe7" />
+    <UnitTestResult executionId="1e4b1cb2-51ec-4f95-8e4d-27b545a684e6" testId="e8d885a6-82e1-8f92-e3c9-3fb835040ba0" testName="TST001_aa" computerName="HPELITEONE1000" duration="00:00:00.0072127" startTime="2020-04-28T07:45:09.1797240+02:00" endTime="2020-04-28T07:45:09.2231775+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e4b1cb2-51ec-4f95-8e4d-27b545a684e6" />
+    <UnitTestResult executionId="56b8b65b-26df-41d3-b2f1-55b49db08895" testId="ae14fd62-ca13-875b-95bd-579a503b1103" testName="TST005_aa" computerName="HPELITEONE1000" duration="00:00:00.0003752" startTime="2020-04-28T07:45:09.3344173+02:00" endTime="2020-04-28T07:45:09.3354183+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56b8b65b-26df-41d3-b2f1-55b49db08895" />
+    <UnitTestResult executionId="7ead6e7f-621d-444b-a9a3-f875f156d0fb" testId="a3e1acf9-5d4c-300c-ee6a-40a821a81b54" testName="TST001_ab" computerName="HPELITEONE1000" duration="00:00:00.0001067" startTime="2020-04-28T07:45:09.2271390+02:00" endTime="2020-04-28T07:45:09.2281363+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7ead6e7f-621d-444b-a9a3-f875f156d0fb" />
+    <UnitTestResult executionId="660f3c35-85dd-4896-99ea-a30593ae9119" testId="bb54764a-0a5f-f094-8063-6c2275b04ccc" testName="TST002_aa" computerName="HPELITEONE1000" duration="00:00:00.0031696" startTime="2020-04-28T07:45:09.2341204+02:00" endTime="2020-04-28T07:45:09.2371119+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="660f3c35-85dd-4896-99ea-a30593ae9119" />
+    <UnitTestResult executionId="5fc40472-12db-4670-aa40-107b0acc6de1" testId="9a1e708a-254b-7f77-7aeb-94f6ec7a443a" testName="TST006_ao" computerName="HPELITEONE1000" duration="00:00:00.0002616" startTime="2020-04-28T07:45:09.3473827+02:00" endTime="2020-04-28T07:45:09.3483797+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5fc40472-12db-4670-aa40-107b0acc6de1" />
+    <UnitTestResult executionId="3681d348-13b6-4914-a589-a6e918be13f4" testId="5643952d-d554-3a01-a892-3298ec9bd92c" testName="TST005_af" computerName="HPELITEONE1000" duration="00:00:00.0002869" startTime="2020-04-28T07:45:09.3374098+02:00" endTime="2020-04-28T07:45:09.3374098+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3681d348-13b6-4914-a589-a6e918be13f4" />
+    <UnitTestResult executionId="5a8125b2-f67b-414f-a0be-dbc22bd747fe" testId="be11eed4-bd47-6608-c643-0c1a2420db0c" testName="TST006_ah" computerName="HPELITEONE1000" duration="00:00:00.0002511" startTime="2020-04-28T07:45:09.3443909+02:00" endTime="2020-04-28T07:45:09.3453964+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a8125b2-f67b-414f-a0be-dbc22bd747fe" />
+    <UnitTestResult executionId="c7f2207f-d4e6-4f75-9db4-adc2945cb289" testId="da9ef2b2-a39f-41be-fb22-15da2cb635bf" testName="TST005_ag" computerName="HPELITEONE1000" duration="00:00:00.0003507" startTime="2020-04-28T07:45:09.3374098+02:00" endTime="2020-04-28T07:45:09.3384070+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c7f2207f-d4e6-4f75-9db4-adc2945cb289" />
+    <UnitTestResult executionId="1d0078e7-0d55-43c1-96a0-c96f88f0c2d2" testId="605b8073-e515-3dd3-71aa-a70b9a6be632" testName="TST004_ad" computerName="HPELITEONE1000" duration="00:00:00.0001365" startTime="2020-04-28T07:45:09.3344173+02:00" endTime="2020-04-28T07:45:09.3344173+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1d0078e7-0d55-43c1-96a0-c96f88f0c2d2" />
+    <UnitTestResult executionId="52c19c11-0dd5-4221-a463-71c913514ef7" testId="3809ecae-e44a-a042-fe2c-6be376c4fcee" testName="TST006_at" computerName="HPELITEONE1000" duration="00:00:00.0002593" startTime="2020-04-28T07:45:09.3493769+02:00" endTime="2020-04-28T07:45:09.3503742+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="52c19c11-0dd5-4221-a463-71c913514ef7" />
+    <UnitTestResult executionId="661d60e8-5d6b-4d13-99a3-dea8d454b50b" testId="5d8d4483-c9b1-d3e4-01d7-3a974cbc2244" testName="TST007_ab" computerName="HPELITEONE1000" duration="00:00:00.0029209" startTime="2020-04-28T07:45:09.3533661+02:00" endTime="2020-04-28T07:45:09.3563591+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="661d60e8-5d6b-4d13-99a3-dea8d454b50b" />
+    <UnitTestResult executionId="dd8ca925-17d2-4311-9c28-0ad342236012" testId="d5bd0aa6-e8b7-e641-f8c7-e351bbc2f4d7" testName="TST006_aq" computerName="HPELITEONE1000" duration="00:00:00.0002670" startTime="2020-04-28T07:45:09.3483797+02:00" endTime="2020-04-28T07:45:09.3483797+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd8ca925-17d2-4311-9c28-0ad342236012" />
+    <UnitTestResult executionId="b56ae017-4c23-4db2-971a-e6c6db26a13a" testId="77ae6139-f27a-a467-0553-bd188dacd279" testName="TST005_ad" computerName="HPELITEONE1000" duration="00:00:00.0003195" startTime="2020-04-28T07:45:09.3364119+02:00" endTime="2020-04-28T07:45:09.3364119+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b56ae017-4c23-4db2-971a-e6c6db26a13a" />
+    <UnitTestResult executionId="aa9dd1e5-7497-4073-8209-04e4acaac99d" testId="ad0c63c6-0e47-4d1f-f145-b626b18a0788" testName="TST006_aj" computerName="HPELITEONE1000" duration="00:00:00.0002907" startTime="2020-04-28T07:45:09.3453964+02:00" endTime="2020-04-28T07:45:09.3453964+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa9dd1e5-7497-4073-8209-04e4acaac99d" />
+    <UnitTestResult executionId="7120b9dc-3ea7-4205-a95e-7ca39b7b68c4" testId="f702a9c9-056a-f730-8809-f997b2e89069" testName="TST007_af" computerName="HPELITEONE1000" duration="00:00:00.0004666" startTime="2020-04-28T07:45:09.3583591+02:00" endTime="2020-04-28T07:45:09.3593504+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7120b9dc-3ea7-4205-a95e-7ca39b7b68c4" />
+    <UnitTestResult executionId="721a0973-9373-4296-b37c-5a32c7b45db7" testId="b91251ea-ed28-8cb6-76fb-f3f6ffad56d2" testName="TST007_ag" computerName="HPELITEONE1000" duration="00:00:00.0003148" startTime="2020-04-28T07:45:09.3593504+02:00" endTime="2020-04-28T07:45:09.3593504+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="721a0973-9373-4296-b37c-5a32c7b45db7" />
+    <UnitTestResult executionId="c3f44925-8fd8-4132-9e06-d34cadffd28e" testId="7b423355-750f-b78b-bbd9-5d52d071b81e" testName="TST006_as" computerName="HPELITEONE1000" duration="00:00:00.0002657" startTime="2020-04-28T07:45:09.3493769+02:00" endTime="2020-04-28T07:45:09.3493769+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c3f44925-8fd8-4132-9e06-d34cadffd28e" />
+    <UnitTestResult executionId="c8df135d-1308-495d-a533-ff48f55aa02e" testId="e0c25f78-ea2e-14f0-3db9-4bf6bd866e0d" testName="TST006_af" computerName="HPELITEONE1000" duration="00:00:00.0002586" startTime="2020-04-28T07:45:09.3433936+02:00" endTime="2020-04-28T07:45:09.3443909+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8df135d-1308-495d-a533-ff48f55aa02e" />
+    <UnitTestResult executionId="b6ccc8cd-2cae-413b-b259-bf94440f0b00" testId="0eef4aef-3f27-47de-3f9f-d4cec1e4e367" testName="TST006_ae" computerName="HPELITEONE1000" duration="00:00:00.0004888" startTime="2020-04-28T07:45:09.3433936+02:00" endTime="2020-04-28T07:45:09.3433936+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6ccc8cd-2cae-413b-b259-bf94440f0b00" />
+    <UnitTestResult executionId="bfb2fb51-7f0a-40bb-87c1-cdc42fd41b53" testId="2bb46c4b-ad7c-98a3-0b59-dd055103715e" testName="TST006_ar" computerName="HPELITEONE1000" duration="00:00:00.0002689" startTime="2020-04-28T07:45:09.3483797+02:00" endTime="2020-04-28T07:45:09.3493769+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bfb2fb51-7f0a-40bb-87c1-cdc42fd41b53" />
+    <UnitTestResult executionId="ce22322b-f0b1-4add-974f-39bedc3cfb16" testId="458265ba-9e9d-2ec5-17c4-d92a02c2bfda" testName="TST001_ae" computerName="HPELITEONE1000" duration="00:00:00.0003029" startTime="2020-04-28T07:45:09.2301309+02:00" endTime="2020-04-28T07:45:09.2301309+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ce22322b-f0b1-4add-974f-39bedc3cfb16" />
+    <UnitTestResult executionId="88a63986-44b6-4e21-8b2a-f11797f3cc3c" testId="12111f6d-31b2-fa8a-3fc8-f1b14b31068b" testName="TST007_ac" computerName="HPELITEONE1000" duration="00:00:00.0005046" startTime="2020-04-28T07:45:09.3563591+02:00" endTime="2020-04-28T07:45:09.3573557+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="88a63986-44b6-4e21-8b2a-f11797f3cc3c" />
+    <UnitTestResult executionId="e2fe4a22-5181-4b46-9e52-051a8f1409fa" testId="6c81c83a-7b34-bb36-3c67-9abc31cf4f87" testName="TST001_ac" computerName="HPELITEONE1000" duration="00:00:00.0007449" startTime="2020-04-28T07:45:09.2281363+02:00" endTime="2020-04-28T07:45:09.2291336+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e2fe4a22-5181-4b46-9e52-051a8f1409fa" />
+    <UnitTestResult executionId="f4acb986-daa4-4959-a536-c79c0e69d74d" testId="ba2efca7-2fed-4285-7131-ccef5424df37" testName="TST006_au" computerName="HPELITEONE1000" duration="00:00:00.0002591" startTime="2020-04-28T07:45:09.3503742+02:00" endTime="2020-04-28T07:45:09.3503742+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4acb986-daa4-4959-a536-c79c0e69d74d" />
+    <UnitTestResult executionId="9c0c6afa-ab14-4934-9829-143f0d6ee8f2" testId="8948505a-68ce-0c08-c9a1-292a959da8e0" testName="TST005_ae" computerName="HPELITEONE1000" duration="00:00:00.0003022" startTime="2020-04-28T07:45:09.3364119+02:00" endTime="2020-04-28T07:45:09.3374098+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c0c6afa-ab14-4934-9829-143f0d6ee8f2" />
+    <UnitTestResult executionId="7aebfe51-31d7-4c4c-939e-18fb5de52727" testId="b1a52b0c-869b-7f5a-e477-1eb01fc92239" testName="TST005_ab" computerName="HPELITEONE1000" duration="00:00:00.0002644" startTime="2020-04-28T07:45:09.3354183+02:00" endTime="2020-04-28T07:45:09.3354183+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7aebfe51-31d7-4c4c-939e-18fb5de52727" />
+    <UnitTestResult executionId="0cf7fb23-51af-4b23-aaba-827e081c166c" testId="54aee77b-b492-dbae-cda7-6b0f82a05813" testName="TST005_al" computerName="HPELITEONE1000" duration="00:00:00.0005041" startTime="2020-04-28T07:45:09.3404069+02:00" endTime="2020-04-28T07:45:09.3404069+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0cf7fb23-51af-4b23-aaba-827e081c166c" />
+    <UnitTestResult executionId="ffc27a8e-7828-4e88-9698-be43c294ca52" testId="1f32da53-228f-4b1f-3252-e0884cb8363d" testName="TST005_ac" computerName="HPELITEONE1000" duration="00:00:00.0003051" startTime="2020-04-28T07:45:09.3354183+02:00" endTime="2020-04-28T07:45:09.3364119+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ffc27a8e-7828-4e88-9698-be43c294ca52" />
+    <UnitTestResult executionId="956eda23-00e5-4e46-9952-04c6db5f4477" testId="0f52781f-b15d-3052-bbaa-de3f1a992540" testName="TST004_aa" computerName="HPELITEONE1000" duration="00:00:00.0006032" startTime="2020-04-28T07:45:09.3314611+02:00" endTime="2020-04-28T07:45:09.3324224+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="956eda23-00e5-4e46-9952-04c6db5f4477" />
+    <UnitTestResult executionId="c924bbaf-e602-4198-8c8d-a47759179c36" testId="22652377-05e4-a4e3-c72b-fe97610b61af" testName="TST005_ah" computerName="HPELITEONE1000" duration="00:00:00.0003391" startTime="2020-04-28T07:45:09.3384070+02:00" endTime="2020-04-28T07:45:09.3384070+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c924bbaf-e602-4198-8c8d-a47759179c36" />
+    <UnitTestResult executionId="4c10bc94-d7e3-40e4-b02f-bd1df335a18c" testId="fd882934-8fec-038d-e991-6e24c7890b9b" testName="TST006_ai" computerName="HPELITEONE1000" duration="00:00:00.0002985" startTime="2020-04-28T07:45:09.3453964+02:00" endTime="2020-04-28T07:45:09.3453964+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4c10bc94-d7e3-40e4-b02f-bd1df335a18c" />
+    <UnitTestResult executionId="14b41a1e-fbdc-4907-a7bd-6b59b9e16792" testId="f2788565-3ce8-47fc-12a9-98c81a3a423a" testName="TST006_ad" computerName="HPELITEONE1000" duration="00:00:00.0002954" startTime="2020-04-28T07:45:09.3424032+02:00" endTime="2020-04-28T07:45:09.3433936+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="14b41a1e-fbdc-4907-a7bd-6b59b9e16792" />
+    <UnitTestResult executionId="388bcab0-fbc3-4f5e-8248-f4ab952baa5a" testId="13bff4e1-dad9-d4aa-0e7c-107f2c3d5d96" testName="TST006_aa" computerName="HPELITEONE1000" duration="00:00:00.0003476" startTime="2020-04-28T07:45:09.3404069+02:00" endTime="2020-04-28T07:45:09.3413992+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="388bcab0-fbc3-4f5e-8248-f4ab952baa5a" />
+    <UnitTestResult executionId="c8fd68d8-285a-47d1-8cec-016902e35a2c" testId="c12c8960-762f-2a99-75d5-d85ac0a32c9a" testName="TST007_aa" computerName="HPELITEONE1000" duration="00:00:00.0024848" startTime="2020-04-28T07:45:09.3503742+02:00" endTime="2020-04-28T07:45:09.3533661+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8fd68d8-285a-47d1-8cec-016902e35a2c" />
+    <UnitTestResult executionId="4e8df4e2-8beb-4559-adcf-3d86ad1565ac" testId="bb265556-cfe0-db92-827d-5a7f88c99093" testName="TST006_am" computerName="HPELITEONE1000" duration="00:00:00.0002432" startTime="2020-04-28T07:45:09.3463858+02:00" endTime="2020-04-28T07:45:09.3473827+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e8df4e2-8beb-4559-adcf-3d86ad1565ac" />
+    <UnitTestResult executionId="5deaf061-d9f5-4c43-957d-0065e8b36f67" testId="af368b4e-bf2a-ddbd-ed71-a259d0947516" testName="TST001_ad" computerName="HPELITEONE1000" duration="00:00:00.0007476" startTime="2020-04-28T07:45:09.2291336+02:00" endTime="2020-04-28T07:45:09.2301309+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5deaf061-d9f5-4c43-957d-0065e8b36f67" />
+    <UnitTestResult executionId="772c7eec-9eb0-4fa0-b79c-1d34603d748f" testId="3b13b257-a942-811e-f0b4-a23e9fe8f159" testName="TST007_ad" computerName="HPELITEONE1000" duration="00:00:00.0003809" startTime="2020-04-28T07:45:09.3573557+02:00" endTime="2020-04-28T07:45:09.3583591+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="772c7eec-9eb0-4fa0-b79c-1d34603d748f" />
+    <UnitTestResult executionId="e9303e06-0452-4050-bff5-7637298e3251" testId="600cea85-74a6-d4dd-a360-efbf21b9233d" testName="TST006_ak" computerName="HPELITEONE1000" duration="00:00:00.0002954" startTime="2020-04-28T07:45:09.3453964+02:00" endTime="2020-04-28T07:45:09.3463858+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e9303e06-0452-4050-bff5-7637298e3251" />
+    <UnitTestResult executionId="7133b3ee-63e3-4bf1-8516-6615de434ac0" testId="af1cf1ea-71a6-3872-cf3a-5082a23627bc" testName="TST003_aa" computerName="HPELITEONE1000" duration="00:00:00.0916217" startTime="2020-04-28T07:45:09.2371119+02:00" endTime="2020-04-28T07:45:09.3284684+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7133b3ee-63e3-4bf1-8516-6615de434ac0" />
+    <UnitTestResult executionId="4f183040-b4f7-4236-8c68-676d4ce96894" testId="fae3ca1a-c9a9-258b-31a0-eae9839bbbe3" testName="TST001_ag" computerName="HPELITEONE1000" duration="00:00:00.0027591" startTime="2020-04-28T07:45:09.2311282+02:00" endTime="2020-04-28T07:45:09.2341204+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4f183040-b4f7-4236-8c68-676d4ce96894" />
+    <UnitTestResult executionId="b33d7d9b-b29f-4c30-b548-3b566420461a" testId="476c2554-2ba4-ccbf-6827-3a5a110aa5c6" testName="TST005_ai" computerName="HPELITEONE1000" duration="00:00:00.0003304" startTime="2020-04-28T07:45:09.3384070+02:00" endTime="2020-04-28T07:45:09.3394044+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b33d7d9b-b29f-4c30-b548-3b566420461a" />
+    <UnitTestResult executionId="96acfc1e-25d5-4d49-b6e3-4b3dd0e18562" testId="0665db7a-caf1-5006-7214-bd67a95205e6" testName="TST006_ap" computerName="HPELITEONE1000" duration="00:00:00.0002662" startTime="2020-04-28T07:45:09.3483797+02:00" endTime="2020-04-28T07:45:09.3483797+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96acfc1e-25d5-4d49-b6e3-4b3dd0e18562" />
+    <UnitTestResult executionId="50d5b32d-6897-44ad-99b6-9d29e91603b9" testId="05741eae-1853-2998-73f7-0ab627cea30e" testName="TST006_an" computerName="HPELITEONE1000" duration="00:00:00.0002436" startTime="2020-04-28T07:45:09.3473827+02:00" endTime="2020-04-28T07:45:09.3473827+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="50d5b32d-6897-44ad-99b6-9d29e91603b9" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="TST005_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="ae14fd62-ca13-875b-95bd-579a503b1103">
+      <Execution id="56b8b65b-26df-41d3-b2f1-55b49db08895" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_aa" />
+    </UnitTest>
+    <UnitTest name="TST007_ac" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="12111f6d-31b2-fa8a-3fc8-f1b14b31068b">
+      <Execution id="88a63986-44b6-4e21-8b2a-f11797f3cc3c" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST007_gulmayfunctions" name="TST007_ac" />
+    </UnitTest>
+    <UnitTest name="TST006_ai" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="fd882934-8fec-038d-e991-6e24c7890b9b">
+      <Execution id="4c10bc94-d7e3-40e4-b02f-bd1df335a18c" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ai" />
+    </UnitTest>
+    <UnitTest name="TST005_ac" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="1f32da53-228f-4b1f-3252-e0884cb8363d">
+      <Execution id="ffc27a8e-7828-4e88-9698-be43c294ca52" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_ac" />
+    </UnitTest>
+    <UnitTest name="TST006_ak" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="600cea85-74a6-d4dd-a360-efbf21b9233d">
+      <Execution id="e9303e06-0452-4050-bff5-7637298e3251" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ak" />
+    </UnitTest>
+    <UnitTest name="TST006_at" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="3809ecae-e44a-a042-fe2c-6be376c4fcee">
+      <Execution id="52c19c11-0dd5-4221-a463-71c913514ef7" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_at" />
+    </UnitTest>
+    <UnitTest name="TST006_aj" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="ad0c63c6-0e47-4d1f-f145-b626b18a0788">
+      <Execution id="aa9dd1e5-7497-4073-8209-04e4acaac99d" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_aj" />
+    </UnitTest>
+    <UnitTest name="TST005_ak" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="4c0c810a-61fa-e372-f2f8-ef950447c7f0">
+      <Execution id="dfd353a1-d0e0-4e1f-a95f-78ac443bd0a7" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_ak" />
+    </UnitTest>
+    <UnitTest name="TST005_af" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="5643952d-d554-3a01-a892-3298ec9bd92c">
+      <Execution id="3681d348-13b6-4914-a589-a6e918be13f4" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_af" />
+    </UnitTest>
+    <UnitTest name="TST002_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="bb54764a-0a5f-f094-8063-6c2275b04ccc">
+      <Execution id="660f3c35-85dd-4896-99ea-a30593ae9119" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST002_activityparameter" name="TST002_aa" />
+    </UnitTest>
+    <UnitTest name="TST006_ar" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="2bb46c4b-ad7c-98a3-0b59-dd055103715e">
+      <Execution id="bfb2fb51-7f0a-40bb-87c1-cdc42fd41b53" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ar" />
+    </UnitTest>
+    <UnitTest name="TST006_an" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="05741eae-1853-2998-73f7-0ab627cea30e">
+      <Execution id="50d5b32d-6897-44ad-99b6-9d29e91603b9" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_an" />
+    </UnitTest>
+    <UnitTest name="TST007_ag" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="b91251ea-ed28-8cb6-76fb-f3f6ffad56d2">
+      <Execution id="721a0973-9373-4296-b37c-5a32c7b45db7" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST007_gulmayfunctions" name="TST007_ag" />
+    </UnitTest>
+    <UnitTest name="TST007_af" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="f702a9c9-056a-f730-8809-f997b2e89069">
+      <Execution id="7120b9dc-3ea7-4205-a95e-7ca39b7b68c4" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST007_gulmayfunctions" name="TST007_af" />
+    </UnitTest>
+    <UnitTest name="TST006_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="13bff4e1-dad9-d4aa-0e7c-107f2c3d5d96">
+      <Execution id="388bcab0-fbc3-4f5e-8248-f4ab952baa5a" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_aa" />
+    </UnitTest>
+    <UnitTest name="TST008_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="2860e661-a905-f6cb-f44c-2b5342d5534c">
+      <Execution id="2e7861d7-1501-4edd-8f74-e88da5a9b7b1" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST008_deviceparams_applicators" name="TST008_aa" />
+    </UnitTest>
+    <UnitTest name="TST001_ad" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="af368b4e-bf2a-ddbd-ed71-a259d0947516">
+      <Execution id="5deaf061-d9f5-4c43-957d-0065e8b36f67" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST001_comport" name="TST001_ad" />
+    </UnitTest>
+    <UnitTest name="TST010_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="28695428-1fa6-6441-0eb2-1e05fb8d157f">
+      <Execution id="4783a7b2-bbd5-4f9d-af0c-75059d8c8fe7" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST011_test" name="TST010_aa" />
+    </UnitTest>
+    <UnitTest name="TST001_af" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="bcff2b1e-f124-0487-aa2e-d64b9a6d7774">
+      <Execution id="11d4bef7-694e-4d16-b0e6-4e3576fc2eb9" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST001_comport" name="TST001_af" />
+    </UnitTest>
+    <UnitTest name="TST007_ab" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="5d8d4483-c9b1-d3e4-01d7-3a974cbc2244">
+      <Execution id="661d60e8-5d6b-4d13-99a3-dea8d454b50b" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST007_gulmayfunctions" name="TST007_ab" />
+    </UnitTest>
+    <UnitTest name="TST006_ao" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="9a1e708a-254b-7f77-7aeb-94f6ec7a443a">
+      <Execution id="5fc40472-12db-4670-aa40-107b0acc6de1" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ao" />
+    </UnitTest>
+    <UnitTest name="TST001_ac" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="6c81c83a-7b34-bb36-3c67-9abc31cf4f87">
+      <Execution id="e2fe4a22-5181-4b46-9e52-051a8f1409fa" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST001_comport" name="TST001_ac" />
+    </UnitTest>
+    <UnitTest name="TST006_as" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="7b423355-750f-b78b-bbd9-5d52d071b81e">
+      <Execution id="c3f44925-8fd8-4132-9e06-d34cadffd28e" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_as" />
+    </UnitTest>
+    <UnitTest name="TST001_ab" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="a3e1acf9-5d4c-300c-ee6a-40a821a81b54">
+      <Execution id="7ead6e7f-621d-444b-a9a3-f875f156d0fb" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST001_comport" name="TST001_ab" />
+    </UnitTest>
+    <UnitTest name="TST009_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="9136e2d9-62ab-c9b4-e481-1aba18494b4f">
+      <Execution id="6dbc422d-b15c-4bc3-b2cc-7c848365871f" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST009_deviceparams_filters" name="TST009_aa" />
+    </UnitTest>
+    <UnitTest name="TST007_ad" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="3b13b257-a942-811e-f0b4-a23e9fe8f159">
+      <Execution id="772c7eec-9eb0-4fa0-b79c-1d34603d748f" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST007_gulmayfunctions" name="TST007_ad" />
+    </UnitTest>
+    <UnitTest name="TST006_af" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="e0c25f78-ea2e-14f0-3db9-4bf6bd866e0d">
+      <Execution id="c8df135d-1308-495d-a533-ff48f55aa02e" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_af" />
+    </UnitTest>
+    <UnitTest name="TST004_ac" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="deb2531a-a893-e3f2-914b-34d57fbf133b">
+      <Execution id="f78dde5e-4ccb-4f2a-9687-5b9322870e45" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST004_functionsformatting" name="TST004_ac" />
+    </UnitTest>
+    <UnitTest name="TST010_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="bc22859f-6c8e-8eb3-c932-1c38aa8e3c7c">
+      <Execution id="25c0bf4a-1588-4047-a504-0ed573695740" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST010_deviceparams_device" name="TST010_aa" />
+    </UnitTest>
+    <UnitTest name="TST006_ag" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="5a137794-418d-1165-a391-fd7375f3a625">
+      <Execution id="b525d377-bb4a-4bd9-813a-8bd12290f315" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ag" />
+    </UnitTest>
+    <UnitTest name="TST006_al" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="40e4ad06-eafd-d734-7f36-dac3b27ab356">
+      <Execution id="b65dbebe-63ae-4fe4-8df3-f0903fef18c3" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_al" />
+    </UnitTest>
+    <UnitTest name="TST001_ae" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="458265ba-9e9d-2ec5-17c4-d92a02c2bfda">
+      <Execution id="ce22322b-f0b1-4add-974f-39bedc3cfb16" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST001_comport" name="TST001_ae" />
+    </UnitTest>
+    <UnitTest name="TST005_ad" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="77ae6139-f27a-a467-0553-bd188dacd279">
+      <Execution id="b56ae017-4c23-4db2-971a-e6c6db26a13a" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_ad" />
+    </UnitTest>
+    <UnitTest name="TST006_aq" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="d5bd0aa6-e8b7-e641-f8c7-e351bbc2f4d7">
+      <Execution id="dd8ca925-17d2-4311-9c28-0ad342236012" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_aq" />
+    </UnitTest>
+    <UnitTest name="TST001_ag" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="fae3ca1a-c9a9-258b-31a0-eae9839bbbe3">
+      <Execution id="4f183040-b4f7-4236-8c68-676d4ce96894" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST001_comport" name="TST001_ag" />
+    </UnitTest>
+    <UnitTest name="TST006_au" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="ba2efca7-2fed-4285-7131-ccef5424df37">
+      <Execution id="f4acb986-daa4-4959-a536-c79c0e69d74d" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_au" />
+    </UnitTest>
+    <UnitTest name="TST005_aj" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="e64cc3c7-8a24-07f4-9d15-4dd0117bdb06">
+      <Execution id="20bed867-a9ce-434c-a87e-7de67a376c73" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_aj" />
+    </UnitTest>
+    <UnitTest name="TST004_ad" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="605b8073-e515-3dd3-71aa-a70b9a6be632">
+      <Execution id="1d0078e7-0d55-43c1-96a0-c96f88f0c2d2" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST004_functionsformatting" name="TST004_ad" />
+    </UnitTest>
+    <UnitTest name="TST005_ai" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="476c2554-2ba4-ccbf-6827-3a5a110aa5c6">
+      <Execution id="b33d7d9b-b29f-4c30-b548-3b566420461a" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_ai" />
+    </UnitTest>
+    <UnitTest name="TST007_ae" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="fccb8cea-d0ab-1d36-bf63-c563ba6a0488">
+      <Execution id="dfe1bd55-cfcc-47e9-b7b0-8fd4ea30e1ae" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST007_gulmayfunctions" name="TST007_ae" />
+    </UnitTest>
+    <UnitTest name="TST006_ap" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="0665db7a-caf1-5006-7214-bd67a95205e6">
+      <Execution id="96acfc1e-25d5-4d49-b6e3-4b3dd0e18562" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ap" />
+    </UnitTest>
+    <UnitTest name="TST007_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="c12c8960-762f-2a99-75d5-d85ac0a32c9a">
+      <Execution id="c8fd68d8-285a-47d1-8cec-016902e35a2c" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST007_gulmayfunctions" name="TST007_aa" />
+    </UnitTest>
+    <UnitTest name="TST001_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="e8d885a6-82e1-8f92-e3c9-3fb835040ba0">
+      <Execution id="1e4b1cb2-51ec-4f95-8e4d-27b545a684e6" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST001_comport" name="TST001_aa" />
+    </UnitTest>
+    <UnitTest name="TST005_ah" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="22652377-05e4-a4e3-c72b-fe97610b61af">
+      <Execution id="c924bbaf-e602-4198-8c8d-a47759179c36" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_ah" />
+    </UnitTest>
+    <UnitTest name="TST005_ae" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="8948505a-68ce-0c08-c9a1-292a959da8e0">
+      <Execution id="9c0c6afa-ab14-4934-9829-143f0d6ee8f2" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_ae" />
+    </UnitTest>
+    <UnitTest name="TST004_ab" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="40f1800f-a2dc-af94-c0eb-e59861780b40">
+      <Execution id="bd371e0b-6442-4fdd-853a-185b7d0d235f" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST004_functionsformatting" name="TST004_ab" />
+    </UnitTest>
+    <UnitTest name="TST006_am" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="bb265556-cfe0-db92-827d-5a7f88c99093">
+      <Execution id="4e8df4e2-8beb-4559-adcf-3d86ad1565ac" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_am" />
+    </UnitTest>
+    <UnitTest name="TST006_ah" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="be11eed4-bd47-6608-c643-0c1a2420db0c">
+      <Execution id="5a8125b2-f67b-414f-a0be-dbc22bd747fe" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ah" />
+    </UnitTest>
+    <UnitTest name="TST005_ag" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="da9ef2b2-a39f-41be-fb22-15da2cb635bf">
+      <Execution id="c7f2207f-d4e6-4f75-9db4-adc2945cb289" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_ag" />
+    </UnitTest>
+    <UnitTest name="TST004_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="0f52781f-b15d-3052-bbaa-de3f1a992540">
+      <Execution id="956eda23-00e5-4e46-9952-04c6db5f4477" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST004_functionsformatting" name="TST004_aa" />
+    </UnitTest>
+    <UnitTest name="TST006_ad" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="f2788565-3ce8-47fc-12a9-98c81a3a423a">
+      <Execution id="14b41a1e-fbdc-4907-a7bd-6b59b9e16792" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ad" />
+    </UnitTest>
+    <UnitTest name="TST005_al" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="54aee77b-b492-dbae-cda7-6b0f82a05813">
+      <Execution id="0cf7fb23-51af-4b23-aaba-827e081c166c" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_al" />
+    </UnitTest>
+    <UnitTest name="TST006_ac" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="c02bdb86-0cb5-1289-67ec-307f7b97f66e">
+      <Execution id="30fe4b66-03b3-4c01-8709-ea7882f47835" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ac" />
+    </UnitTest>
+    <UnitTest name="TST003_aa" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="af1cf1ea-71a6-3872-cf3a-5082a23627bc">
+      <Execution id="7133b3ee-63e3-4bf1-8516-6615de434ac0" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST003_deviceparameters_enumerrorcodes" name="TST003_aa" />
+    </UnitTest>
+    <UnitTest name="TST005_ab" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="b1a52b0c-869b-7f5a-e477-1eb01fc92239">
+      <Execution id="7aebfe51-31d7-4c4c-939e-18fb5de52727" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST005_parameterenums" name="TST005_ab" />
+    </UnitTest>
+    <UnitTest name="TST006_ae" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="0eef4aef-3f27-47de-3f9f-d4cec1e4e367">
+      <Execution id="b6ccc8cd-2cae-413b-b259-bf94440f0b00" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ae" />
+    </UnitTest>
+    <UnitTest name="TST006_ab" storage="c:\users\mrank\onedrive - xstrahl ltd\vs-projects\xphys\utpmedical\bin\debug\utpmedical.dll" id="4d649048-8a61-e3a5-97f7-23cd15025df9">
+      <Execution id="f5e9f165-a191-4e67-9cb7-a0c1b8220a4d" />
+      <TestMethod codeBase="C:\Users\mrank\OneDrive - Xstrahl Ltd\VS-Projects\XPHYS\UTPmedical\bin\Debug\UTPmedical.dll" adapterTypeName="executor://mstestadapter/v2" className="UTPmedical.TST006_instructionsenums" name="TST006_ab" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="bc22859f-6c8e-8eb3-c932-1c38aa8e3c7c" executionId="25c0bf4a-1588-4047-a504-0ed573695740" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="40f1800f-a2dc-af94-c0eb-e59861780b40" executionId="bd371e0b-6442-4fdd-853a-185b7d0d235f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fccb8cea-d0ab-1d36-bf63-c563ba6a0488" executionId="dfe1bd55-cfcc-47e9-b7b0-8fd4ea30e1ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5a137794-418d-1165-a391-fd7375f3a625" executionId="b525d377-bb4a-4bd9-813a-8bd12290f315" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="40e4ad06-eafd-d734-7f36-dac3b27ab356" executionId="b65dbebe-63ae-4fe4-8df3-f0903fef18c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2860e661-a905-f6cb-f44c-2b5342d5534c" executionId="2e7861d7-1501-4edd-8f74-e88da5a9b7b1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9136e2d9-62ab-c9b4-e481-1aba18494b4f" executionId="6dbc422d-b15c-4bc3-b2cc-7c848365871f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e64cc3c7-8a24-07f4-9d15-4dd0117bdb06" executionId="20bed867-a9ce-434c-a87e-7de67a376c73" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c02bdb86-0cb5-1289-67ec-307f7b97f66e" executionId="30fe4b66-03b3-4c01-8709-ea7882f47835" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bcff2b1e-f124-0487-aa2e-d64b9a6d7774" executionId="11d4bef7-694e-4d16-b0e6-4e3576fc2eb9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="deb2531a-a893-e3f2-914b-34d57fbf133b" executionId="f78dde5e-4ccb-4f2a-9687-5b9322870e45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c0c810a-61fa-e372-f2f8-ef950447c7f0" executionId="dfd353a1-d0e0-4e1f-a95f-78ac443bd0a7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d649048-8a61-e3a5-97f7-23cd15025df9" executionId="f5e9f165-a191-4e67-9cb7-a0c1b8220a4d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="28695428-1fa6-6441-0eb2-1e05fb8d157f" executionId="4783a7b2-bbd5-4f9d-af0c-75059d8c8fe7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e8d885a6-82e1-8f92-e3c9-3fb835040ba0" executionId="1e4b1cb2-51ec-4f95-8e4d-27b545a684e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae14fd62-ca13-875b-95bd-579a503b1103" executionId="56b8b65b-26df-41d3-b2f1-55b49db08895" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a3e1acf9-5d4c-300c-ee6a-40a821a81b54" executionId="7ead6e7f-621d-444b-a9a3-f875f156d0fb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bb54764a-0a5f-f094-8063-6c2275b04ccc" executionId="660f3c35-85dd-4896-99ea-a30593ae9119" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9a1e708a-254b-7f77-7aeb-94f6ec7a443a" executionId="5fc40472-12db-4670-aa40-107b0acc6de1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5643952d-d554-3a01-a892-3298ec9bd92c" executionId="3681d348-13b6-4914-a589-a6e918be13f4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="be11eed4-bd47-6608-c643-0c1a2420db0c" executionId="5a8125b2-f67b-414f-a0be-dbc22bd747fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da9ef2b2-a39f-41be-fb22-15da2cb635bf" executionId="c7f2207f-d4e6-4f75-9db4-adc2945cb289" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="605b8073-e515-3dd3-71aa-a70b9a6be632" executionId="1d0078e7-0d55-43c1-96a0-c96f88f0c2d2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3809ecae-e44a-a042-fe2c-6be376c4fcee" executionId="52c19c11-0dd5-4221-a463-71c913514ef7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5d8d4483-c9b1-d3e4-01d7-3a974cbc2244" executionId="661d60e8-5d6b-4d13-99a3-dea8d454b50b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d5bd0aa6-e8b7-e641-f8c7-e351bbc2f4d7" executionId="dd8ca925-17d2-4311-9c28-0ad342236012" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77ae6139-f27a-a467-0553-bd188dacd279" executionId="b56ae017-4c23-4db2-971a-e6c6db26a13a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ad0c63c6-0e47-4d1f-f145-b626b18a0788" executionId="aa9dd1e5-7497-4073-8209-04e4acaac99d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f702a9c9-056a-f730-8809-f997b2e89069" executionId="7120b9dc-3ea7-4205-a95e-7ca39b7b68c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b91251ea-ed28-8cb6-76fb-f3f6ffad56d2" executionId="721a0973-9373-4296-b37c-5a32c7b45db7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7b423355-750f-b78b-bbd9-5d52d071b81e" executionId="c3f44925-8fd8-4132-9e06-d34cadffd28e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0c25f78-ea2e-14f0-3db9-4bf6bd866e0d" executionId="c8df135d-1308-495d-a533-ff48f55aa02e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0eef4aef-3f27-47de-3f9f-d4cec1e4e367" executionId="b6ccc8cd-2cae-413b-b259-bf94440f0b00" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2bb46c4b-ad7c-98a3-0b59-dd055103715e" executionId="bfb2fb51-7f0a-40bb-87c1-cdc42fd41b53" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="458265ba-9e9d-2ec5-17c4-d92a02c2bfda" executionId="ce22322b-f0b1-4add-974f-39bedc3cfb16" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="12111f6d-31b2-fa8a-3fc8-f1b14b31068b" executionId="88a63986-44b6-4e21-8b2a-f11797f3cc3c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6c81c83a-7b34-bb36-3c67-9abc31cf4f87" executionId="e2fe4a22-5181-4b46-9e52-051a8f1409fa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ba2efca7-2fed-4285-7131-ccef5424df37" executionId="f4acb986-daa4-4959-a536-c79c0e69d74d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8948505a-68ce-0c08-c9a1-292a959da8e0" executionId="9c0c6afa-ab14-4934-9829-143f0d6ee8f2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b1a52b0c-869b-7f5a-e477-1eb01fc92239" executionId="7aebfe51-31d7-4c4c-939e-18fb5de52727" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54aee77b-b492-dbae-cda7-6b0f82a05813" executionId="0cf7fb23-51af-4b23-aaba-827e081c166c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1f32da53-228f-4b1f-3252-e0884cb8363d" executionId="ffc27a8e-7828-4e88-9698-be43c294ca52" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0f52781f-b15d-3052-bbaa-de3f1a992540" executionId="956eda23-00e5-4e46-9952-04c6db5f4477" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="22652377-05e4-a4e3-c72b-fe97610b61af" executionId="c924bbaf-e602-4198-8c8d-a47759179c36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd882934-8fec-038d-e991-6e24c7890b9b" executionId="4c10bc94-d7e3-40e4-b02f-bd1df335a18c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2788565-3ce8-47fc-12a9-98c81a3a423a" executionId="14b41a1e-fbdc-4907-a7bd-6b59b9e16792" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="13bff4e1-dad9-d4aa-0e7c-107f2c3d5d96" executionId="388bcab0-fbc3-4f5e-8248-f4ab952baa5a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c12c8960-762f-2a99-75d5-d85ac0a32c9a" executionId="c8fd68d8-285a-47d1-8cec-016902e35a2c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bb265556-cfe0-db92-827d-5a7f88c99093" executionId="4e8df4e2-8beb-4559-adcf-3d86ad1565ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af368b4e-bf2a-ddbd-ed71-a259d0947516" executionId="5deaf061-d9f5-4c43-957d-0065e8b36f67" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3b13b257-a942-811e-f0b4-a23e9fe8f159" executionId="772c7eec-9eb0-4fa0-b79c-1d34603d748f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="600cea85-74a6-d4dd-a360-efbf21b9233d" executionId="e9303e06-0452-4050-bff5-7637298e3251" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="af1cf1ea-71a6-3872-cf3a-5082a23627bc" executionId="7133b3ee-63e3-4bf1-8516-6615de434ac0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fae3ca1a-c9a9-258b-31a0-eae9839bbbe3" executionId="4f183040-b4f7-4236-8c68-676d4ce96894" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="476c2554-2ba4-ccbf-6827-3a5a110aa5c6" executionId="b33d7d9b-b29f-4c30-b548-3b566420461a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0665db7a-caf1-5006-7214-bd67a95205e6" executionId="96acfc1e-25d5-4d49-b6e3-4b3dd0e18562" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="05741eae-1853-2998-73f7-0ab627cea30e" executionId="50d5b32d-6897-44ad-99b6-9d29e91603b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="57" executed="57" passed="57" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+</TestRun>

@@ -7,24 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="550"
     d:DesignWidth="1000"
+    Loaded="DoThingsWhenLoaded"
     mc:Ignorable="d">
     <Grid Background="{StaticResource Xstrahl_SCB_Grey020}" Style="{StaticResource GRD_Margin00}">
         <Grid Style="{StaticResource GRD_Margin10}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="40" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="10" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="5*" />
             </Grid.ColumnDefinitions>
+            <DocumentViewer
+                Name="DCMTVWR"
+                Grid.Column="2"
+                Width="Auto"
+                Height="Auto"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" />
 
         </Grid>
     </Grid>
